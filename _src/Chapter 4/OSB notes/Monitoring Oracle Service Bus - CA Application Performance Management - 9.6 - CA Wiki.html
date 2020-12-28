@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus -->
+<html class=" js touch rgba boxshadow cssanimations cssgradients csstransitions video audio placeholder"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+				    		    		    		    		    <title>Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki</title>
+		
+	        
+	                        
+    
+	                        
+    
+	                        
+    
+
+	    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://wiki.ca.com">
+
+<meta id="atlassian-token" name="atlassian-token" content="7b3758b586f5145ace8a0677956d24620a44cadf">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="APMDEVOPS96">
+<script type="text/javascript" async="" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/ga.js"></script><script type="text/javascript">
+        var contextPath = '';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1422484129927">
+        
+    
+        
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-keyboardshortcut-hash" content="b50db0f80a2e749d7e1fc3ccddce2916">
+            <meta name="ajs-k15t-acrolinx-is-configured" content="true">
+<meta name="ajs-k15t-acrolinx-config-url" content="https://wiki.ca.com/admin/plugins/scroll-acrolinx/viewconfig.action">
+<meta name="ajs-k15t-is-user-in-acrolinx-group" content="false">
+<meta name="ajs-k15t-acrolinx-username" content="null">
+<meta name="ajs-k15t-acrolinx-name" content="Scroll Acrolinx Connector">
+<meta name="ajs-k15t-acrolinx-version" content="1.1.6">
+<meta name="ajs-k15t-acrolinx-build-number" content="1501161750">
+<meta name="ajs-k15t-acrolinx-license-message-type" content="valid">
+<meta name="ajs-k15t-acrolinx-license-message" content="">
+<meta name="ajs-k15t-acrolinx-is-licensed" content="true">
+<meta name="ajs-k15t-acrolinx-is-enabled-in-space" content="false">
+<meta name="ajs-k15t-acrolinx-has-profile" content="true">
+
+            <meta name="ajs-k15t-acrolinx-enabled-in-space" content="false">
+
+            
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span></span></div>
+</script>
+
+
+            
+            
+
+    
+            
+    
+    
+            <meta name="ajs-page-id" content="114465670">
+            <meta name="ajs-latest-page-id" content="114465670">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Monitoring Oracle Service Bus">
+            <meta name="ajs-parent-page-title" content="CA APM for SOA Implementation Guide">
+            <meta name="ajs-parent-page-id" content="114465641">
+            <meta name="ajs-space-key" content="APMDEVOPS96">
+            <meta name="ajs-space-name" content="CA Application Performance Management - 9.6">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-context-path" content="">
+            <meta name="ajs-base-url" content="https://wiki.ca.com">
+            <meta name="ajs-version-number" content="5.6.6">
+            <meta name="ajs-build-number" content="5639">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/s/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="40485760">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="7b3758b586f5145ace8a0677956d24620a44cadf">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-editor.loader.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/3e6148e5d6a9ede204e67404b99c166a/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general,-page/batch.css&quot; media=&quot;all&quot;&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/3e6148e5d6a9ede204e67404b99c166a/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general,-page/batch.css?media=%28max-width%3A+1450px%29&quot; media=&quot;(max-width: 1450px)&quot;&gt;
+&lt;!--[if lt IE 9]&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/3e6148e5d6a9ede204e67404b99c166a/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general,-page/batch.css?conditionalComment=lt+IE+9&quot; media=&quot;all&quot;&gt;
+&lt;![endif]--&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e-T/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/1.1.6/_/download/batch/com.k15t.scroll.scroll-acrolinx:tinymcePluginAdapter-css-compact-2/com.k15t.scroll.scroll-acrolinx:tinymcePluginAdapter-css-compact-2.css?media=%28max-width%3A+1450px%29&quot; media=&quot;(max-width: 1450px)&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/s/bc6e8f5ec61bee3629c958310c897967-CDN/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/3e6148e5d6a9ede204e67404b99c166a/_/download/contextbatch/js/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general,-page/batch.js?locale=en-GB&quot; &gt;&lt;/script&gt;
+">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://wiki.ca.com/s/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://wiki.ca.com/s/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://wiki.ca.com/opensearch/osd.action" title="CA Wiki">
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+</script>
+<style type="text/css"></style><link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/batch(1).css" media="print">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/212/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 8]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/212/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+8" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/212/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/batch(2).css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/6c0981174e94142364564819dc0d1413-T/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/ab1c335dbade055c424ec8b6430412f2/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,page,theme.cadoc/batch.css?conditionalComment=lt+IE+9&amp;highlightactions=true&amp;locale=en-GB&amp;flavour=VANILLA&amp;hostenabled=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/org.randombits.confluence.toc-toc-plugi.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/confluence.extra.information-informatio.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.atlassian.confluence.ext.newcode-ma.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.atlassian.confluence.ext.newc(1).css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.appfusions.confluence.plugins.lingo.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.appfusions.confluence.plugins(1).css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.ca.confluence.plugins.nps.nps-slide.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.k15t.scroll.scroll-platform-pageinf.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/confluence.extra.livesearch-livesearch-.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/confluence.extra.jira-web-resources-adg.css" media="all">
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/batch.js"></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/212/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8&amp;locale=en-GB" ></script>
+<![endif]-->
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/batch(3).js"></script><style type="text/css"></style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style>
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.atlassian.confluence.ext.newcode-mac.js"></script>
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.atlassian.confluence.ext.newco(1).js"></script>
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.appfusions.confluence.plugins.lingot.js"></script>
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.appfusions.confluence.plugins.(1).js"></script>
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.appfusions.confluence.plugins.(2).js"></script>
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.ca.confluence.plugins.nps.nps-slider.js"></script>
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/com.k15t.scroll.scroll-platform-pageinfo.js"></script>
+<script type="text/javascript" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/confluence.extra.livesearch-livesearch-m.js"></script>
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/colors.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/default-theme.css" media="all">
+
+
+        
+    	    <!--GOOGLE-ANALYTICS-PLUGIN-START-->
+<!-- Updated: 2014-08-08 04:20:51 by David Simpson -->
+<script type="text/javascript">
+    // Disable any trackers that Atlassian may have added
+    for (i=0; i < 50; i++) {  // normally it's 14, but let's use a hammer to kill any new ones too.
+        window['ga-disable-UA-20272869-'+i] = true;
+    }
+    var _gaq = _gaq || [];
+    _gaq.push(['af._setAccount', 'UA-46566240-1']); 
+
+    AJS.toInit(function(){
+        // set custom variables
+        setCustomVarSpaceKey(); 
+        setCustomVarUserKey();  
+        if (typeof AJS.params.pageId === 'string') {
+            _gaq.push(
+                    ['af._setCustomVar', 3, 'confluence-page-id', AJS.params.pageId, 3 ],             
+                    ['af._setCustomVar', 4, 'confluence-content-type', AJS.params.contentType, 3 ],   
+                    ['af._set', 'title', AJS.params.pageTitle]                                        
+            );
+        }
+        // track page view
+        _gaq.push(['af._trackPageview']); 
+
+        AJS.$("a[href*='/download/attachments/']").click(function(event) { 
+            event.preventDefault();
+            var pageIdAttachmentName = this.pathname.substring(this.pathname.indexOf('/download/attachments/') + 23);
+            var parts = pageIdAttachmentName.split('/');
+            // set custom variables
+            setCustomVarSpaceKey(); 
+            setCustomVarUserKey();  
+            _gaq.push(
+                    ['af._setCustomVar', 3, 'confluence-page-id', parts[0], 3 ],            
+                    ['af._setCustomVar', 4, 'confluence-content-type', 'attachment', 3 ],   
+                    ["af._set", "title", decodeURIComponent(parts[1])],                     
+                    ['af._setReferrerOverride', location.href]                              
+            );
+            var attachmentUrl = AJS.$(this).attr('href');
+
+            // track page views
+            _gaq.push(['af._trackPageview', attachmentUrl]);
+
+            setTimeout(function() { document.location.href = attachmentUrl; }, 500);
+        }); 
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    });
+
+    function setCustomVarSpaceKey() {
+        if (typeof AJS.params.spaceKey === 'string') {
+            _gaq.push(['af._setCustomVar', 1, 'confluence-space-key', AJS.params.spaceKey, 3 ]); 
+        }
+    }
+    function setCustomVarUserKey() {
+        if (typeof AJS.params.userKey === 'string') {
+            _gaq.push(['af._setCustomVar', 2, 'confluence-user-key', AJS.params.userKey, 1 ]);        
+        }
+    }
+
+</script>
+<!--GOOGLE-ANALYTICS-PLUGIN-END-->
+<!--Open hyperlink in a new tab-->
+<script>
+jQuery(document).ready(function() {
+    jQuery(".external-link").attr("target", "_blank");
+});
+</script><!--Open hyperlink in a new tab--END-->
+
+
+
+
+
+<style> 
+  .footer-double-top .pull-left { visibility:hidden; }
+</style>
+
+<script>
+AJS.toInit(function ($) { // for theme v3.0
+	// i18n bugfix for theme v3.0 - not picking up 2 items.
+	$('.footer-double-top .pull-left span.label').text('Did you find this helpful?');
+	$('.footer-double-top .pull-left #foot-provide-feedback-trigger').text('Tell us');
+	$('.footer-double-top .pull-left').css({'visibility':'visible'});
+
+
+ 	// Fix wiki home page text
+	var $dashboardHeading = $('.dashboard .product-info-heading.casans');
+	if ($dashboardHeading.length === 1)
+	{
+		if ($dashboardHeading.text().trim() === 'CA Technologies Product Documentation Wiki') {
+			$dashboardHeading.text('CA Technologies Product Documentation');
+		}
+	}
+
+	// NPS Slider / 	Help Us Improve
+	var $rateThisLabel = $('.footer-nps-slider.pull-right > span.label');
+
+	if ($rateThisLabel.text().trim() === 'Help Us Improve:') {
+		$rateThisLabel.text('Are You Satisfied?');
+	}
+
+	// Fix like/dislikes on dashboard
+	if (location.href.contains('/plugins/ca/dashboard/view.action?key=') === true) { 
+		$('.row.counterBlock .boxed span:not([style])').each(function(){
+			if( $(this).text().trim() === 'Likes') {
+				$(this).text('Yes'); 
+			} else if( $(this).text().trim() === 'Dislikes') { 
+				$(this).text('No'); 
+			}
+		});
+	}
+});
+</script>
+
+	
+	    
+                <link rel="canonical" href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki.html">
+        <link rel="shortlink" href="https://wiki.ca.com/x/hpvSBg">
+    <meta name="wikilink" content="[APMDEVOPS96:Monitoring Oracle Service Bus]">
+    <meta name="page-version" content="1">
+
+	    
+	    	    	<meta name="label" content="extending">
+<meta name="label" content="9_6">
+<meta name="label" content="ca_application_performance_management">
+
+	    
+
+
+                <meta name="ajs-ca-page-button-export-epub" content="Print EPUB">
+        <meta name="ajs-ca-page-button-export-pdf" content="Print PDF">
+        <meta name="ajs-ca-page-button-languages" content="Languages">
+        <meta name="ajs-ca-page-button-versions" content="Versions">
+                                                
+                            <meta name="ajs-ca-page-search-placeholder" content="Search this product">
+        
+                    <meta name="ajs-ca-user-is-member-of-privileged-group" content="false">
+        
+
+    </head>
+	
+		<body onload="placeFocus()" id="com-atlassian-confluence" class="ca-documentation          sv-perm-view       aui-theme-default aui-layout small" data-remote-user="" data-aui-version="5.4.4-CONFDEV-21873">
+
+                		                                
+		
+        
+            <div id="stp-licenseStatus-banner"></div>
+    
+        <div class="big-old-content-wrapper hero">
+            <div id="nav-dropdown" class="nav-dropdown-wrap" style="top: 65px; position: absolute;"><ul class="nav-submenu nav-dropdown-item build-menu-wide combined " id="dd-0"><li><ul class="b-column-1"><li class="one"><a href="http://www.ca.com/us/lpg/business-rewritten-by-software.aspx?intcmp=headernav" class="header brbs casans">Business, rewritten by software<sup>TM</sup> </a></li><li class="one"><span class="header">Products by Portfolio </span><ul class="nav-submenu larger casans"><li><a href="http://www.ca.com/us/devcenter.aspx?intcmp=headernav">ca <b>Dev</b>center </a></li><li><a href="http://www.ca.com/us/intellicenter.aspx?intcmp=headernav">ca <b>Intelli</b>center </a></li><li><a href="http://www.ca.com/us/opscenter.aspx?intcmp=headernav">ca <b>Ops</b>center </a></li><li><a href="http://www.ca.com/us/securecenter.aspx?intcmp=headernav">ca <b>Secure</b>center </a></li></ul></li><li class="one"><span class="header">Products by Platform </span><ul class="nav-submenu large"><li><a href="http://www.ca.com/us/products/cloud.aspx?intcmp=headernav">Cloud </a></li><li><a href="http://www.ca.com/us/products/mainframe.aspx?intcmp=headernav">Mainframe </a></li><li><a href="http://www.ca.com/us/products/mobile.aspx?intcmp=headernav">Mobile </a></li></ul></li><li class="one"><span class="header">Products by Delivery Method </span><ul class="nav-submenu large"><li><a href="http://www.ca.com/us/lpg/saas-simplify-your-it-management.aspx?intcmp=headernav">Software as a Service (SaaS) </a></li></ul></li><li class="one hidden-desktop hidden-phone"><span class="header">Expertise </span><ul class="nav-submenu"><li><a href="http://www.ca.com/us/lpg/devops-portfolio.aspx?intcmp=headernav">DevOps </a></li><li><a href="http://www.ca.com/us/lpg/management-cloud-portfolio.aspx?intcmp=headernav">Management Cloud </a></li><li><a href="http://www.ca.com/us/lpg/security-portfolio.aspx?intcmp=headernav">Security </a></li></ul></li></ul><div class="b-column-2-3"><li class="two-three"><span class="header">Products by Category </span><ul class="nav-submenu"></ul></li><ul class="b-column-2"><li class="two"><a href="http://www.ca.com/us/products/api-management.aspx?intcmp=headernav">API Management </a></li><li class="two"><a href="http://www.ca.com/us/products/application-delivery.aspx?intcmp=headernav">Application Delivery </a></li><li class="two"><a href="http://www.ca.com/us/products/application-development.aspx?intcmp=headernav">Application Development </a></li><li class="two"><a href="http://www.ca.com/us/products/application-performance-management.aspx?intcmp=headernav">Application Performance Management </a></li><li class="two"><a href="http://www.ca.com/us/products/automation.aspx?intcmp=headernav">Automation </a></li><li class="two"><a href="http://www.ca.com/us/products/big-data-management.aspx?intcmp=headernav">Big Data Management </a></li><li class="two"><a href="http://www.ca.com/us/products/devops-for-mobile.aspx?intcmp=headernav">DevOps for Mobile </a></li><li class="two"><a href="http://www.ca.com/us/products/enterprise-mobility-management.aspx?intcmp=headernav">Enterprise Mobility Management </a></li><li class="two"><a href="http://www.ca.com/us/products/infrastructure-management.aspx?intcmp=headernav">Infrastructure Management </a></li><li class="two"><a href="http://www.ca.com/us/products/project-and-portfolio-management.aspx?intcmp=headernav">Project &amp; Portfolio Management </a></li><li class="two"><a href="http://www.ca.com/us/products/service-assurance.aspx?intcmp=headernav">Service Assurance </a></li><li class="two"><a href="http://www.ca.com/us/products/service-management.aspx?intcmp=headernav">Service Management </a></li><li class="two spacer-top"><span class="subheader">Security Products </span></li><li class="two"><a href="http://www.ca.com/us/products/advanced-authentication-and-single-sign-on.aspx?intcmp=headernav">Advanced Authentication &amp; Single Sign-On </a></li><li class="two"><a href="http://www.ca.com/us/products/data-protection.aspx?intcmp=headernav">Data Protection </a></li><li class="two"><a href="http://www.ca.com/us/products/identity-management.aspx?intcmp=headernav">Identity Management </a></li><li class="two"><a href="http://www.ca.com/us/products/mobile-security.aspx?intcmp=headernav">Mobile Security </a></li><li class="two"><a href="http://www.ca.com/us/products/payment-security.aspx?intcmp=headernav">Payment Security </a></li><li class="two"><a href="http://www.ca.com/us/products/security-as-a-service.aspx?intcmp=headernav">Security-as-a-Service </a></li></ul><ul class="b-column-3"><li class="three"><span class="subheader">Mainframe Products </span></li><li class="three"><a href="http://www.ca.com/us/products/application-quality-and-testing-tools.aspx?intcmp=headernav">Application Quality &amp; Testing Tools </a></li><li class="three"><a href="http://www.ca.com/us/products/ca-chorus.aspx?intcmp=headernav">CA Chorus™ </a></li><li class="three"><a href="http://www.ca.com/us/products/cloud-and-linux-on-system-z-management.aspx?intcmp=headernav">Cloud and Linux on System z Management </a></li><li class="three"><a href="http://www.ca.com/us/products/database-management-for-db2.aspx?intcmp=headernav">Database Management for DB2 </a></li><li class="three"><a href="http://www.ca.com/us/products/mainframe-software-rationalization-program.aspx?intcmp=headernav">Mainframe Software Rationalization Program </a></li><li class="three"><a href="http://www.ca.com/us/products/performance-and-automation.aspx?intcmp=headernav">Performance &amp; Automation </a></li><li class="three"><a href="http://www.ca.com/us/products/storage-management.aspx?intcmp=headernav">Storage Management </a></li><li class="three"><a href="http://www.ca.com/us/products/security-management.aspx?intcmp=headernav">Security Management </a></li><li class="three"><a href="http://www.ca.com/us/products/workload-automation.aspx?intcmp=headernav">Workload Automation </a></li><li class="three"><span></span></li><li class="three spacer-top"><a href="http://www.ca.com/us/products.aspx?intcmp=headernav" class="nav-action">View all products &gt; </a></li><li class="three spacer-top"><a href="http://www.ca.com/us/products/name-finder.aspx?intcmp=headernav" class="nav-action">Product finder &gt; </a></li></ul></div><ul class="b-column-r"><li class="four b-column-r-pad"><span class="header">Expertise </span><ul class="nav-submenu large"><li><a href="http://www.ca.com/us/lpg/devops-portfolio.aspx?intcmp=headernav">DevOps </a></li><li><a href="http://www.ca.com/us/lpg/management-cloud-portfolio.aspx?intcmp=headernav">Management Cloud </a></li><li><a href="http://www.ca.com/us/lpg/security-portfolio.aspx?intcmp=headernav">Security </a></li></ul></li><li class="hr four hidden-phone"><span></span></li><li class="four hidden-phone b-column-r-pad"><strong>CA Trials</strong><br><a href="http://trials.ca.com/?intcmp=headernav" target="_blank"><img src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/f-trials.jpg" alt="Try CA" class="img-responsive img-spacing"><br><span>Try CA solutions for yourself.</span></a></li></ul></li></ul><ul class="nav-submenu nav-dropdown-item build-menu-wide" id="dd-1"><li><a href="http://www.ca.com/us/services.aspx?intcmp=headernav" class="header">Services </a><ul class="nav-submenu"><li class="visible-phone"><a href="http://www.ca.com/us/services.aspx?intcmp=headernav">Services </a></li></ul></li><li><ul class="b-column-1"><li class="one"><span class="subheader nolink">Services by Practice </span><ul class="nav-submenu"><li><a href="http://www.ca.com/us/services/plan.aspx?intcmp=headernav">Plan </a></li><li><a href="http://www.ca.com/us/services/implement.aspx?intcmp=headernav">Implement </a></li><li><a href="http://www.ca.com/us/services/run.aspx?intcmp=headernav">Run </a></li></ul></li></ul><ul class="b-column-2"><li class="two"><span class="subheader nolink">Services by Portfolio </span><ul class="nav-submenu"><li><a href="http://www.ca.com/us/services/implement/devcenter-services.aspx?intcmp=headernav">Devcenter Services </a></li><li><a href="http://www.ca.com/us/services/implement/intellicenter-services.aspx?intcmp=headernav">Intellicenter Services </a></li><li><a href="http://www.ca.com/us/services/implement/opscenter-services.aspx?intcmp=headernav">Opscenter Services </a></li><li><a href="http://www.ca.com/us/services/implement/securecenter-services.aspx?intcmp=headernav">Securecenter Services </a></li></ul></li></ul><ul class="b-column-3"><li class="three"><span class="subheader nolink">Services by Platform </span><ul class="nav-submenu"><li><a href="http://www.ca.com/us/services/cloud-services.aspx?intcmp=headernav">Cloud Services </a></li><li><a href="http://www.ca.com/us/services/mainframe-services.aspx?intcmp=headernav">Mainframe Services </a></li><li><a href="http://www.ca.com/us/services/mobile-services.aspx?intcmp=headernav">Mobile Services </a></li></ul></li></ul><ul class="b-column-r"><li class="four b-column-r-pad hidden-phone"><strong>Implementation Services</strong><br><a href="http://www.ca.com/us/services/implement.aspx?intcmp=headernav"><img src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/nav-services.jpg" alt="undefined" class="img-responsive img-spacing"><br><span>Get efficient and flexible solution deployments focused on business outcomes.</span></a></li></ul></li></ul><ul class="nav-submenu nav-dropdown-item build-menu" id="dd-2"><li><ul class="b-column-1"><li class="one"><a href="http://www.ca.com/us/support.aspx?intcmp=headernav" class="header">Support </a><ul class="nav-submenu"><li class="visible-phone"><a href="http://www.ca.com/us/support.aspx?intcmp=headernav">Support </a></li><li><a href="https://support.ca.com/irj/portal/anonymous">CA Support Online </a></li><li><a href="http://www.ca.com/us/support/ca-support-online/support-by-product.aspx?intcmp=headernav">Support by Product </a></li><li><a href="http://www.ca.com/us/support/contact-and-resources.aspx?intcmp=headernav">Support Contact and Resources </a></li><li><a href="http://www.ca.com/us/support-offerings.aspx?intcmp=headernav">Support Offerings </a></li><li><a href="http://www.ca.com/us/support/ca-customer-care.aspx?intcmp=headernav">Customer Care </a></li><li><a href="https://support.ca.com/irj/portal/anonymous/DocumentationSearch">Product Documentation </a></li></ul></li></ul><ul class="b-column-2"><li class="two"><a href="http://www.ca.com/us/ca-education.aspx?intcmp=headernav" class="header">Education </a><ul class="nav-submenu"><li class="visible-phone"><a href="http://www.ca.com/us/ca-education.aspx?intcmp=headernav">Education </a></li><li><a href="http://www.ca.com/us/education/about-education.aspx?intcmp=headernav">About Education </a></li><li><a href="http://www.ca.com/us/education/ca-productivity-accelerator.aspx?intcmp=headernav">CA Productivity Accelerator </a></li><li><a href="http://www.ca.com/us/education/certification.aspx?intcmp=headernav">Certification </a></li><li><a href="http://www.ca.com/us/education/elearning-libraries.aspx?intcmp=headernav">eLearning Libraries </a></li><li><a href="http://search.ca.com/en-us/Pages/FindCourses.aspx?locale=us">Find Courses </a></li><li><a href="http://www.ca.com/us/ca-learning-paths.aspx?intcmp=headernav">Learning Paths </a></li><li><a href="http://www.ca.com/us/education/new-releases.aspx?intcmp=headernav">New Releases </a></li><li><a href="http://www.ca.com/us/ca-education-partners.aspx?intcmp=headernav">Partner Education </a></li></ul></li></ul><ul class="b-column-r"><li class="three b-column-r-pad hidden-phone"><strong>Free Web-Based Training</strong><br><a href="http://www.ca.com/us/education/free-web-based-training.aspx?intcmp=headernav"><img src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/nav-free-web-learning.jpg" alt="undefined" class="img-responsive img-spacing"><br><span>Enrich your CA experience with hours of valuable content. </span></a></li></ul></li></ul><ul class="nav-submenu nav-dropdown-item build-menu" id="dd-3"><li class="visible-phone"><a href="http://rewrite.ca.com/us/default.aspx">REWRITE </a></li><li><ul class="b-column-1"><li class="one"><span class="header">Topics </span><ul class="nav-submenu"><li><a href="http://rewrite.ca.com/us/topic/create.aspx?intcmp=headernav" target="_blank">Create </a></li><li><a href="http://rewrite.ca.com/us/topic/grow.aspx?intcmp=headernav" target="_blank">Grow </a></li><li><a href="http://rewrite.ca.com/us/topic/lead.aspx?intcmp=headernav" target="_blank">Lead </a></li><li><a href="http://rewrite.ca.com/us/topic/protect.aspx?intcmp=headernav" target="_blank">Protect </a></li></ul></li></ul><ul class="b-column-2"><li class="two"><span class="header">Expertise </span><ul class="nav-submenu"><li><a href="http://rewrite.ca.com/us/expertise/application-economy.aspx?intcmp=headernav" target="_blank">Application Economy </a></li><li><a href="http://rewrite.ca.com/us/expertise/devops.aspx?intcmp=headernav" target="_blank">DevOps </a></li><li><a href="http://rewrite.ca.com/us/expertise/management-cloud.aspx?intcmp=headernav" target="_blank">Management Cloud </a></li><li><a href="http://rewrite.ca.com/us/expertise/security.aspx?intcmp=headernav" target="_blank">Security </a></li></ul></li></ul><ul class="b-column-r"><li class="three b-column-r-pad hidden-phone"><strong>Insights from the app-driven world</strong><br><a href="http://rewrite.ca.com/us/default.aspx?intcmp=headernav" target="_blank"><img src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/nav-rewrite-updated.png" alt="rewrite " class="img-responsive img-spacing"><br><span>Connect with the latest technology trends and perspectives.<br></span></a></li></ul></li></ul><ul class="nav-submenu nav-dropdown-item build-menu-wide" id="dd-4"><li><ul class="b-column-1"><li class="one"><span class="header">Application Delivery Communities </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/ca-automation" target="_blank">CA Automation </a></li><li><a href="https://communities.ca.com/community/ca-client-management-solutions">CA Client Management Solutions </a></li><li><a href="https://communities.ca.com/community/ca-devtest-community">CA DevTest Community (LISA) </a></li><li><a href="https://communities.ca.com/community/ca-process-automation">CA Process Automation </a></li><li><a href="https://communities.ca.com/community/ca-release-automation">CA Release Automation </a></li></ul></li><li class="one"><span class="header">Application Performance Management Communities </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/ca-apm">CA APM </a></li></ul></li><li class="one"><span class="header">Infrastructure Management Communities </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/ca-capacity-management">CA Capacity Management </a></li><li><a href="https://communities.ca.com/community/ca-service-operations-insight-soi">CA Service Operations Insight SOI </a></li><li><a href="https://communities.ca.com/community/ca-infrastructure-management">CA Infrastructure Management </a></li></ul></li></ul><ul class="b-column-2"><li class="two"><span class="header">Mainframe Communities </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/ca-chorus">CA Chorus </a></li><li><a href="https://communities.ca.com/community/ca-mainframe-community">CA Mainframe </a></li><li><a href="https://communities.ca.com/community/ca-endevor">CA Endevor </a></li><li><a href="https://communities.ca.com/community/ca-harvest">CA Harvest </a></li><li><a href="https://communities.ca.com/community/ca-mainframe-performance-management">CA Mainframe Performance Management </a></li><li><a href="https://communities.ca.com/community/ca-plex-ca-2e">CA Plex CA 2E </a></li><li><a href="https://communities.ca.com/places?query=mainframe">View all Mainframe Communities </a></li></ul></li><li class="two"><span class="header">Mobility Communities </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/ca-mobility">CA Mobility </a></li></ul></li><li class="two"><span class="header">Project and Portfolio Management Communities </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/ca-clarity">CA PPM </a></li></ul></li></ul><ul class="b-column-3"><li class="three"><span class="header">Security Communities </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/ca-api-management-community">CA API Management </a></li><li><a href="https://communities.ca.com/community/ca-mainframe-security">CA Mainframe Security </a></li><li><a href="https://communities.ca.com/community/ca-security">CA Security </a></li></ul></li><li class="three"><span class="header">Service Management Communities </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/ca-cloud-service-management">CA Cloud Service Management </a></li><li><a href="https://communities.ca.com/community/ca-service-management">CA Service Management </a></li></ul></li><li class="three"><span class="header">Workload Automation Communities </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/ca-workload-automation">CA Workload Automation </a></li></ul></li><li class="three spacer-top"><a href="https://communities.ca.com/places?filterID=all~tag%5Bglobal%5D&sortKey=all~subjectAsc&sortOrder=1" class="nav-action">View all communities &gt; </a></li></ul><ul class="b-column-r"><li class="four b-column-r-pad"><span class="header">Getting Started </span><ul class="nav-submenu"><li><a href="https://communities.ca.com/community/the-water-cooler/blog">CA Community Blog </a></li><li><a href="https://communities.ca.com/community/the-water-cooler/ca-communities-user-guide">Community User Guide </a></li><li><a href="https://communities.ca.com/community/the-water-cooler">Give Us Your Feedback </a></li></ul></li><li class="four b-column-r-pad hidden-phone"><strong>CA Chorus Community</strong><br><a href="https://communities.ca.com/community/ca-chorus"><img src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/nav-communities.jpg" alt="undefined" class="img-responsive img-spacing"><br><span>Join the CA Chorus Community to find answers, connect with experts and share your experiences.</span></a></li></ul></li></ul><ul class="nav-submenu nav-dropdown-item build-menu-wide" id="dd-5"><li><span class="header">CA Partners </span><ul class="nav-submenu"></ul></li><li><ul class="b-column-1"><li class="one"><a href="http://www.ca.com/us/partners.aspx?intcmp=headernav" class="subheader nolink">CA Global Partner Program </a><ul class="nav-submenu"><li><a href="http://www.ca.com/us/partners/distributors.aspx?intcmp=headernav">Distributors </a></li><li><a href="http://www.ca.com/us/lpg/global-service-providers.aspx?intcmp=headernav">Global Service Providers </a></li><li><a href="http://www.ca.com/us/service-providers.aspx?intcmp=headernav">Service Providers </a></li><li><a href="http://www.ca.com/us/lpg/global-systems-integrators.aspx?intcmp=headernav">System Integrators </a></li></ul></li></ul><ul class="b-column-2"><li class="two"><a href="http://www.ca.com/us/lpg/ca-techpartners.aspx?intcmp=headernav" class="subheader nolink">Technology Partners </a><ul class="nav-submenu"><li><a href="http://www.ca.com/us/lpg/ca-techpartners.aspx?intcmp=headernav">CA TechPartners </a></li><li><a href="http://www.ca.com/us/lpg/ca-global-technology-partners.aspx?intcmp=headernav">CA Global Technology Partners </a></li><li><a href="http://www.ca.com/us/lpg/ca-techpartners-oem.aspx?intcmp=headernav">OEM Partners </a></li><li><a href="http://www.ca.com/us/partners/technology-alliance-partners/security-saas-partner-program.aspx?intcmp=headernav">CA Security SaaS Validation Program </a></li></ul></li></ul><ul class="b-column-3"><li class="three"><span class="subheader nolink">Partner Resources </span><ul class="nav-submenu"><li><a href="http://partnerportal.ca.com/">Partner Portal </a></li><li><a href="http://www.ca.com/us/ca-education-partners.aspx?intcmp=headernav">Partner Education </a></li><li><a href="https://samlgwsm.ca.com/affwebservices/public/saml2sso?SPID=partner.salesforce.com&RelayState=/006?fcf%3d00B30000007dw75">Deal Registration </a></li></ul></li><li class="three spacer-top"><span class="subheader nolink">Find a Partner </span><ul class="nav-submenu"><li><a href="http://www.ca.com/us/partners/partner-locator.aspx?intcmp=headernav">Partner Locator </a></li></ul></li></ul><ul class="b-column-r"><li class="four b-column-r-pad hidden-phone"><strong>Grow Your Business Today.</strong><br><a href="http://www.ca.com/us/partners/ca-global-partner-program-overview/apply-today.aspx?intcmp=headernav"><img src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/f-partner-program.jpg" alt="CA Partner Program" class="img-responsive img-spacing"><br><span>Join the CA Global Partner Program and register for the Partner Portal today.</span></a></li></ul></li></ul></div><div id="nav-dropdown" class="nav-dropdown-wrap"></div><header class="header-fixed-top noindex solid">
+                
+
+
+<div id="header" class="header container">
+	<a id="ca-logo" href="https://wiki.ca.com/" class="brand-logo pull-left" title="CA Technologies"></a>	
+	
+	<span class="nav-utility hidden-phone">
+				    
+                        
+                                    <span id="divLogin">
+        
+            
+<a id="login-link" href="https://wiki.ca.com/plugins/servlet/saml?os_destination=%2Fdisplay%2FAPMDEVOPS96%2FMonitoring%2BOracle%2BService%2BBus" class="   user-item login-link " title="">
+        Log in
+</a>
+</span>
+            
+            			</span>
+
+	<div class="nav-main pull-right" data-design-language-title="Primary Navigation">
+		<div id="nav-main">
+			<div id="nav-menu" class="nav-menuwrapper"><ul class="nav-menu"><li><span class="nav-top" rel="#dd-0">Products </span></li><li><span class="nav-top" rel="#dd-1">Services </span></li><li><span class="nav-top" rel="#dd-2">Support </span></li><li><span class="nav-top" rel="#dd-3">Rewrite </span></li><li><span class="nav-top" rel="#dd-4">Communities </span></li><li><span class="nav-top" rel="#dd-5">Partners </span></li></ul></div>
+        </div>
+
+        		
+		
+		<form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="http://search.ca.com/en-us/Pages/SearchResultsSupport.aspx" method="get">
+            <fieldset>
+                <label for="quick-search-query" class="assistive">Search</label>
+                <input id="quick-search-query" class="text app-search search quick-search-query" type="text" accesskey="q" autocomplete="off" name="k" title="Search (/or g , g) (/or g , g)" placeholder="Search">
+                <input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search">
+
+            </fieldset>
+        </form>
+
+
+
+	</div>
+	
+</div>
+
+
+
+    <!-- include system javascript resources -->
+    
+    
+
+        
+    <!-- end system javascript resources -->
+            </header>
+
+            <div id="modernBrowser">
+                Please upgrade your browser for best results. The CA Technologies Wiki supports Internet Explorer Version 8 or higher, Chrome, Firefox and Safari.
+            </div>
+
+                        <div id="space-header" class="container">
+                                
+                
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                    
+        <li class="normal ajs-menu-item">
+        <a id="add-menu-link" class="add hidden ajs-menu-title aui-dropdown2-trigger" href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#" aria-haspopup="true" aria-owns="add-menu" data-container="#navigation"><span><span>Add</span></span></a>         <div id="add-menu" class="aui-dropdown2 aui-style-default">
+                            <ul id="add-menu-page" class="section-page first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                            
+    
+    
+    <a id="add-comment-menu-link" href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus?showComments=true&showCommentArea=true#addcomment" rel="nofollow" class="add-comment" title="Add a Comment">
+                <span>Comment</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action ajs-menu-title aui-dropdown2-trigger" href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation"><span><span>Tools</span></span></a>         <div id="action-menu" class="aui-dropdown2 aui-style-default most-right-menu-item">
+                            <ul id="action-menu-primary" class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                            
+    
+    
+    <a id="view-attachments-link" href="https://wiki.ca.com/pages/viewpageattachments.action?pageId=114465670" rel="nofollow" class="action-view-attachments" accesskey="t" title="View Attachments (t)">
+                <span>A<u>t</u>tachments (2)</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="action-view-history-link" href="https://wiki.ca.com/pages/viewpreviousversions.action?pageId=114465670" rel="nofollow" class="action-view-history" title="">
+                <span>Page History</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="action-page-permissions-link" href="https://wiki.ca.com/pages/viewinfo.action?pageId=114465670" rel="nofollow" class="action-page-permissions" title="Edit restrictions">
+                <span>Restrictions</span>    </a>
+</li>
+                                </ul>
+                            <ul id="action-menu-secondary" class="section-secondary aui-dropdown2-section">
+                                            
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="link-to-page-link" href="https://wiki.ca.com/pages/viewinfo.action?pageId=114465670" rel="nofollow" class="" title="Link to this Page (k)">
+                <span>Link to this Page…</span>    </a>
+</li>
+                                        
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="action-view-source-link" href="https://wiki.ca.com/plugins/viewsource/viewpagesrc.action?pageId=114465670" rel="nofollow" class="action-view-source popup-link" title="">
+                <span>View Source</span>    </a>
+</li>
+                                        <li style="display: none;">
+
+    
+        
+                            
+    
+    
+    <a id="action-export-pdf-link" href="https://wiki.ca.com/spaces/flyingpdf/pdfpageexport.action?pageId=114465670" rel="nofollow" class="" title="">
+                <span>Export to PDF</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="com-k15t-confluence-scroll-epub-launcher" href="https://wiki.ca.com/pages/viewpage.action?pageId=114465670" rel="nofollow" class="" title="">
+                <span>Export to EPUB</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="com-k15t-confluence-scroll-pdf-launcher" href="https://wiki.ca.com/pages/viewpage.action?pageId=114465670" rel="nofollow" class="" title="">
+                <span>Export to PDF</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="action-export-word-link" href="https://wiki.ca.com/exportword?pageId=114465670" rel="nofollow" class="action-export-word" title="">
+                <span>Export to Word</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+                
+            </div>
+            
+            <div id="content-wrapper" class="container">
+                                
+                                    <div id="content" class="content ca-fixed-fluid-wrapper">
+
+                        <div id="splitter-contents" class="c-wrap2 ca-fluid-column">
+                                                        
+                                                                                                
+                                                            
+                            <div id="main" class="aui-page-panel">
+                                <div id="main-header">
+                                    
+                                    <div id="title-heading" class="pagetitle with-breadcrumbs">
+
+                                        <h1 id="space-title-text" class="with-breadcrumbs">
+                                            <a id="space-title" href="https://wiki.ca.com/display/APMDEVOPS96">CA Application Performance Management - 9.6</a>
+                                        </h1>
+
+                                                                                
+                                            
+    
+    
+    <ol id="breadcrumbs"><li class="home"><a href="https://wiki.ca.com/display/APMDEVOPS96?src=breadcrumbs"><span class="icon-home">Home</span></a></li>
+                    
+                
+        <li class="first">
+                
+
+                    <span class=""><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+Application+Performance+Management?src=breadcrumbs-collector">CA Application Performance Management - 9.6</a></span>
+                            
+                
+        </li><li class="hide-before">
+                
+
+                    <span class=""><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+Application+Performance+Management?src=breadcrumbs">CA Application Performance Management</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="https://wiki.ca.com/display/APMDEVOPS96/Extending?src=breadcrumbs">Extending</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+APM+for+SOA+Implementation+Guide?src=breadcrumbs">CA APM for SOA Implementation Guide</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus?src=breadcrumbs-parent">Monitoring Oracle Service Bus</a></span>
+                </li></ol>
+
+
+
+                                                                                            <div class="space-logo " data-key="APMDEVOPS96" data-name="CA Application Performance Management - 9.6" data-entity-type="confluence.space">
+            <a><img class="logo global custom" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/global.logo" alt=""></a>
+        </div>                                            
+
+                                            <h1 id="page-title-text" class="with-breadcrumbs">
+                                                                                            
+            <a href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki.html">Monitoring Oracle Service Bus</a>
+                                
+                                                                                        </h1>
+                                                                             </div>
+
+                                </div>
+
+                                
+
+                                
+                                
+                                
+                                
+    
+
+        
+
+
+
+
+        
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+
+<div id="content" class="page view">
+    
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="parentPageId" value="114465641">
+        </fieldset>
+
+                            
+    
+
+                    
+
+        
+        <a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata" style="display: block;">
+        
+    <ul class="versions"><li class="visible-export"><a id="com-k15t-confluence-scroll-pdf-launcher-visible" class="aui-lozenge aui-lozenge-subtle aui-lozenge-subtle ca-lozenge casans" role="button" href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#">Print PDF</a></li><li class="visible-export"><a id="com-k15t-confluence-scroll-epub-launcher-visible" class="aui-lozenge aui-lozenge-subtle aui-lozenge-subtle ca-lozenge casans" role="button" href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#">Print EPUB</a></li><li><a id="product-versions" class="aui-lozenge aui-lozenge-subtle ca-lozenge casans" aria-haspopup="true" role="menuitem" aria-owns="inline-dialog-product-versions-modal" href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#">Versions</a></li><li><a id="product-languages" class="aui-lozenge aui-lozenge-subtle ca-lozenge casans" aria-haspopup="true" role="menuitem" aria-owns="inline-dialog-product-languages-modal" href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#">Languages</a></li></ul></div>
+
+
+<a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+                                            
+                
+        		    
+
+
+
+
+
+
+
+
+<div id="sv-infoline-container">
+
+    <div id="sv-infoline" class="sv-context" data-scroll-versions-context="{&quot;workingVersion&quot;:{&quot;versionId&quot;:&quot;current&quot;,&quot;name&quot;:&quot;Currently Published&quot;,&quot;description&quot;:&quot;&quot;,&quot;releaseDateAsString&quot;:&quot;&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;},&quot;product&quot;:{&quot;version&quot;:&quot;2.7.2&quot;,&quot;pluginKey&quot;:&quot;com.k15t.scroll.scroll-platform&quot;},&quot;products&quot;:{&quot;com.k15t.scroll.scroll-platform&quot;:{&quot;version&quot;:&quot;2.7.2&quot;,&quot;pluginKey&quot;:&quot;com.k15t.scroll.scroll-platform&quot;},&quot;com.k15t.scroll.scroll-versions&quot;:{&quot;version&quot;:&quot;2.7.2&quot;,&quot;pluginKey&quot;:&quot;com.k15t.scroll.scroll-versions&quot;}},&quot;modules&quot;:{&quot;VersionManagement&quot;:{&quot;type&quot;:&quot;VersionManagement&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:false},&quot;PermalinkSupport&quot;:{&quot;type&quot;:&quot;PermalinkSupport&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:false},&quot;TranslationManagement&quot;:{&quot;type&quot;:&quot;TranslationManagement&quot;,&quot;isActive&quot;:false,&quot;hasValidLicense&quot;:false,&quot;licenseValidationMessageAsHtml&quot;:&quot;Product for &#39;TranslationManagement&#39; not installed.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;Product for &#39;TranslationManagement&#39; not installed.&quot;,&quot;isEnabledInSpace&quot;:false},&quot;VariantManagement&quot;:{&quot;type&quot;:&quot;VariantManagement&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:false},&quot;Publishing&quot;:{&quot;type&quot;:&quot;Publishing&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:false},&quot;WorkflowManagement&quot;:{&quot;type&quot;:&quot;WorkflowManagement&quot;,&quot;isActive&quot;:true,&quot;hasValidLicense&quot;:true,&quot;licenseValidationMessageAsHtml&quot;:&quot;License for Scroll Versions is valid.&quot;,&quot;licenseExpiryInfoAsHtml&quot;:&quot;&quot;,&quot;isEnabledInSpace&quot;:false}},&quot;versions&quot;:[],&quot;space&quot;:{&quot;allVersions&quot;:[],&quot;allVariants&quot;:[],&quot;allRemoteSystems&quot;:[],&quot;allLanguages&quot;:[],&quot;metadataAttributes&quot;:[],&quot;isScrollVersionsEnabled&quot;:false,&quot;isVersionsEnabled&quot;:false,&quot;isTranslationsEnabled&quot;:false,&quot;isVariantManagementEnabled&quot;:false,&quot;isWorkflowEnabled&quot;:false,&quot;isDevMode&quot;:false},&quot;user&quot;:{&quot;workingVersion&quot;:{&quot;versionId&quot;:&quot;current&quot;,&quot;name&quot;:&quot;Currently Published&quot;,&quot;description&quot;:&quot;&quot;,&quot;releaseDateAsString&quot;:&quot;&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;},&quot;currentVariant&quot;:{&quot;id&quot;:&quot;all&quot;,&quot;name&quot;:&quot;all&quot;,&quot;description&quot;:&quot;&quot;,&quot;isDefault&quot;:false,&quot;isPublic&quot;:false,&quot;conditions&quot;:[]},&quot;currentLanguage&quot;:{&quot;key&quot;:&quot;en&quot;,&quot;encodedKey&quot;:&quot;en&quot;,&quot;displayName&quot;:&quot;English&quot;,&quot;isOriginal&quot;:true},&quot;permissions&quot;:{&quot;View&quot;:true,&quot;Contribute&quot;:false,&quot;Review&quot;:false,&quot;ManageContent&quot;:false,&quot;AdministerSpace&quot;:false,&quot;Translate&quot;:false},&quot;settings&quot;:{&quot;isShowTopLevelPages&quot;:false,&quot;isShowUnavailablePages&quot;:true,&quot;isHighlightIncludes&quot;:true,&quot;isHighlightConditionalContent&quot;:true,&quot;isShowArchivedVersions&quot;:false,&quot;isDisplayPageInfoPanel&quot;:true,&quot;isRememberTreeState&quot;:true}},&quot;page&quot;:{&quot;scrollPageTitle&quot;:&quot;Monitoring Oracle Service Bus&quot;,&quot;scrollPageId&quot;:&quot;7F00000101484623F07EB04A03AE03C1&quot;,&quot;targetVersion&quot;:{&quot;versionId&quot;:&quot;current&quot;,&quot;name&quot;:&quot;Currently Published&quot;,&quot;description&quot;:&quot;&quot;,&quot;releaseDateAsString&quot;:&quot;&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;},&quot;childrenCount&quot;:0},&quot;scrollPageKey&quot;:&quot;&quot;,&quot;scrollPageTitle&quot;:&quot;Monitoring Oracle Service Bus&quot;,&quot;scrollPageId&quot;:&quot;7F00000101484623F07EB04A03AE03C1&quot;,&quot;targetVersion&quot;:{&quot;versionId&quot;:&quot;current&quot;,&quot;name&quot;:&quot;Currently Published&quot;,&quot;description&quot;:&quot;&quot;,&quot;releaseDateAsString&quot;:&quot;&quot;,&quot;isArchived&quot;:false,&quot;precedingVersionId&quot;:&quot;&quot;}}"></div>
+
+</div>
+
+		
+        
+        <fieldset class="hidden parameters">
+                        <input type="hidden" title="browsePageTreeMode" value="view">
+        </fieldset>
+
+        <div class="wiki-content">
+                           
+        <p><strong>Contents</strong></p><p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1422484130046 {padding: 0px;}
+div.rbtoc1422484130046 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1422484130046 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p><div class="toc-macro rbtoc1422484130046">
+<ul class="toc-indentation">
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-AboutOracleServiceBus(OSB)">About Oracle Service Bus (OSB)</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-HowtoEnableMonitoringforOracleServiceBus">How to Enable Monitoring for Oracle Service Bus</a>
+<ul class="toc-indentation">
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-EnabletheagentformonitoringOracleServiceBus">Enable the agent for monitoring Oracle Service Bus</a>
+<ul class="toc-indentation">
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-AboutthedirectivefilesforOracleServiceBus">About the directive files for Oracle Service Bus</a></li>
+</ul>
+</li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-EnabletheOracleServiceBusEnterpriseManagerExtension">Enable the Oracle Service Bus Enterprise Manager Extension</a></li>
+</ul>
+</li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-UseDashboardstoMonitorOracleServiceBus">Use Dashboards to Monitor Oracle Service Bus</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-UnderstandingandviewingmetricsforOracleServiceBus">Understanding and viewing metrics for Oracle Service Bus</a>
+<ul class="toc-indentation">
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforBusinessServices">Metrics for BusinessServices</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforPipelines">Metrics for Pipelines</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforProxyServices">Metrics for ProxyServices</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforTransports">Metrics for Transports</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforUDDI">Metrics for UDDI</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforXQueries">Metrics for XQueries</a></li>
+</ul>
+</li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-ViewDefaultOracleServiceBusMetricGroupings">View Default Oracle Service Bus Metric Groupings</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-ViewDefaultOracleServiceBusAlerts">View Default Oracle Service Bus Alerts</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-ViewingOracleServiceBusdependencies">Viewing Oracle Service Bus dependencies</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-TracingtransactionsforOracleServiceBus">Tracing transactions for Oracle Service Bus</a>
+<ul class="toc-indentation">
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-Understandingthevalueofcross-processtransactiontracing">Understanding the value of cross-process transaction tracing</a></li>
+<li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-StartingandViewingaSampleTransactionTrace">Starting and Viewing a Sample Transaction Trace</a></li>
+</ul>
+</li>
+</ul>
+</div><p></p><p>Oracle Service Bus (OSB) provides message processing and communication between loosely coupled service consumers and service providers. The SOA extension for Oracle Service Bus enables you to monitor Oracle Service Bus operation through key components, such as pipelines, proxy services, and transport protocols.</p><p>This section describes the OSB-specific dashboards, metrics, and alerts you can use for monitoring and analyzing the performance, availability, and overall health of the Oracle Service Bus environment.</p><h2 id="MonitoringOracleServiceBus-AboutOracleServiceBus(OSB)">About Oracle Service Bus (OSB)</h2><p>In a service-oriented architecture, the Enterprise Service Bus typically provides a messaging layer between service consumers and service providers. The Enterprise Service Bus enables validation, transformation, routing, and security for data and messages across a distributed, heterogeneous environment.</p><p>Oracle Service Bus is an example of an Enterprise Service Bus that provides message brokering, mediation, and service lifecycle management in a lightweight middle layer of proxy interfaces.</p><p>If you have defined rules for processing messages using Oracle Service Bus, you can monitor the operation of Oracle Service Bus with metrics for:</p><ul><li><strong>Business Services</strong><br>Business services are definitions of external services for which Oracle Service Bus is a client.<br>The external services are implemented in and hosted by external systems. To use them Oracle Service Bus must know the interface to call, how to call it, and what to expect as a result of a call. Business services within OSB model the external interfaces so that the bus can invoke and interact with the external systems. Within OSB, a business service configuration includes its interface, transport settings, and security settings.<br>With the SOA extension for OSB, you can monitor how business services interact with the external systems and collect data about their overall health under the OSB &gt; BusinessServices node.</li><li><strong>Pipelines</strong><br>Pipelines are named sequences that process the specific steps for a Request, a Response, or an Error message flow.<br>To implement the processing logic of a proxy service, request and response pipelines are paired together in pipeline pair nodes. These pipeline pair nodes can be combined with other nodes into a single-rooted tree structure to control overall flow. Error pipelines handle errors for stages and nodes in a message flow and errors in the message flow or business service.<br>With the SOA extension for OSB, you can monitor the performance of the request and response pipelines and collect data about their overall health under the OSB &gt; Pipelines node.</li><li><strong>Proxy Services</strong><br>Proxy services are definitions of intermediary web services that the service bus implements and hosts locally.<br>Oracle Service Bus uses proxy services to route messages between business services and service clients, such as presentation applications or other business services.<br>A proxy service configuration includes its interface, transport settings, security settings, and a message flow definition. The message flow defines the logic that determines how messages are handled as they flow through the proxy service.<br>With the SOA extension for OSB, you can monitor the performance of proxy services and collect data about their overall health under the OSB &gt; ProxyServices node.</li><li><strong>Transports</strong><br>Transports define the mechanism for sending and delivering messages, and can include any transport protocols Oracle Service Bus supports.<br>A transport provider manages the life cycle and runtime behavior of transport endpoints. Target endpoints are resources where messages originate or are targeted. The native providers in OSB let you configure proxy and business services that require these transport protocols. You can also create or install custom transport providers.<br>With the SOA extension for OSB, you can monitor all of the supported transport protocols and collect metrics for inbound and outbound endpoints under the OSB &gt; Transports node.</li><li><strong>UDDI</strong><br>Universal Description, Discovery, and Integration (UDDI) is a platform-independent, XML-based registry that enables businesses worldwide to list their services on the Internet.<br>UDDI is an open industry initiative that enables businesses to publish service listings, discover other businesses’ service listings, and define how the services or software applications interact over the Internet.<br>With Oracle Service Bus and UDDI registries that are compliant with UDDI version 3.0, you can:<br><ul><li>Publish information about any proxy service to a registry. The registry may be based on Web Services Description Language (WSDL), SOAP, or XML.</li><li>Inquire for specific services in a registry or list all services available. You can search on business entity, service name pattern, or both.</li><li>Import business services from a registry.</li></ul>With the SOA extension for OSB, you can monitor the UDDI registries and collect metrics for publish, import, and inquiry operations under the OSB &gt; UDDI node.</li><li><strong>XQueries</strong><br>Oracle Service Bus supports XQueries for data transformation using the Oracle Data Services Platform implementation of the XQuery engine.<br>The Oracle XQuery engine uses transformation maps to describe the mapping between data types, and Oracle Service Bus supports data mapping using XQuery. You can create, parse, and execute the transformations.<br>With the SOA extension for OSB, you can monitor the XQuery transformations for creating, parsing, and executing XQueries and collect metrics for those operations under the OSB &gt; XQueries node.</li></ul><h2 id="MonitoringOracleServiceBus-HowtoEnableMonitoringforOracleServiceBus">How to Enable Monitoring for Oracle Service Bus</h2><p>Enabling monitoring for Oracle Service Bus involves the following high-level steps:</p><ol><li><p>Verify that you have a supported version of Oracle Service Bus installed.</p>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <strong>Note:</strong> For system requirements, see the <a href="https://support.ca.com/irj/portal/phpsupcontent?techDocAccess=N&contentID=883df031-705e-425b-9a0e-73130da8a204" class="external-link" rel="nofollow" target="_blank">APM Compatibility Guide on the Customer Support</a> site.
+                    </div>
+    </div>
+</li><li>Verify the agent and CA APM for SOA are installed and enabled.</li><li>Review the following sections:</li></ol><ul><li style="list-style-type: none;background-image: none;"><ul><li>Enable the agent for monitoring Oracle Service Bus&nbsp;– provides steps for&nbsp;configuring the agent profile to include the appropriate directives for monitoring Oracle Service Bus. If you have enabled the agent using the Standalone agent installer or using a response file, you can skip this step.</li><li>Enable the Enterprise Manager extension&nbsp;— provides steps for&nbsp;moving files from the <em>&lt;EM_Home&gt;</em>/examples/SOAExtensionForOSB directory to the appropriate Enterprise Manager directory.</li></ul></li></ul><h3 id="MonitoringOracleServiceBus-EnabletheagentformonitoringOracleServiceBus">Enable the agent for monitoring Oracle Service Bus</h3><p>You can add and enable the CA APM for Oracle Service Bus when you install the agent and select WebLogic as the application server. You can also enable the CA APM for Oracle Service Bus manually after installing the agent.</p><p>If you enabled CA APM for Oracle Service Bus when you installed the agent, the agent profile is automatically configured with default settings and no further steps are required to enable the agent extension.</p><p>If you did not enable CA APM for for Oracle Service Bus when you installed the agent, you need to manually configure the agent profile to enable monitoring.</p><p><strong>To enable CA APM for Oracle Service Bus manually:</strong></p><ol><li>Verify the agent and CA APM for SOA are installed and enabled.</li><li>Verify the CA APM for Oracle Service Bus directory, <em>SOAExtensionForOSB</em>, is in the <em>&lt;Agent_Home&gt;/examples</em> directory and copy the files from the <em>&lt;Agent_Home&gt;/examples/SOAExtensionForOSB/ext</em> directory to the <em>&lt;Agent_Home&gt;/core/ext</em> directory.</li><li>Open the <em>IntroscopeAgent.profile</em> file in a text editor.</li><li>Add the appropriate <em>OSB-full.pbl</em> or <em>OSB-typical.pbl</em> file to the <em>introscope.autoprobe.directivesFile</em> property in the <em>IntroscopeAgent.profile</em> file.<br>For more information about selecting the appropriate ProbeBuilder directives, see <a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-AboutthedirectivefilesforOracleServiceBus">About the directive files for Oracle Service Bus</a>.</li><li>Modify any additional SOA-specific agent configuration properties in the <em>IntroscopeAgent.profile</em> file if you want to change the default settings.<br>Depending on how you have implemented security, you should note that some applications may require changes to the default settings.<br>For example, if you encrypt communication for web services, you should modify the default configuration for the agent to enable the agent to use HTTP correlation and disable SOAP correlation. By default, both SOAP and HTTP correlation are enabled for Oracle Service Bus. For more information about setting the configuration properties for HTTP or SOAP correlation, see <a href="https://wiki.ca.com/display/APMDEVOPS96/Configuring+SOA-Specific+Properties#ConfiguringSOA-SpecificProperties-Configuringcorrelatedtracing">Configuring correlated tracing</a>.</li><li>Save your changes to the <em>IntroscopeAgent.profile</em> file and close the text editor.</li></ol><h4 id="MonitoringOracleServiceBus-AboutthedirectivefilesforOracleServiceBus">About the directive files for Oracle Service Bus</h4><p>When you set the <em>introscope.autoprobe.directivesFile</em> property in the <em>IntroscopeAgent.profile</em>, you can choose the default typical or full instrumentation to control the monitoring level, visibility of metrics, and the performance overhead as appropriate to the environment in which you are deploying the agent. You can then use the typical or full toggles file to fine-tune monitoring for specific components by turning on or turning off tracing for specific tracer groups.</p><ul><li><strong>OSB-full.pbl</strong><br>Full instrumentation for deep visibility into the operation of all Oracle Service Bus components.<br>Full instrumentation provides detailed reporting, but requires more overhead. It is recommended for test or development environments, but not usually for production environments.<br>By default, the following directives files are listed in OSB-full.pbl file list:<ul><li>OSB-toggles-full.pbd</li><li>OSB.pbd</li></ul></li><li><strong>OSB-typical.pbl</strong><br>Typical monitoring of important Oracle Service Bus components in a production environment where overhead is at a premium.<br>Typical instrumentation provides less detail with reduced overhead, and is recommended for production environments.<br>By default, the following directives files are listed in OSB-typical.pbl file list:<ul><li>OSB-toggles-typical.pbd</li><li>OSB.pbd</li></ul></li><li><strong>OSB-toggles-full.pbd</strong><br>Toggles for turning on or turning off the monitoring of Oracle Service Bus components when you are using full instrumentation.<br>This file provides directives for the tracing provided in other directives files. By default, most tracer groups in this file are turned on.</li><li><strong>OSB-toggles-typical.pbd</strong><br>Toggles for turning on or turning off the monitoring of Oracle Service Bus components when you are using typical instrumentation. This file provides directives for the tracing provided in other directives files. By default, only a small section of tracer groups are turned on.</li></ul><p>You should note that all agents that report data to the same Enterprise Manager should use the same instrumentation level and the Enterprise Manager should be configured to operate with either all typical or all full instrumentation agents. For example, if you configure agents with typical instrumentation, you should deploy the typical version of Enterprise Manager files.</p><h3 id="MonitoringOracleServiceBus-EnabletheOracleServiceBusEnterpriseManagerExtension">Enable the Oracle Service Bus Enterprise Manager Extension</h3><p>You can add and enable CA APM for Oracle Service Bus when you install the Enterprise Manager. You can also enable CA APM for Oracle Service Bus manually after installing the Enterprise Manager.</p><p>CA APM for Oracle Service Bus files are installed by default in the <em>&lt;EM_Home&gt;/</em>examples directory when you install the Enterprise Manager. To enable CA APM for Oracle Service Bus, copy or move the Enterprise Manager files from the <em>&lt;EM_Home&gt;/</em>examples directory to the proper location in the Enterprise Manager home directory.</p>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <strong>Note: </strong>CA APM for SOA must be enabled on the Enterprise Manager before you can use CA APM for Oracle Service Bus.
+                    </div>
+    </div>
+<p><strong>Follow these steps:</strong></p><ol><li>Verify that the CA APM for Oracle Service Bus directory, SOAExtensionForOSB, is in the <em>&lt;EM_Home&gt;/</em>examples directory.</li><li><p>Copy the appropriate files for typical or full instrumentation from the <em>&lt;EM_Home&gt;</em>/examples/SOAExtensionForOSB directory to the corresponding location in the Enterprise Manager directory structure. For example, if you are using typical instrumentation, copy the com.wily.powerpacks.osb.emext.calculator_typical.jar file from the <em>&lt;EM_Home&gt;</em>/examples/SOAExtensionForOSB/ext directory to the <em>&lt;EM_Home&gt;</em>/ext directory.&nbsp;Use the same instrumentation level for all agents that report data to the same Enterprise Manager. For example, if you deploy the typical version of Enterprise Manager files, configure all agents communicating with that Enterprise Manager with typical instrumentation. No agents using full instrumentation should report data to an Enterprise Manager configured for typical mode.</p></li><li>Remove the Oracle Service Bus Management Module, OSB_ManagementModule_typical.jar or OSB_ManagementModule_full.jar, from the &lt;<em>EM_Home</em>&gt;/config/modules directory if the Enterprise Manager is a Collector in a clustered environment.<br>Only copy the Management Module to the <em>&lt;EM_Home&gt;</em>/config/modules directory on the Enterprise Manager you are using as the MOM computer. All other files and scripts should be installed on the Collector Enterprise Managers.&nbsp;</li><li>Remove old versions of Enterprise Manager files, if you are upgrading from a previous version of the SOA extension for Oracle Service Bus.<ul><li>If you have a previous release of CA APM for Oracle Service Bus installed on the Enterprise Manager, manually delete the old version of the Enterprise Manager files before you begin using the new version of CA APM for Oracle Service Bus.</li><li><p>If you upgraded from a previous release of CA APM for Oracle Service Bus, delete the following files from the Enterprise Manager home directory:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_97470" class="syntaxhighlighter nogutter  text"><div class="toolbar"><span><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="text plain">&lt;EM_home&gt;/config/modules/OSB_ManagementModuleV&lt;version&gt;.jar</code></div><div class="line number2 index1 alt1"><code class="text plain">&lt;EM_home&gt;/ext/xmltv/OSB.overview.tv.xml</code></div><div class="line number3 index2 alt2"><code class="text plain">&lt;EM_home&gt;/product/enterprisemanager/plugins/ com.wily.powerpacks.osb.emext.calculator_&lt;version&gt;.jar</code></div></div></td></tr></tbody></table></div></div>
+</div></div><p>For example, if you are upgrading from version 8.1.1, delete the following files:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<div><div id="highlighter_352533" class="syntaxhighlighter nogutter  text"><div class="toolbar"><span><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container" title="Hint: double-click to select code"><div class="line number1 index0 alt2"><code class="text plain">OSB_ManagementModuleV8.1.1.0.jar</code></div><div class="line number2 index1 alt1"><code class="text plain">OSB.overview.tv.xml</code></div><div class="line number3 index2 alt2"><code class="text plain">com.wily.powerpacks.osb.emext.calculator_8.1.1.0.jar</code></div></div></td></tr></tbody></table></div></div>
+</div></div></li></ul></li><li>Restart the Workstation.&nbsp;The dashboards and Overview tabs that are specific to CA APM for Oracle Service Bus are loaded.</li></ol><h2 id="MonitoringOracleServiceBus-UseDashboardstoMonitorOracleServiceBus">Use Dashboards to Monitor Oracle Service Bus</h2><p>The SOA extension for Oracle Service Bus includes several preconfigured dashboards that you can use to monitor the overall health of the application environment. Dashboards aggregate data across deployed agents to summarize performance information and help you rapidly diagnose and resolve problems.</p><p>Typically, you use dashboards as the starting point for monitoring your environment because they let you do the following:</p><ul><li>Monitor the overall health, performance, availability, and current status of key components of the Oracle Service Bus at-a-glance.</li><li>Get early notification of potential problems in the production application environment when lower-level metrics signal that a caution or danger threshold has been crossed.</li><li>Drill-down into performance information to isolate and identify which Oracle Service Bus components, transport protocols, endpoints, or operations are experiencing delays or producing errors.</li></ul><p>The preconfigured Oracle Service Bus dashboards are packaged in the Enterprise Manager extension for Oracle Service Bus as part of the OSB Management Module you have deployed (<em>OSB_ManagementModule_typical.jar</em> or <em>OSB_ManagementModule_full.jar</em>).</p><p>The OSB Management Module provides the following preconfigured dashboards for Oracle Service Bus:</p><ul><li><strong>CA APM for Oracle Service Bus Home</strong><br>A top-level view of the workflow through key components of Oracle Service Bus, including alert indicators for the overall health of all transports, proxy services, pipelines, and business services.</li><li><strong><strong>CA APM for Oracle Service Bus&nbsp;</strong>Proxy Services - Overview</strong><br>Summarized status for all proxy services, including alerts and graphs for Average Response Time, Errors Per Interval, and Stall counts, and a list of the ten slowest proxy services.</li><li><strong><strong><strong>CA APM for Oracle Service Bus&nbsp;</strong>Proxy Services</strong>&nbsp;- Details</strong><br>Separate summarized metrics for request and response operations across proxy services, including alerts and graphs for Average Response Time, Errors Per Interval, and Stall Counts.</li><li><strong><strong><strong>CA APM for Oracle Service Bus&nbsp;</strong></strong>Business Services - Overview</strong><br>Summarized status for all business services, including alerts and graphs for Average Response Time and Errors Per Interval, and a list of the ten slowest business services.</li><li><strong><strong><strong><strong>CA APM for Oracle Service Bus&nbsp;</strong></strong></strong>Pipelines - Overview</strong><br>Summarized status for all pipelines, including alerts and graphs for Average Response Time, Errors Per Interval, and Stall Counts, and the ten slowest pipelines.</li><li><strong><strong><strong><strong><strong>CA APM for Oracle Service Bus</strong></strong></strong></strong>&nbsp;Transports I - Overview</strong><br>Summarized health for commonly used transport types (HTTP/HTTPS, JMS, EJB, FTP, Email, and SFTP), including alerts for Average Response Time, Errors Per Interval, and Stall Counts across all transport types, and separate Average Response Time graphs for HTTP/HTTPS, JMS, EJB, FTP, Email, and SFTP transport types.</li><li><strong><strong><strong><strong><strong>CA APM for Oracle Service Bus</strong></strong></strong></strong>&nbsp;Transports II - Overview</strong><br>Separate Average Response Time graphs for additional transport types (Tuxedo, MQ, WS, JPD, SB, DSP, File, and Local).</li><li><strong><strong><strong><strong><strong>CA APM for Oracle Service Bus</strong></strong></strong></strong>&nbsp;Transport Endpoints - Overview</strong><br>Summarized status for inbound services and outbound endpoints across all transport types, including Average Response Time graphs and alerts for Errors Per Interval and Stall Counts for all inbound services and outbound endpoints, a list of the ten slowest Inbound Services, and a list of the ten slowest Outbound Endpoints.</li><li><strong><strong><strong><strong><strong>CA APM for Oracle Service Bus</strong></strong></strong></strong>&nbsp;XQuery - Overview</strong><br>Summarized status for all XQueries execution attempts, including graphs and alerts for Average Response Time, Errors Per Interval, and Stall Counts for Execute operations, and graphs for Average Response Time and Errors Per Interval for Parse operations.</li><li><strong><strong><strong><strong><strong>CA APM for Oracle Service Bus&nbsp;</strong></strong></strong></strong>UDDI - Overview</strong><br>Summarized status for all UDDI registry operations, including alerts and graphs for Average Response Time and Errors Per Interval for Import and Publish operations for the UDDI registries.</li></ul><p>You can view the preconfigured dashboards using the Workstation Console. You can also extend the OSB Management Module to include custom dashboards or modify the default dashboard definitions to include custom metrics or alerts.</p>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <strong>Note: </strong>For more information about creating and modifying dashboards, see the <em><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+APM+Configuration+and+Administration+Guide">CA APM Configuration and Administration Guide</a></em>.
+                    </div>
+    </div>
+<p><strong>Follow these steps:</strong></p><ol><li>Start the Enterprise Manager if it is not currently running.</li><li>Start the Workstation and log in to the Enterprise Manager where the SOA extension for Oracle Service Bus is installed.</li><li>Click Workstation &gt; New Console.</li><li>Select one of the OSB dashboards from the Dashboard drop-down list.<br>For example, select the OSB Home dashboard to see an architectural overview of Oracle Service Bus with alert indicators for all of the key components of the OSB workflow, such as Transports, Proxy Services, Pipelines, and Business Services.</li><li>Double-click an alert in the dashboard to open that component's dashboard.<br>For example, double-click the Proxy Services Response Time alert to go to the OSB Proxy Services&nbsp;-&nbsp;Overview dashboard to see a list of the slowest proxy services, and top-level alert indicators for response time, stall count, and errors for all proxy services.</li><li>Double-click a specific proxy service, pipeline, or transport in a dashboard to open the Investigator for further analysis.<br>From the Proxy Services Overview dashboard, for example, you can double-click a specific proxy service in the 10 Slowest Proxy Services list to view its details in the Investigator and continue drilling down through aggregated metrics to individual components of the selected pipeline to uncover the root cause of the delay or error threshold a dashboard alert signaled.</li></ol>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <strong>Note: </strong>For more information about viewing OSB-specific information in the Investigator, see <a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-UnderstandingandviewingmetricsforOracleServiceBus">Understanding and viewing metrics for Oracle Service Bus</a>. For more information about navigating between dashboards or between dashboards and the Workstation Investigator, see the <em><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+APM+Workstation+User+Guide">CA APM Workstation User Guide</a></em>.
+                    </div>
+    </div>
+<h2 id="MonitoringOracleServiceBus-UnderstandingandviewingmetricsforOracleServiceBus">Understanding and viewing metrics for Oracle Service Bus</h2><p>When you navigate in the Investigator tree, you can view the standard CA Introscope&amp;lt;reg&amp;gt; metrics for most Oracle Service Bus components and operations. Data for the standard metrics is collected and aggregated into OSB-specific metric categories displayed as nodes and sub-nodes in the Investigator tree. The specific metric categories and node names displayed depend on the Oracle Service Bus resources your applications use.</p><p>As you navigate through the Investigator tree, you can choose to view low-level metrics for individual operations or aggregated metrics depending on the node you select, enabling you to monitor the overall health of various OSB components.</p><p>For an overview of the standard metrics and the additional metrics provided by CA CPM for SOA, see <a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+a+Service-Oriented+Architecture#MonitoringaService-OrientedArchitecture-TheAvailableMetrics">The Available Metrics</a>. For additional information about the metrics for OSB components, see the following sections:</p><ul><li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforBusinessServices">Metrics for BusinessServices</a></li><li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforPipelines">Metrics for Pipelines</a></li><li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforProxyServices">Metrics for ProxyServices</a></li><li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforTransports">Metrics for Transports</a></li><li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforUDDI">Metrics for UDDI</a></li><li><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#MonitoringOracleServiceBus-MetricsforXQueries">Metrics for XQueries</a></li></ul><p><strong>To view and navigate Oracle Service Bus metrics in the Investigator:</strong></p><ol><li>Expand the agent node, then select OSB to display the Overview tab for Oracle Service Bus components.<br>The Overview tab lists summary information for all of the proxy services and business services you have defined for the Oracle Service Bus to use.</li><li>Double-click a proxy service or a business service on the Overview tab to view all the aggregated metrics for that proxy service or business service in a graphical format.</li><li>Expand the OSB node to display sub-nodes for the top-level Oracle Service Bus metric categories: Business Services, Pipelines, Proxy Services, Transports, UDDI, and XQueries.</li><li>Click a sub-node to display an Overview tab with summary information about that metric category. For example, click the OSB &gt; BusinessServices to view all of the business services listed in the Overview tab.</li><li>Expand a sub-node to see individual services or operations and metrics associated with each.<br>For example, expand the BusinessServices node to see all of the business services you have configured in Oracle Service Bus. You can then expand an individual business service name to see the standard metrics for that specific service.</li></ol><h3 id="MonitoringOracleServiceBus-MetricsforBusinessServices">Metrics for BusinessServices</h3><p>For Oracle Service Bus, business services are defined as external enterprise services that are hosted by external systems. Only the following standard metrics are available for Oracle Service Bus business services under the OSB&nbsp;&gt;&nbsp;BusinessServices node:</p><ul><li>Average Response Time (ms)</li><li>Errors Per Interval</li><li>Responses Per Interval</li></ul><p>In the Oracle Service Bus platform, business services are external services with which Oracle Service Bus can exchange messages. Because the message to a business service represents a call to an external service, it does not consist of a request and response transaction. Therefore, calculating the Average Response Time metric for business services relies on determining the total business service execution time.</p><p>CA Introscope calculates the business service execution time based on the sum of Oracle Service Bus transport time, the actual service execution time, and network laspe time. For example, if the OSB transport time is 10 ms, the actual service execution time is 18 ms, and the network lapse time is 5 ms, the business service execution time is 33 ms.</p><h3 id="MonitoringOracleServiceBus-MetricsforPipelines">Metrics for Pipelines</h3><p>Pipelines are named sequences that process the specific steps for a Request, a Response, or an Error message flow. All of the standard CA Introscope&amp;lt;reg&amp;gt; metrics are available for Oracle Service Bus pipelines under the OSB &gt; Pipelines node if you are using OSB full instrumentation.</p><p>If you are using OSB typical instrumentation, the Pipelines node is not displayed in the Investigator. If you want to display metrics for pipelines in the Investigator, modify the <em>OSB-toggles-typical.pbd</em> file to enable tracing for Pipelines.</p><h3 id="MonitoringOracleServiceBus-MetricsforProxyServices">Metrics for ProxyServices</h3><p>Proxy services define how Oracle Service Bus routes messages between business services. A message from an external web service or database could be routed to a service client such as a presentation application or other business service. All of the standard CA Introscope&amp;lt;reg&amp;gt; metrics are available for Oracle Service Bus proxy services under the OSB&nbsp;&gt;&nbsp;ProxyServices node.</p><p>Proxy services consist of a request and response transaction. All of the metrics under individual proxy service names are aggregated metrics which are based on the metrics that are listed under the Request and Response sub-nodes.</p><p>For example, the Concurrent Invocations for mortgageBroker1 to loanGateway1 proxy service are determined by adding the loanGateway1 requests to the concurrent loanGateway1 responses.</p><p>The response time of each transaction is defined as the total round-trip time. A transaction starts when a request is received from a caller. The transaction ends when the response is returned to the caller.</p><p>Average Response Time is calculated by dividing total transaction time by the number of transactions.</p><h3 id="MonitoringOracleServiceBus-MetricsforTransports">Metrics for Transports</h3><p>Transports define the mechanism for sending and delivering messages. For Oracle Service Bus, you can collect metrics for most common transport protocols, including the following transport types that are supported in Oracle Service Bus by default:</p><ul><li>HTTP/HTTPS</li><li>JMS</li><li>EJB</li><li>FTP</li><li>Email</li><li>SFTP</li><li>Tuxedo</li><li>MQ</li><li>WS</li><li>JPD</li><li>SB</li><li>DSP</li><li>File</li><li>Local</li></ul><p>If a proxy service uses a specific transport type, that transport type and its metrics are displayed in the Investigator tree. If a transport type is not used by any service, that transport type is not displayed in the Investigator tree.</p><p>If a proxy service uses a custom transport type, the Java package name defined for that transport type is displayed in the Investigator. For example, if the OSB Console uses the custom transport type com.bea.wli.sb.test.service, <em>Investigator displays com.bea.wli.sb.test.service</em> as a transport type.</p><p>All of the standard CA Introscope metrics are available under the OSB&nbsp;&gt;&nbsp;Transports node for the specific transport protocols you are using. For each transport protocol, the nodes displayed depend on whether you have configured typical or full instrumentation.</p><p>For example, if you are using typical instrumentation, metrics are summarized under send and receive nodes. If you are using full instrumentation and expand a transport type, inbound and outbound sub-nodes are displayed and metrics for individual operations, such as <em>getRequestPayload</em>, <em>send</em>, or <em>sendMessageAsync</em>, are listed for the transport type.</p><h3 id="MonitoringOracleServiceBus-MetricsforUDDI">Metrics for UDDI</h3><p>You must configure the AquaLogic or Oracle Service Bus Registry to interact with UDDI 3.0 compliant registries before you can collect and view UDDI metrics. If you have configured Oracle Service Bus to use UDDI, you can collect and view aggregated metrics for import, inquiry, and publish operations.</p><p>All of the standard CA Introscope&amp;lt;reg&amp;gt; metrics are available under the OSB&nbsp;&gt;&nbsp;UDDI sub-nodes for import, inquiry, and publish operations.</p><h3 id="MonitoringOracleServiceBus-MetricsforXQueries">Metrics for XQueries</h3><p>If you have configured Oracle Service Bus to use XQueries, you can collect and view aggregated metrics for create, parse, and execute operations.</p><p>All of the standard CA Introscope&amp;lt;reg&amp;gt; metrics are available under the OSB&nbsp;&gt;&nbsp;XQueries sub-nodes for create, parse, and execute operations.</p><p>Metrics for the create and parse methods are populated only once for each XQuery. Metrics for the execute method are populated with every execution of an XQuery expression or condition.</p><h2 id="MonitoringOracleServiceBus-ViewDefaultOracleServiceBusMetricGroupings">View Default Oracle Service Bus Metric Groupings</h2><p>The SOA extension for Oracle Service Bus includes default metric groupings that are used to define the default dashboards and alerts. You can also use these default metric groupings in custom dashboards and alerts.</p><p>The default metric groupings are packaged in the Enterprise Manager extension for Oracle Service Bus as part of the OSB Management Module you have deployed (<em>OSB_ManagementModule_typical.jar</em> or <em>OSB_ManagementModule_full.jar</em>).</p><p>You can view the default metric groupings using the Workstation Management Module Editor. You can also extend the OSB Management Module to include custom metric groupings or use the default metric groupings in custom dashboards or alerts.</p><p><strong>Follow these steps:</strong></p><ol><li>In the Investigator, click Workstation &gt; New Management Module Editor.</li><li>Expand *SuperDomain* &gt; Management Modules &gt; OSB_ManagementModule (*Super Domain*) you have deployed.<br>For example, if you have deployed typical settings, expand OSB_ManagementModule Typical (*Super Domain*).</li><li>Expand the Metric Groupings node to view all of the metric groupings defined for the Oracle Service Bus management module.</li><li>Click a specific metric grouping to view its definition in the Viewer pane.</li></ol><p>You can modify the default settings for any metric grouping or create your own custom metric groupings.</p>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <strong>Note: </strong>For more information about creating or modifying metric groupings, <span>see the </span><em><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+APM+Workstation+User+Guide">CA APM Workstation User Guide</a></em><span>.</span>
+                    </div>
+    </div>
+<h2 id="MonitoringOracleServiceBus-ViewDefaultOracleServiceBusAlerts">View Default Oracle Service Bus Alerts</h2><p>The SOA extension for Oracle Service Bus includes default alert definitions that are used in the preconfigured dashboards. You can also use these default alerts in custom dashboards. Most of the default alerts are preconfigured with default Caution and Danger thresholds and to send notification to the console if a threshold is crossed or severity increases.</p><p>The default alert definitions are packaged in the Enterprise Manager extension for Oracle Service Bus as part of the OSB Management Module you have deployed (<em>OSB_ManagementModule_typical.jar</em> or <em>OSB_ManagementModule_full.jar</em>).</p><p>You can view the default alert definitions using the Workstation Management Module Editor. You can also extend the OSB Management Module to include custom alert definitions and notification types or use the default alert definitions in custom dashboards.</p><p><strong>Follow these steps:</strong></p><ol><li>In the Investigator, click Workstation &gt; New Management Module Editor.</li><li>Expand *SuperDomain* &gt; Management Modules &gt; OSB_ManagementModule (*SuperDomain*) you have deployed.<br>For example, if you have deployed typical settings, expand OSB_ManagementModule Typical (*SuperDomain*).</li><li>Expand the Alerts node to view all of the alerts defined for the Oracle Service Bus management module.</li><li>Click a specific alert to view its definition in the Viewer pane.</li></ol><p>In particular, you should review the default settings for Caution and Danger thresholds and adjust the values, if necessary, and add notifications or corrective actions.</p><p>You can modify the default settings for any alert or create your own custom alerts.</p>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <strong>Note:</strong> For more information about creating or modifying alerts, <span>see the </span><em><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+APM+Workstation+User+Guide">CA APM Workstation User Guide</a></em><span>.</span>
+                    </div>
+    </div>
+<h2 id="MonitoringOracleServiceBus-ViewingOracleServiceBusdependencies">Viewing Oracle Service Bus dependencies</h2><p>You can view dependencies for Oracle Service Bus proxy services and business services by selecting the ProxyServices or BusinessService node or an individual proxy service or business service in the Investigator tree, then clicking the SOA Dependency Map tab. For example, for a high level view of the dependencies for all proxy services on an agent, you can select the ProxyServices node in the Investigator, then click the SOA Dependency Map tab:</p><p><img class="confluence-embedded-image" alt="The SOA Dependency Map displays all of the proxy services on the agent." src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/1456167.png" data-image-src="/download/attachments/114465670/1456167.png?version=1&amp;modificationDate=1413309942128&amp;api=v2" title="APMOP--OSB DependencyMap_AllProxyServices--SCR"></p><p>The node you select determines the context displayed in the dependency map. You can then roll up to collapse or roll down to expand the context and level of detail you are viewing. For example, for a high level view of dependencies in a specific proxy service, you can select the proxy service name in the Investigator, then click the SOA Dependency Map tab. The following example illustrates a proxy service for processing a loan request selected in the Investigator tree and the dependency map expanded to show additional dependencies:</p><p><img class="confluence-embedded-image" alt="The SOA Dependency Map displays additional dependencies for a proxy service." src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/1456168.png" data-image-src="/download/attachments/114465670/1456168.png?version=1&amp;modificationDate=1413309942458&amp;api=v2" title="APMOP--OSB Dependency Map Unrolled--SCR"></p><p>You can continue to add dependency levels to the map to see the entire workflow for the business process or zoom in on specific nodes of the map, as needed. For more detailed information about navigating the dependency map, see <a href="https://wiki.ca.com/display/APMDEVOPS96/Using+the+SOA+Dependency+Map">Using the SOA Dependency Map</a>.</p><h2 id="MonitoringOracleServiceBus-TracingtransactionsforOracleServiceBus">Tracing transactions for Oracle Service Bus</h2><p>Transaction tracing captures the specific steps involved in completing a transaction, including operations passed in SOAP messages, HTTP or HTTPS headers, Java Message Service calls, and through Oracle Service Bus components that perform message, data, or protocol transformation.</p><p>If a transaction includes any messages routed through Oracle Service Bus proxy services or other Oracle Service Bus components, you can view information about the operations performed and the time each operation took to complete in the cross-process transaction trace. You can track the business transaction across any combination of platforms as long as CA APM for SOA and CA APM for Oracle Service Bus are enabled at every node being traced.</p><h3 id="MonitoringOracleServiceBus-Understandingthevalueofcross-processtransactiontracing">Understanding the value of cross-process transaction tracing</h3><p>Cross-process transaction tracing provides valuable information about the operations being performed by loosely coupled services in a service-oriented architecture. You can use cross-process transaction tracing to determine:</p><ul><li>how messages are transformed and routed through Oracle Service Bus components.</li><li>which business services and proxy services are being called during a transaction.</li><li>the sequence of calls being made during a transaction.</li><li>where the processing of a request or reply is slowest.</li></ul><h3 id="MonitoringOracleServiceBus-StartingandViewingaSampleTransactionTrace">Starting and Viewing a Sample Transaction Trace</h3><p>You can start a transaction trace session:</p><ul><li>Directly from a map node in the SOA Dependency Map.</li><li>Manually from the Workstation by clicking Workstation &gt; New Transaction Trace Session.</li></ul><p>If you start the transaction trace from the dependency map, the map node type sets the default filter automatically. If you manually start a new transaction trace session, you can select one of the following filter types for Oracle Service Bus:</p><ul><li>businessservice</li><li>proxyservice</li><li>namespace</li><li>operation</li></ul><p>For example, to filter transactions for a specific Oracle Service Bus proxy service, you can select the proxyservice filter and type all or part of the proxy service name.</p><p>After starting a transaction trace session, you can use the Transaction Trace Viewer to view summary and detailed information about each segment of a selected transaction. Because transactions involving Oracle Service Bus often include asynchronous calls, you may find it useful to click the Sequence View to view the transaction workflow for the processes that executed asynchronously as part of a transaction. The Sequence View displays the order in which process execute to the extent the sequence can be identified. For Oracle Service Bus transactions, the sequence does not necessarily represent a traditional caller-callee relationship, but illustrates when one process triggers the execution of another process.</p>    <div class="aui-message warning shadowed information-macro">
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <strong>Note: </strong>For more information about transaction tracing, see <a href="https://wiki.ca.com/display/APMDEVOPS96/Using+Transaction+Tracing+in+SOA+Environments">Using transaction tracing in SOA environments</a>. For more detailed information about configuring tracing for agents, see the <em><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+APM+Java+Agent+Implementation+Guide">CA APM Java Agent Implementation Guide</a></em> or the<em><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+APM+.NET+Agent+Implementation+Guide"> CA APM .NET Agent Implementation Guide</a></em>. For more information about working with transaction trace views and historical data, <span>see the </span><em><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+APM+Workstation+User+Guide">CA APM Workstation User Guide</a></em><span>.</span>
+                    </div>
+    </div>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus"
+    dc:identifier="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus"
+    dc:title="Monitoring Oracle Service Bus"
+    trackback:ping="https://wiki.ca.com/rpc/trackback/114465670"/>
+</rdf:RDF>
+-->
+
+		
+		
+		    <div class="after-wiki-content">
+
+	            
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="114465670" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            
+
+<li class="aui-label " data-label-id="95780865">
+    <a class="aui-label-split-main" href="https://wiki.ca.com/label/APMDEVOPS96/extending">extending</a>
+    </li><li class="aui-label " data-label-id="49905672">
+    <a class="aui-label-split-main" href="https://wiki.ca.com/label/APMDEVOPS96/9_6">9_6</a>
+    </li><li class="aui-label " data-label-id="75759622">
+    <a class="aui-label-split-main" href="https://wiki.ca.com/label/APMDEVOPS96/ca_application_performance_management">ca_application_performance_management</a>
+    </li>             </ul>
+
+    </div>
+</div></div>
+		    
+	            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                    
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+    
+    
+            <div class="bottom-comment-panels comment-panels">
+            </div>
+    
+                        <div id="comments-actions" class="aui-toolbar noprint">
+                <p class="toolbar-group">
+                    <span class="toolbar-item"><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus?showComments=true&showCommentArea=true#addcomment" id="add-comment-rte" accesskey="m" class="toolbar-trigger full-load" title=" (m)">Add Comment</a></span>
+                </p>
+            </div>
+            </div>
+
+
+	        </div>
+        
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+
+                 
+    
+                  
+    
+        
+        
+
+        
+
+        
+
+        
+
+
+
+
+                            </div>
+
+
+                                                                        
+
+                                                    </div> <!-- \#splitter-contents -->
+
+                        <div id="splitter-sidebars" class="padding-divs c-nav ca-fixed-column">
+                            <div class="left-nav-wrapper" style="bottom: 233.074981689453px; height: auto;">
+                                <ul class="left-nav white-background">
+                                    <li class="left-nav-lvl-1">
+                                        <ul class="left-nav-lvl-1-children">
+                                            
+                <div class="search-wrap">    
+    
+
+
+<div class="search-macro search-macro-medium">
+    <div class="aui-dd-parent"></div>
+    <form class="aui aui-dd-parent" name="livesearchForm" method="GET" action="https://wiki.ca.com/dosearchsite.action">
+        <fieldset class="search-macro-fields">
+            <div class="search-macro-query">
+                <input class="text" type="text" name="queryString" autocomplete="off" placeholder="Search this product">
+                            </div>
+                        <button type="submit" class="search-macro-button aui-button">
+                <span class="aui-icon aui-icon-small aui-iconfont-search">Search</span>
+            </button>
+                        <input type="hidden" name="where" value="APMDEVOPS96">
+            <input type="hidden" name="additional" value="space name">
+            <input type="hidden" name="labels" value="">
+            <input type="hidden" name="type" value="page">
+        </fieldset>
+    </form>
+</div></div>
+                            
+
+
+
+
+
+
+
+
+<div class="sv-spinner sv-pagetree-loader" style="display: none;"></div>
+
+<div class="sv-pagetree open" data-root-scroll-page-id="7F0000010147CF4CF736F70F78602FEE" data-root-page-id="79659182" data-space-key="APMDEVOPS96" data-version-id="current" data-variant-id="all" data-language-key="en" data-expanded-scroll-page-id="7F00000101484623F07EB04A03AE03C1" data-is-show-unavailable-pages="true" data-is-remember-tree-state="true" data-sort-by="position" data-reverse-order="false" data-start-depth="1" data-is-show-toplevel="false" data-is-show-unavailable="true">
+    <div class="error" style="clear: both;"></div>
+    <ul class="children"><li class="node type_masterpage     " data-page-id="79659183" data-master-page-id="79659183" data-scroll-page-id="7F0000010147CF4CF79DD195123C4C4C" data-scroll-page-title="Getting Started" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F0000010147CF4CF79DD195123C4C4C"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Getting+Started" title="Getting Started">Getting Started</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="79660376" data-master-page-id="79660376" data-scroll-page-id="7F0000010147CF4CF7993FA577DE1024" data-scroll-page-title="Release Information" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F0000010147CF4CF7993FA577DE1024"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Release+Information" title="Release Information">Release Information</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="79659239" data-master-page-id="79659239" data-scroll-page-id="7F0000010147CF4CF7A1AF2B47571ED3" data-scroll-page-title="Installing" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F0000010147CF4CF7A1AF2B47571ED3"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Installing" title="Installing">Installing</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="79659336" data-master-page-id="79659336" data-scroll-page-id="7F0000010147CF4CF7ADDE965623027A" data-scroll-page-title="Administrating" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F0000010147CF4CF7ADDE965623027A"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Administrating" title="Administrating">Administrating</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465176" data-master-page-id="114465176" data-scroll-page-id="7F0000010148474E45F6D45B5CD84EF6" data-scroll-page-title="Implementing Agents" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F0000010148474E45F6D45B5CD84EF6"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Implementing+Agents" title="Implementing Agents">Implementing Agents</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="79659744" data-master-page-id="79659744" data-scroll-page-id="7F0000010147CF4CF7A9A16E655A269F" data-scroll-page-title="Using" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F0000010147CF4CF7A9A16E655A269F"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Using" title="Using">Using</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="79660394" data-master-page-id="79660394" data-scroll-page-id="7F0000010147CF4CF79518794C1B1327" data-scroll-page-title="Troubleshooting" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F0000010147CF4CF79518794C1B1327"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Troubleshooting" title="Troubleshooting">Troubleshooting</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage open    " data-page-id="114465334" data-master-page-id="114465334" data-scroll-page-id="7F00000101481DA230CFEFFE7DE0E267" data-scroll-page-title="Extending" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F00000101481DA230CFEFFE7DE0E267"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Extending" title="Extending">Extending</a><ul class="children"><li class="node type_masterpage open    " data-page-id="114465641" data-master-page-id="114465641" data-scroll-page-id="7F0000010148462983F757AD7E7569A6" data-scroll-page-title="CA APM for SOA Implementation Guide" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F0000010148462983F757AD7E7569A6"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/CA+APM+for+SOA+Implementation+Guide" title="CA APM for SOA Implementation Guide">CA APM for SOA Implementation Guide</a><ul class="children"><li class="node type_masterpage     " data-page-id="114465642" data-master-page-id="114465642" data-scroll-page-id="7F000001014846239B7E395D10C570DA" data-scroll-page-title="About CA Application Performance Management for SOA" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F000001014846239B7E395D10C570DA"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/About+CA+Application+Performance+Management+for+SOA" title="About CA Application Performance Management for SOA">About CA Application Performance Management for SOA</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465646" data-master-page-id="114465646" data-scroll-page-id="7F00000101484623A71BC37707C77C86" data-scroll-page-title="Installing and Configuring CA APM for SOA" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484623A71BC37707C77C86"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Installing+and+Configuring+CA+APM+for+SOA" title="Installing and Configuring CA APM for SOA">Installing and Configuring CA APM for SOA</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465651" data-master-page-id="114465651" data-scroll-page-id="7F00000101484623AEF4DF793BB21F25" data-scroll-page-title="Monitoring a Service-Oriented Architecture" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484623AEF4DF793BB21F25"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+a+Service-Oriented+Architecture" title="Monitoring a Service-Oriented Architecture">Monitoring a Service-Oriented Architecture</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465660" data-master-page-id="114465660" data-scroll-page-id="7F00000101484623D2D30B277F4B7B52" data-scroll-page-title="Using the SOA Dependency Map" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484623D2D30B277F4B7B52"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Using+the+SOA+Dependency+Map" title="Using the SOA Dependency Map">Using the SOA Dependency Map</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465667" data-master-page-id="114465667" data-scroll-page-id="7F00000101484623E0DDF46C526C15C3" data-scroll-page-title="Using Transaction Tracing in SOA Environments" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484623E0DDF46C526C15C3"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Using+Transaction+Tracing+in+SOA+Environments" title="Using Transaction Tracing in SOA Environments">Using Transaction Tracing in SOA Environments</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465669" data-master-page-id="114465669" data-scroll-page-id="7F00000101484623EAFDDFEC51889899" data-scroll-page-title="Configuring SOA-Specific Properties" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484623EAFDDFEC51889899"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Configuring+SOA-Specific+Properties" title="Configuring SOA-Specific Properties">Configuring SOA-Specific Properties</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage  highlight   " data-page-id="114465670" data-master-page-id="114465670" data-scroll-page-id="7F00000101484623F07EB04A03AE03C1" data-scroll-page-title="Monitoring Oracle Service Bus" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484623F07EB04A03AE03C1"></div><a href="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki.html" title="Monitoring Oracle Service Bus">Monitoring Oracle Service Bus</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465671" data-master-page-id="114465671" data-scroll-page-id="7F00000101484624148BE0AB17A0C52D" data-scroll-page-title="Monitoring TIBCO Enterprise Message Service" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484624148BE0AB17A0C52D"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+TIBCO+Enterprise+Message+Service" title="Monitoring TIBCO Enterprise Message Service">Monitoring TIBCO Enterprise Message Service</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465672" data-master-page-id="114465672" data-scroll-page-id="7F00000101484623FF2FF5EB2C24006D" data-scroll-page-title="Monitoring TIBCO BusinessWorks" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484623FF2FF5EB2C24006D"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+TIBCO+BusinessWorks" title="Monitoring TIBCO BusinessWorks">Monitoring TIBCO BusinessWorks</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465673" data-master-page-id="114465673" data-scroll-page-id="7F0000010148462426A2CC885EFEC988" data-scroll-page-title="Monitoring webMethods Broker" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F0000010148462426A2CC885EFEC988"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+webMethods+Broker" title="Monitoring webMethods Broker">Monitoring webMethods Broker</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465674" data-master-page-id="114465674" data-scroll-page-id="7F0000010148462432D1F61D5DB4A651" data-scroll-page-title="Monitoring webMethods Integration Server" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F0000010148462432D1F61D5DB4A651"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+webMethods+Integration+Server" title="Monitoring webMethods Integration Server">Monitoring webMethods Integration Server</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465675" data-master-page-id="114465675" data-scroll-page-id="7F0000010148462448FA7B3A5905C65A" data-scroll-page-title="Monitoring WebSphere Process Server and WESB" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F0000010148462448FA7B3A5905C65A"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+WebSphere+Process+Server+and+WESB" title="Monitoring WebSphere Process Server and WESB">Monitoring WebSphere Process Server and WESB</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465676" data-master-page-id="114465676" data-scroll-page-id="7F00000101484624553C163A0DEB7133" data-scroll-page-title="SOA-Specific Agent Configuration Properties" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484624553C163A0DEB7133"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/SOA-Specific+Agent+Configuration+Properties" title="SOA-Specific Agent Configuration Properties">SOA-Specific Agent Configuration Properties</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465677" data-master-page-id="114465677" data-scroll-page-id="7F000001014846245FA3A9123ECE9E7D" data-scroll-page-title="SOA-Specific Enterprise Manager Configuration Properties" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F000001014846245FA3A9123ECE9E7D"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/SOA-Specific+Enterprise+Manager+Configuration+Properties" title="SOA-Specific Enterprise Manager Configuration Properties">SOA-Specific Enterprise Manager Configuration Properties</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465678" data-master-page-id="114465678" data-scroll-page-id="7F0000010148462469C811B05E021A6E" data-scroll-page-title="SOA-Specific Workstation Configuration Properties" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F0000010148462469C811B05E021A6E"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/SOA-Specific+Workstation+Configuration+Properties" title="SOA-Specific Workstation Configuration Properties">SOA-Specific Workstation Configuration Properties</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li><li class="node type_masterpage     " data-page-id="114465680" data-master-page-id="114465680" data-scroll-page-id="7F00000101484624709D514D4593ABD0" data-scroll-page-title="SOA-Specific WebView Configuration Properties" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101484624709D514D4593ABD0"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/SOA-Specific+WebView+Configuration+Properties" title="SOA-Specific WebView Configuration Properties">SOA-Specific WebView Configuration Properties</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li></ul></li><li class="node type_masterpage     " data-page-id="114465819" data-master-page-id="114465819" data-scroll-page-id="7F00000101488010BD94139C4F6A000B" data-scroll-page-title="How to Configure and Use ErrorDetector" data-is-managed="false"><div class="openclose " data-scroll-page-id="7F00000101488010BD94139C4F6A000B"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/How+to+Configure+and+Use+ErrorDetector" title="How to Configure and Use ErrorDetector">How to Configure and Use ErrorDetector</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li></ul></li><li class="node type_masterpage     " data-page-id="114465824" data-master-page-id="114465824" data-scroll-page-id="7F00000101481DA280C72BC739DA2260" data-scroll-page-title="Integrating" data-is-managed="false"><div class="openclose openclose-hasChildren" data-scroll-page-id="7F00000101481DA280C72BC739DA2260"></div><a href="https://wiki.ca.com/display/APMDEVOPS96/Integrating" title="Integrating">Integrating</a><div class="loading">Loading..</div><div class="error"></div><ul class="children"></ul></li></ul>
+</div>
+
+                <div class="after-sv-pagetree blogposts">
+            <ul>
+                <li><a href="https://wiki.ca.com/pages/viewrecentblogposts.action?key=APMDEVOPS96">Announcements &amp; News</a></li>
+            </ul>
+        </div>
+
+                <div class="after-sv-pagetree copyright">
+    <ul>
+                    <li><a href="https://wiki.ca.com/display/LN/Documentation+Legal+Notice+-+English+-+Public">Documentation Legal Notices</a></li>
+            </ul>
+</div>
+    
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> <!-- \#splitter-sidebars -->
+
+                    </div>
+                
+
+                                                                
+
+
+
+            </div>
+        </div>
+
+
+                		    
+            
+<footer class="ca-footer">
+            <div class="footer-double-top">
+        <div class="container ">
+            <div class="row footer">
+                <div class="span12">
+                                        <div class="pull-left" style="visibility: visible;">
+                        <span class="label">Did you find this helpful?</span>
+                        <a id="foot-provide-feedback-trigger" class="aui-lozenge aui-lozenge-subtle ca-lozenge casans trigger" aria-haspopup="true" aria-owns="foot-provide-feedback-inner" href="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#">Tell us</a>
+                        <div id="foot-provide-feedback-content" class="hidden">
+                            <div id="foot-provide-feedback-inner">
+                                    
+
+<div id="likes-section-custom">
+    <div id="likeUnlikeFormDiv">
+        <div id="likeUnlikeMainDiv">
+            <form class="aui" action="https://wiki.ca.com/display/APMDEVOPS96/Monitoring+Oracle+Service+Bus#">
+                <div>
+                    <div class="like-unlike-control">
+                        <input id="feedbackYes" name="feedback" class="feedback" value="yes" type="radio" checked="">
+                        Yes
+                        &nbsp;
+                        <input id="feedbackNo" name="feedback" class="feedback" value="no" type="radio">
+                        No
+                    </div>
+                </div>
+
+                <div id="like_unlike_div">
+                    <div class="like-unlike-div">
+                        Please tell us what we can do better.
+                    </div>
+
+                    <textarea id="likeUnlikeComment" name="likeUnlikeComment" class="monospaceInput textarea like-unlike-comment is-maxlength" maxlength="255"></textarea>
+                </div>
+
+                <div class="like-unlike-submit-div">
+                    <input id="likeUnlikeSubmit" type="button" value="Save">
+                    <img id="likeUnlikeLoader" src="./Monitoring Oracle Service Bus - CA Application Performance Management - 9.6 - CA Wiki_files/ajax-loader.gif" style="display: none;">
+                    <span class="character-counter-span">Char:&nbsp;<span id="character-counter" class="maxlength-feedback">255/255</span></span>
+                </div>
+            </form>
+        </div>
+
+        <div id="likeUnlikeThankDiv" style="display: none;">
+            <div class="like-unlike-div">
+                Thank you for your feedback.
+            </div>
+
+            <div class="like-unlike-submit-div">
+                <input id="likeUnlikeThank" type="button" value="Thank You!">
+            </div>
+        </div>
+    </div>
+
+    <div id="likeUnlikeSummaryDiv">
+        <span class="like-summary">
+            Yes:<span id="likes-value" class="like-value-span">0</span>
+            &nbsp;
+            No:<span id="unlikes-value" class="like-value-span">0</span>
+        </span>
+    </div>
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                                                        </div>
+            </div>
+        </div>
+    </div>
+            <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="span9" style="float:left;">
+                    <p class=" white footer-headline" style="font-size: 1.1em;"><strong>Company Information</strong></p>
+                    <ul class="unstyled inline link-list">
+                        <li class="padl0"><a class="white" href="http://www.ca.com/us/about-us.aspx">          About Us</a> </li>
+                        <li><a class="white" href="http://www.ca.com/us/it-management-events.aspx">            Events</a> </li>
+                        <li><a class="white" href="http://www.ca.com/us/success.aspx?intcmp=footernav">  Customer Stories</a> </li>
+                        <li><a class="white" href="http://www.ca.com/us/about-us/innovation.aspx?intcmp=footernav">        Innovation</a> </li>
+                        <li><a class="white" href="http://www.ca.com/us/csr.aspx?intcmp=footernav">               Corporate Social Responsibility</a> </li>
+                        <li><a class="white" href="http://www.ca.com/us/careers.aspx">           Careers</a> </li>
+                        <li><a class="white" href="http://investor.ca.com/">         Investors</a> </li>
+                    </ul>
+                </div>
+                <div class="span3">
+                    <ul class="inline follow-list right pull-right pull-clear-sm">
+                        <li><a class="follow google" href="https://plus.google.com/+CATechnologies">Google</a></li>
+                        <li><a class="follow twitter" href="http://twitter.com/CAInc">Twitter</a></li>
+                        <li><a class="follow facebook" href="http://www.facebook.com/CATechnologies">Facebook</a></li>
+                        <li><a class="follow linkedin" href="http://www.linkedin.com/company/ca-technologies">LinkedIn</a></li>
+                        <li><a class="follow youtube" href="http://www.youtube.com/user/catechnologies">YouTube</a></li>
+                        <li><a class="follow cookbooks" href="https://flipboard.com/profile/mycagroup">Flipboard</a></li>
+                    </ul>
+                    <ul class="unstyled inline link-list right pull-right pull-clear">
+                        <li class="padl0"><a class="white" href="http://www.ca.com/us/contact.aspx?intcmp=footernav">Contact</a> </li>
+                        <li><a class="white" href="http://blogs.ca.com/?intcmp=footernav">Blogs</a></li>
+                        <li><a class="white" href="http://www.ca.com/us/rss.aspx?intcmp=footernav">RSS</a></li>
+                        <li><a class="white" href="http://www.ca.com/us/social-media.aspx#?intcmp=footernav">Social</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container ">
+            <div class="row footer">
+                <div class="span12">
+                    <p class="pull-left clear-pull-sm text-center-sm">
+                        <a href="http://www.ca.com/us/worldwide.aspx?intcmp=footernav">United States - English</a>
+                        <a href="http://www.ca.com/us/legal.aspx">Legal</a>
+                        <a href="http://www.ca.com/us/privacy.aspx">Privacy</a>
+                        <a href="http://www.ca.com/us/sitemap.aspx?intcmp=footernav">Sitemap</a>
+                        <a href="https://www.atlassian.com/software/confluence">Powered by Atlassian</a></p>
+                    <p class="pull-right clear-pull-sm text-center-sm">Copyright © 2015 CA. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+            <span id="load-ca-navigation-mega-menu"><!--DO NOT REMOVE--></span> 
+        
+
+
+	
+    <!-- Theme ✐ with ❤ by @dvdsmpsn at @appfusions -->
+
+<div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="content-hover-shadow" style="display: none;"><div class="tl"></div><div class="tr"></div><div class="l"></div><div class="r"></div><div class="bl"></div><div class="br"></div><div class="b"></div></div><div id="fileuploadShim" style="position: relative; z-index: 0;"></div><div id="p19cpaiq221vimj0rmsj180q2t0_html5_container" class="plupload html5" style="position: absolute; width: 1522px; height: 0px; overflow: hidden; z-index: -1; opacity: 0; top: 12405px; left: 0px; background: transparent;"><input id="p19cpaiq221vimj0rmsj180q2t0_html5" style="font-size: 999px; position: absolute; width: 100%; height: 100%;" type="file" accept="" multiple="multiple"></div><div id="cw-notification-container"></div><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i; } else { d.textContent=i; } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>

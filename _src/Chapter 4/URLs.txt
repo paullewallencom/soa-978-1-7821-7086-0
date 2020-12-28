@@ -1,0 +1,5 @@
+http://osb.packt.com:8011/Customer?wsdl
+http://osb.packt.com:8011/HelloWorldOSB?wsdl
+
+
+

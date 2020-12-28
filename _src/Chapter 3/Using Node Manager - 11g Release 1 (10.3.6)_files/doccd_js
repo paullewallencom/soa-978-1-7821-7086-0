@@ -1,0 +1,1222 @@
+var tAuthority = "www.oracle.com", tSchema = "as111160",
+  navBackground = "white", scrollBar = "scroll";
+
+/*
+  Copyright 2006, 2013, Oracle and/or its affiliates. All rights reserved.
+  Author: Robert Crews
+  Version: 2013.3.11
+*/
+
+function addLoadEvent(func) {
+  "use strict";
+  var oldOnload = window.onload;
+  if (typeof window.onload !== "function") {
+    window.onload = func;
+  } else {
+    window.onload = function () { oldOnload(); func(); };
+  }
+}
+
+function createCookie(name, value, days) {
+  "use strict";
+  var date, expires = "";
+  if (days) {
+    date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toGMTString();
+  } else {
+    expires = "";
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) {
+  "use strict";
+  var i = 0, c, nameEQ = name + "=", ca = document.cookie.split(";");
+  for (i = 0; i < ca.length; i += 1) {
+    c = ca[i];
+    while (c.charAt(0) === " ") {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) === 0) {
+      return c.substring(nameEQ.length, c.length);
+    }
+  }
+  return "";
+}
+
+// https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/JSON#Browser_compatibility
+if (!window.JSON) {
+//  "use strict";
+  window.JSON = {
+    parse: function (sJSON) { return eval("(" + sJSON + ")"); }
+  };
+}
+
+function leftNav() {
+//  "use strict";
+  if (!document.createElement) { return false; }
+  if (!document.createTextNode) { return false; }
+  if (!document.getElementById) { return false; }
+  if (!document.getElementsByTagName) { return false; }
+  if (!document.documentElement.appendChild) { return false; }
+  if (!document.documentElement.childNodes) { return false; }
+  if (!document.documentElement.style) { return false; }
+
+  if (navigator.userAgent.match(/\bMobile\b/)) { return false; }
+  try {
+    if (window.location.href.match(/\/pls\//)) { return false; }
+  } catch (e) {}
+
+  var tahitiNav, tahitiNavFrame, showNav, hideNav, tahitiBody, tahitiBodyFrame,
+    content, div, img, i = 0;
+
+  document.body.style.padding = "0";
+  document.body.style.border = "0";
+
+  tahitiNav = document.createElement("div");
+  tahitiNav.style.padding = "1ex 0.5em";
+
+  tahitiNavFrame = document.createElement("div");
+  tahitiNavFrame.style.top = "0";
+  tahitiNavFrame.style.bottom = "0";
+
+  showNav = document.createElement("a");
+
+  if (!((window.ActiveXObject && !window.opera) && !window.XMLHttpRequest)) {
+    showNav.href = "#";
+    showNav.title = "Show Navigation";
+    showNav.style.textDecoration = "none";
+    showNav.style.background = "#A4C3DF";
+    showNav.style.width = "0.25em";
+    showNav.style.height = "84ex";
+    showNav.style.top = "0";
+    showNav.style.left = "0";
+    showNav.style.position = "fixed";
+    showNav.style.cursor = "pointer";
+    showNav.style.display = "none";
+  }
+
+  hideNav = document.createElement("a");
+  hideNav.href = "#";
+  hideNav.style.textDecoration = "none";
+  hideNav.style.color = "#039";
+  hideNav.style.display = "block";
+  hideNav.style.textAlign = "right";
+  hideNav.style.cursor = "pointer";
+  hideNav.appendChild(document.createTextNode("Hide Navigation"));
+
+  function navVisible() {
+    tahitiNavFrame.style.display = "block";
+    document.body.style.marginLeft = "26%";
+    showNav.style.display = "none";
+    createCookie("ORA_TAHITI_NAV", "", -1);
+  }
+
+  function navHidden() {
+    tahitiNavFrame.style.display = "none";
+    document.body.style.marginLeft = "0.5em";
+    showNav.style.display = "block";
+    if (window.name !== "glossWindow" ||
+        window.self === window.top) {
+      createCookie("ORA_TAHITI_NAV", "hide");
+    }
+  }
+
+  function navVisibleIe6() {
+    tahitiNavFrame.style.display = "block";
+    tahitiNavFrame.style.width = "25%";
+    tahitiBodyFrame.style.left = "25%";
+    tahitiBodyFrame.style.width = "75%";
+    tahitiNavFrame.style.width = document.documentElement.clientWidth -
+      document.documentElement.clientWidth * 0.75;
+    tahitiNavFrame.style.height = document.documentElement.clientHeight;
+    tahitiBodyFrame.style.width = document.documentElement.clientWidth -
+      document.documentElement.clientWidth * 0.25;
+    tahitiBodyFrame.style.height = document.documentElement.clientHeight;
+    tahitiNav.style.width = document.documentElement.clientWidth -
+      document.documentElement.clientWidth * 0.75 - 32;
+    tahitiBody.style.width = document.documentElement.clientWidth -
+      document.documentElement.clientWidth * 0.25 - 32;
+    showNav.style.display = "none";
+  }
+
+  function navHiddenIe6() {
+    var i = 0;
+    tahitiNavFrame.style.display = "none";
+    tahitiBodyFrame.style.left = "0";
+    tahitiBodyFrame.style.width = document.documentElement.clientWidth;
+    tahitiBodyFrame.style.height = document.documentElement.clientHeight;
+    tahitiBody.style.width = document.documentElement.clientWidth - 32;
+    content = document.getElementsByTagName("div");
+    for (i = 0; i < content.length; i += 1) {
+      if (content[i].className === "header") {
+        content[i].parentNode.insertBefore(showNav, content[i]);
+        break;
+      }
+    }
+    showNav.style.display = "block";
+  }
+
+  if ((window.ActiveXObject && !window.opera) && !window.XMLHttpRequest) {
+  // IE6
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.margin = "0";
+    document.body.style.overflow = "hidden";
+
+    tahitiBody = tahitiNav.cloneNode(false);
+
+    tahitiNavFrame.style.position = "absolute";
+
+    tahitiBodyFrame = tahitiNavFrame.cloneNode(false);
+    tahitiBodyFrame.style.overflow = "auto";
+
+    tahitiNavFrame.style.left = "0";
+    tahitiNavFrame.style.overflowX = "hidden";
+    tahitiNavFrame.style.overflowY = scrollBar;
+    tahitiNavFrame.style.background = navBackground;
+
+    content = document.getElementsByTagName("div");
+    div = [];
+    for (i = 0; i < content.length; i += 1) {
+      if (content[i].className === "header" ||
+          content[i].className === "IND" ||
+          content[i].className === "footer") {
+        div.push(content[i]);
+      }
+    }
+    for (i = 0; i < div.length; i += 1) { tahitiBody.appendChild(div[i]); }
+
+    hideNav.onclick = function () {
+      navHiddenIe6();
+      createCookie("ORA_TAHITI_NAV", "hide");
+      window.onresize = function () {
+        navHiddenIe6();
+        createCookie("ORA_TAHITI_NAV", "hide");
+      };
+      return false;
+    };
+
+    showNav.onclick = function () {
+      navVisibleIe6();
+      createCookie("ORA_TAHITI_NAV", "", -1);
+      window.onresize = function () {
+        navVisibleIe6();
+        createCookie("ORA_TAHITI_NAV", "", -1);
+      };
+      return false;
+    };
+
+    navVisibleIe6();
+    window.onresize = function () { navVisibleIe6(); };
+
+    tahitiNavFrame.appendChild(tahitiNav);
+    tahitiBodyFrame.appendChild(tahitiBody);
+    document.body.appendChild(tahitiNavFrame);
+    document.body.appendChild(tahitiBodyFrame);
+
+    if (readCookie("ORA_TAHITI_NAV") === "hide" ||
+        window.name === "glossWindow" ||
+        window.self !== window.top) { navHiddenIe6(); }
+    img = document.getElementsByTagName("img");
+    for (i = 0; i < img.length; i += 1) { img[i].style.border = "0"; }
+  } else {   // non IE6
+    document.body.style.margin = "1ex 0.5em 1ex 26%";
+
+    tahitiNavFrame.style.position = "fixed";
+    tahitiNavFrame.style.left = "0";
+    tahitiNavFrame.style.width = "25%";
+    tahitiNavFrame.style.overflowX = "hidden";
+    tahitiNavFrame.style.overflowY = scrollBar;
+    tahitiNavFrame.style.background = navBackground;
+
+    tahitiNavFrame.appendChild(tahitiNav);
+    document.body.appendChild(tahitiNavFrame);
+
+    hideNav.onclick = function () { navHidden(); return false; };
+    showNav.onclick = function () { navVisible(); return false; };
+    document.body.appendChild(showNav);
+
+    if (readCookie("ORA_TAHITI_NAV") === "hide" ||
+        window.name === "glossWindow" ||
+        window.self !== window.top) { navHidden(); }
+  }
+  tahitiNav.appendChild(hideNav);
+
+  function addSimpleSearchForm() {
+    var searchRemark, searchField, searchFieldLabel, searchSubmit, searchBook,
+      searchBookLabel, searchLibrary, searchLibraryLabel, simpleSearchForm,
+      metas, i = 0;
+
+    searchRemark = document.createElement("input");
+    searchRemark.type = "hidden";
+    searchRemark.name = "remark";
+    searchRemark.value = "quick_search";
+
+    searchField = document.createElement("input");
+    searchField.id = "searchField";
+    searchField.type = "text";
+    searchField.name = "word";
+
+    searchFieldLabel = document.createElement("label");
+    searchFieldLabel.htmlFor = "searchField";
+    searchFieldLabel.appendChild(document.createTextNode("Search"));
+    searchFieldLabel.style.position = "absolute";
+    searchFieldLabel.style.left = "-10000px";
+    searchFieldLabel.style.top = "auto";
+    searchFieldLabel.style.width = "1px";
+    searchFieldLabel.style.height = "1px";
+    searchFieldLabel.style.overflow = "hidden";
+
+    searchSubmit = document.createElement("input");
+    searchSubmit.type = "submit";
+    searchSubmit.value = "Search";
+
+    searchBook = document.createElement("input");
+    searchBook.id = "searchBook";
+    searchBook.type = "radio";
+    searchBook.name = "partno";
+
+    searchBookLabel = document.createElement("label");
+    searchBookLabel.htmlFor = "searchBook";
+    searchBookLabel.appendChild(document.createTextNode(" This Book"));
+
+    metas = document.getElementsByTagName("meta");
+    for (i = 0; i < metas.length; i += 1) {
+      if (metas[i].name === "partno" &&
+          metas[i].content.match(/^([A-Z]\d{5})[\-_]\d+$/)) {
+        searchBook.value = RegExp.$1.toLowerCase();
+      }
+    }
+
+    searchLibrary = document.createElement("input");
+    searchLibrary.id = "searchLibrary";
+    searchLibrary.type = "radio";
+    searchLibrary.name = "partno";
+    searchLibrary.defaultChecked = true;
+    searchLibrary.value = "";
+
+    searchLibraryLabel = document.createElement("label");
+    searchLibraryLabel.htmlFor = "searchLibrary";
+    searchLibraryLabel.appendChild(document.createTextNode(" Entire Library"));
+
+    if (!searchBook.value.match(/^[a-z]\d{5}$/)) {
+      searchBook.style.visibility = "hidden";
+      searchBookLabel.style.visibility = "hidden";
+      searchLibrary.style.visibility = "hidden";
+      searchLibraryLabel.style.visibility = "hidden";
+    }
+
+    simpleSearchForm = document.createElement("form");
+    simpleSearchForm.action =
+      "http://" + tAuthority + "/pls/" + tSchema + "/search";
+    simpleSearchForm.method = "get";
+    simpleSearchForm.appendChild(searchRemark);
+    simpleSearchForm.appendChild(searchField);
+    simpleSearchForm.appendChild(searchFieldLabel);
+    simpleSearchForm.appendChild(document.createTextNode(" "));
+    simpleSearchForm.appendChild(searchSubmit);
+    simpleSearchForm.appendChild(document.createElement("br"));
+    simpleSearchForm.appendChild(searchBook);
+    simpleSearchForm.appendChild(searchBookLabel);
+    simpleSearchForm.appendChild(document.createTextNode(" "));
+    simpleSearchForm.appendChild(searchLibrary);
+    simpleSearchForm.appendChild(searchLibraryLabel);
+
+    return simpleSearchForm;
+  }
+  tahitiNav.appendChild(addSimpleSearchForm());
+
+  function addQuickLookup() {
+    var heading, label, labelHide, labelShow, p, quickLookup;
+
+    label = document.createElement("span");
+    label.id = "hQuickLookup";
+    label.style.cssFloat = "right";
+    label.style.color = "#669";
+    label.style.fontWeight = "normal";
+    label.style.display = "none";
+    if (navBackground === "white") {
+      labelHide = document.createTextNode("");
+      labelShow = document.createTextNode("");
+    } else {
+      labelHide = document.createTextNode("hide");
+      labelShow = document.createTextNode("show");
+    }
+    label.appendChild(labelHide);
+
+    heading = document.createElement("p");
+    heading.style.marginBottom = "0";
+    heading.style.fontWeight = "bold";
+    heading.style.borderBottom = "1px solid #999";
+    heading.appendChild(document.createTextNode("Quick Lookup"));
+
+    heading.appendChild(label);
+
+    heading.style.cursor = "pointer";
+    heading.onmouseover = function () {
+      document.getElementById("hQuickLookup").style.display = "inline";
+    };
+    heading.onmouseout = function () {
+      document.getElementById("hQuickLookup").style.display = "none";
+    };
+    heading.onclick = function () {
+      if (document.getElementById("tQuickLookup").style.display === "none") {
+        document.getElementById("tQuickLookup").style.display = "block";
+        document.getElementById("hQuickLookup").replaceChild(labelHide, labelShow);
+      } else {
+        document.getElementById("tQuickLookup").style.display = "none";
+        document.getElementById("hQuickLookup").replaceChild(labelShow, labelHide);
+      }
+    };
+
+    p = document.createElement("p");
+    p.id = "tQuickLookup";
+    p.style.marginTop = "0";
+
+    function link(label, tProc) {
+      var item = document.createElement("a");
+      item.href = tProc;
+      item.appendChild(document.createTextNode(label));
+      if (p.childNodes.length > 0) {
+        p.appendChild(document.createTextNode(" \u00B7 "));
+      }
+      p.appendChild(item);
+    }
+
+    link("Advanced Search",
+      "http://" + tAuthority + "/pls/" + tSchema + "/ranked?advanced=1");
+
+
+    quickLookup = document.createElement("div");
+    if (!tSchema.match(/^as111/)) {
+      quickLookup.appendChild(heading);
+    }
+    quickLookup.appendChild(p);
+
+    return quickLookup;
+  }
+  tahitiNav.appendChild(addQuickLookup());
+
+  function addMainCategories() {
+    var heading, label, labelHide, labelShow, ul, mainCategories;
+
+    label = document.createElement("span");
+    label.id = "hMainCategories";
+    label.style.cssFloat = "right";
+    label.style.color = "#669";
+    label.style.fontWeight = "normal";
+    label.style.display = "none";
+    if (navBackground === "white") {
+      labelHide = document.createTextNode("");
+      labelShow = document.createTextNode("");
+    } else {
+      labelHide = document.createTextNode("hide");
+      labelShow = document.createTextNode("show");
+    }
+    label.appendChild(labelHide);
+
+    heading = document.createElement("p");
+    heading.style.marginBottom = "0";
+    heading.style.fontWeight = "bold";
+    heading.style.borderBottom = "1px solid #999";
+    if (tSchema === 'as1111' || tSchema === 'as111140' || tSchema === 'as111150'
+        || tSchema === 'as111160' || tSchema === 'as111170') {
+      heading.appendChild(document.createTextNode("Using Oracle Fusion Middleware"));
+    } else {
+      heading.appendChild(document.createTextNode("Main Categories"));
+    }
+
+    heading.appendChild(label);
+
+    heading.style.cursor = "pointer";
+    heading.onmouseover = function () {
+      document.getElementById("hMainCategories").style.display = "inline";
+    };
+    heading.onmouseout = function () {
+      document.getElementById("hMainCategories").style.display = "none";
+    };
+    heading.onclick = function () {
+      if (document.getElementById("tMainCategories").style.display === "none") {
+        document.getElementById("tMainCategories").style.display = "block";
+        document.getElementById("hMainCategories").replaceChild(labelHide, labelShow);
+      } else {
+        document.getElementById("tMainCategories").style.display = "none";
+        document.getElementById("hMainCategories").replaceChild(labelShow, labelHide);
+      }
+    };
+
+    ul = document.createElement("ul");
+    ul.id = "tMainCategories";
+    ul.style.margin = "0";
+    ul.style.padding = "0 0 0 1.5em";
+    ul.style.textIndent = "-0.25em";
+
+    function link(label, tProc) {
+      var item = document.createElement("a"),
+        itemLi = document.createElement("li");
+      item.href = tProc;
+      item.appendChild(document.createTextNode(label));
+      itemLi.appendChild(item);
+      ul.appendChild(itemLi);
+    }
+
+    link("Home", "../../index.htm");
+    link("Release Notes", "../../relnotes.htm");
+    link("Get Started", "../../getstarted.htm");
+    link("Install, patch, and upgrade", "../../ipu.htm");
+    link("Develop applications", "../../develop.htm");
+    link("Develop Web services", "../../webservices.htm");
+    link("Deploy applications", "../../core.1111/e10105/deployer_role.htm");
+    link("Administer the environment", "../../manage.htm");
+    link("Secure the environment", "../../secure.htm");
+    link("Use the Oracle WebLogic Scripting Tool (WLST)", "../../wlst.htm");
+    link("Use third-party application servers", "../../thirdparty.htm");
+    link("Access end-user documentation", "../../user.htm");
+    link("Licensing", "../../cross.htm#licensing");
+    link("References and APIs", "../../ref.htm");
+
+
+    mainCategories = document.createElement("div");
+    mainCategories.appendChild(heading);
+    mainCategories.appendChild(ul);
+
+    return mainCategories;
+  }
+  if (tSchema !== "jde898" && tSchema !== 'tt1121' &&
+      !tSchema.match(/^as1112\d+/) && !tSchema.match(/^fmw1211\d+/) &&
+      !tSchema.match(/^idm\d+/) && !tSchema.match(/^moshelp/)) {
+    tahitiNav.appendChild(addMainCategories());
+  }
+
+  function addThisPage() {
+    var a, ul, d, p, lastItem, listItem, newList, thisPage, gloss_a,
+      ga, g_li, gList, h1, i = 0, j = 0, autoId = 0, listStack = [],
+      headings = [], glossterms = [], heading, label, labelHide, labelShow;
+
+    label = document.createElement("span");
+    label.id = "hThisPage";
+    label.style.cssFloat = "right";
+    label.style.color = "#669";
+    label.style.fontWeight = "normal";
+    label.style.display = "none";
+    if (navBackground === "white") {
+      labelHide = document.createTextNode("");
+      labelShow = document.createTextNode("");
+    } else {
+      labelHide = document.createTextNode("hide");
+      labelShow = document.createTextNode("show");
+    }
+    label.appendChild(labelHide);
+
+    heading = document.createElement("p");
+    heading.style.marginBottom = "0";
+    heading.style.fontWeight = "bold";
+    heading.style.borderBottom = "1px solid #999";
+    heading.appendChild(document.createTextNode("This Page"));
+
+    heading.appendChild(label);
+
+    heading.style.cursor = "pointer";
+    heading.onmouseover = function () {
+      document.getElementById("hThisPage").style.display = "inline";
+    };
+    heading.onmouseout = function () {
+      document.getElementById("hThisPage").style.display = "none";
+    };
+    heading.onclick = function () {
+      if (document.getElementById("tThisPage").style.display === "none") {
+        document.getElementById("tThisPage").style.display = "block";
+        document.getElementById("hThisPage").replaceChild(labelHide, labelShow);
+      } else {
+        document.getElementById("tThisPage").style.display = "none";
+        document.getElementById("hThisPage").replaceChild(labelShow, labelHide);
+      }
+    };
+
+    function getTextContent(e) {
+      if (e.textContent) { return e.textContent; }
+      if (e.innerText) { return e.innerText; }
+    }
+
+    function headingDifference(e1, e2) {
+      return Math.abs(e1.nodeName.charAt(1) - e2.nodeName.charAt(1));
+    }
+
+    function copyContent(s, d) {
+      var i = 0;
+      if (!s.hasChildNodes()) { return null; }
+      if (s.childNodes.length === 1 && s.childNodes[0].nodeName.match(/a/i)) {
+        return copyContent(s.childNodes[0], d);
+      }
+      for (i = 0; i < s.childNodes.length; i += 1) {
+        if (s.childNodes[i].className !== "secnum") {
+          d.appendChild(s.childNodes[i].cloneNode(true));
+        }
+      }
+    }
+
+    function getHeadings(e) {
+      var i = 0, c = e.childNodes;
+      for (i = 0; i < c.length; i += 1) {
+        if (c[i].nodeType === 1 && c[i].nodeName.match(/h[2-4]/i)) {
+          if (!c[i].id) {
+            c[i].id = "autoId" + autoId;
+            autoId += 1;
+          }
+          headings.push(c[i]);
+        } else if (c[i].hasChildNodes()) { getHeadings(c[i]); }
+      }
+    }
+    getHeadings(document.documentElement);
+
+    for (i = 0; i < headings.length; i += 1) {
+      lastItem = listItem;
+
+      a = document.createElement("a");
+      a.href = "#" + headings[i].id;
+      listItem = document.createElement("li");
+      copyContent(headings[i], a);
+      listItem.appendChild(a);
+
+      if (!lastItem) {
+        ul = document.createElement("ul");
+        ul.style.margin = "0";
+        ul.style.padding = "0 0 0 1.5em";
+        ul.style.textIndent = "-0.25em";
+        listStack.push(ul);
+      } else if (headings[i].nodeName > headings[i - 1].nodeName) {
+        d = headingDifference(headings[i], headings[i - 1]);
+
+        if (d > 1) {
+          for (j = 0; j < d; j += 1) {
+            if (j) {
+              newList = document.createElement("ul");
+              newList.style.margin = "0";
+              newList.style.padding = "0 0 0 1.5em";
+              newList.style.textIndent = "-0.25em";
+              listStack[listStack.length - 1].appendChild(newList);
+              listStack.push(newList);
+            } else {
+              newList = document.createElement("ul");
+              newList.style.margin = "0";
+              newList.style.padding = "0 0 0 1.5em";
+              newList.style.textIndent = "-0.25em";
+              lastItem.appendChild(newList);
+              listStack.push(newList);
+            }
+          }
+        } else {
+          newList = document.createElement("ul");
+          newList.style.margin = "0";
+          newList.style.padding = "0 0 0 1.5em";
+          newList.style.textIndent = "-0.25em";
+          lastItem.appendChild(newList);
+          listStack.push(newList);
+        }
+      } else if (headings[i].nodeName < headings[i - 1].nodeName) {
+        d = headingDifference(headings[i], headings[i - 1]);
+        for (j = 0; j < d; j += 1) {
+          listStack.pop();
+        }
+      }
+
+      listStack[listStack.length - 1].appendChild(listItem);
+    }
+
+    thisPage = document.createElement("div");
+
+    if (!listStack[0]) {
+      p = document.getElementsByTagName("p");
+      for (i = 0; i < p.length; i += 1) {
+        if (p[i].className === "glossterm") {
+          gloss_a = p[i].getElementsByTagName("a");
+          for (j = 0; j < gloss_a.length; j += 1) {
+            if (gloss_a[j].id) {
+              ga = document.createElement("a");
+              ga.href = "#" + gloss_a[j].id;
+              ga.appendChild(document.createTextNode(getTextContent(p[i])));
+              g_li = document.createElement("li");
+              g_li.appendChild(ga);
+              glossterms.push(g_li);
+              break;
+            }
+          }
+        }
+      }
+      if (glossterms.length > 0) {
+        gList = document.createElement("ul");
+        gList.style.margin = "0";
+        gList.style.padding = "0 0 0 1.5em";
+        gList.style.textIndent = "-0.25em";
+        for (i = 0; i < glossterms.length; i += 1) {
+          gList.appendChild(glossterms[i]);
+        }
+        listStack.push(gList);
+      }
+    }
+
+    if (listStack[0]) {
+      listStack[0].id = "tThisPage";
+      thisPage.appendChild(heading);
+      thisPage.appendChild(listStack[0]);
+    }
+
+    h1 = document.getElementsByTagName("h1");
+    try {
+      if (window.location.href.match(/\/toc\.htm(?:|#[\x20-\x7E]*)$/) &&
+          (h1 && h1[0].className === "toc")) {
+        return document.createElement("span");
+      }
+    } catch (e) {}
+    return thisPage;
+  }
+  tahitiNav.appendChild(addThisPage());
+
+  function addThisDocument() {
+    var heading, label, labelHide, labelShow, a, metas, li1, ul, thisDocument,
+      i = 0, title = "Contents";
+
+    label = document.createElement("span");
+    label.id = "hThisDocument";
+    label.style.cssFloat = "right";
+    label.style.color = "#669";
+    label.style.fontWeight = "normal";
+    label.style.display = "none";
+    if (navBackground === "white") {
+      labelHide = document.createTextNode("");
+      labelShow = document.createTextNode("");
+    } else {
+      labelHide = document.createTextNode("hide");
+      labelShow = document.createTextNode("show");
+    }
+    label.appendChild(labelHide);
+
+    heading = document.createElement("p");
+    heading.style.marginBottom = "0";
+    heading.style.fontWeight = "bold";
+    heading.style.borderBottom = "1px solid #999";
+    heading.appendChild(document.createTextNode("This Document"));
+
+    heading.appendChild(label);
+
+    heading.style.cursor = "pointer";
+    heading.onmouseover = function () {
+      document.getElementById("hThisDocument").style.display = "inline";
+    };
+    heading.onmouseout = function () {
+      document.getElementById("hThisDocument").style.display = "none";
+    };
+    heading.onclick = function () {
+      if (document.getElementById("tThisDocument").style.display === "none") {
+        document.getElementById("tThisDocument").style.display = "block";
+        document.getElementById("hThisDocument").replaceChild(labelHide, labelShow);
+      } else {
+        document.getElementById("tThisDocument").style.display = "none";
+        document.getElementById("hThisDocument").replaceChild(labelShow, labelHide);
+      }
+    };
+
+    a = document.createElement("a");
+    a.href = "toc.htm#BEGIN";
+    metas = document.getElementsByTagName("meta");
+    for (i = 0; i < metas.length; i += 1) {
+      if (metas[i].name === "doctitle" && metas[i].content) {
+        title = metas[i].content;
+      }
+    }
+    a.appendChild(document.createTextNode(title));
+
+    li1 = document.createElement("li");
+    li1.appendChild(a);
+
+    ul = document.createElement("ul");
+    ul.id = "tThisDocument";
+    ul.style.margin = "0";
+    ul.style.padding = "0 0 0 1.5em";
+    ul.style.textIndent = "-0.25em";
+    ul.appendChild(li1);
+
+    thisDocument = document.createElement("div");
+    thisDocument.appendChild(heading);
+    thisDocument.appendChild(ul);
+
+    function getHttpObject() {
+      var xhr = false;
+      if (window.XMLHttpRequest) {
+        xhr = new window.XMLHttpRequest();
+      } else if (window.ActiveXObject) {
+        try {
+          xhr = new window.ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e1) {
+          try {
+            xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
+          } catch (e2) {
+            xhr = false;
+          }
+        }
+      }
+      return xhr;
+    }
+
+    function parseResponse(request) {
+      var data, a, b, li, i = 0;
+      if (request.readyState === 4) {
+        if (request.status === 200 || request.status === 304) {
+          data = eval(request.responseText);
+          for (i = 0; i < chapters.length - 1; i += 1) {
+            if (chapters[i].file && chapters[i].title) {
+              a = document.createElement("a");
+              a.href = chapters[i].file;
+              if (chapters[i].anchor) {
+                a.href = chapters[i].file + "#" + chapters[i].anchor;
+              }
+              /* if (chapters[i].section) {
+                b = document.createElement("b");
+                b.appendChild(document.createTextNode(chapters[i].section));
+                a.appendChild(b);
+                a.appendChild(document.createTextNode(": "));
+              } */
+              a.appendChild(document.createTextNode(chapters[i].title));
+              li = document.createElement("li");
+              li.appendChild(a);
+              ul.appendChild(li);
+            }
+          }
+        }
+      }
+    }
+
+/*
+  1. Change current parseRequest to parseRequest_js (or delete it)
+  2. Change parseRequest_json to parseRequest
+  3. Change grabfile so it gets target.json instead of contents.js
+  4. Uncomment "use strict" under function leftNav
+*/
+    function parseResponse_json(request) {
+      var jso, a, b, li, i = 0;
+      if (request.readyState === 4) {
+        if (request.status === 200 || request.status === 304) {
+          jso = window.JSON.parse(request.responseText);
+          for (i = 0; i < jso.chapters.length - 1; i += 1) {
+            if (jso.chapters[i].file && jso.chapters[i].title) {
+              a = document.createElement("a");
+              a.href = jso.chapters[i].file;
+              if (jso.chapters[i].anchor) {
+                a.href = jso.chapters[i].file + "#" + jso.chapters[i].anchor;
+              }
+              a.appendChild(document.createTextNode(jso.chapters[i].title));
+              li = document.createElement("li");
+              li.appendChild(a);
+              ul.appendChild(li);
+            }
+          }
+        }
+      }
+    }
+
+    function grabFile(file) {
+      var request = getHttpObject();
+      if (request) {
+        request.onreadystatechange = function () {
+          parseResponse(request);
+        };
+        request.open("GET", file, true);
+        request.send(null);
+      }
+    }
+
+    try {
+      grabFile(window.location.href.replace(/\/[\x20-\x2E\x30-\x7E]+$/,
+        "/contents.js"));
+//        "/target.json"));
+    } catch (e3) {}
+
+    try {
+      if (window.location.href.match(/\/toc\.htm(?:|#[\x20-\x7E]*)$/)) {
+        return document.createElement("span");
+      }
+    } catch (e4) {}
+
+    return thisDocument;
+
+  }
+  if (!tSchema.match(/^moshelp/)) {
+    tahitiNav.appendChild(addThisDocument());
+  }
+
+  function addRss() {
+    var rssIcon1, rssIcon2, html, pdf, rss,
+      iUrlStart = "../../nav/";
+
+    rssIcon1 = document.createElement("img");
+    rssIcon1.src = iUrlStart + "images/feed-icon-14x14.png";
+    rssIcon1.alt = "RSS Feed";
+
+    rssIcon2 = rssIcon1.cloneNode(false);
+
+    html = document.createElement("a");
+    html.href = "http://" + tAuthority + "/pls/" + tSchema + "/new_html";
+    html.appendChild(rssIcon1);
+    html.appendChild(document.createTextNode(" HTML"));
+
+    pdf = document.createElement("a");
+    pdf.href = "http://" + tAuthority + "/pls/" + tSchema + "/new_pdf";
+    pdf.appendChild(rssIcon2);
+    pdf.appendChild(document.createTextNode(" PDF"));
+
+    rss = document.createElement("div");
+    rss.id = "tRss";
+    rss.style.marginTop = "2ex";
+    rss.style.padding = "1ex 0.5em";
+    rss.style.border = "1px solid #999";
+    rss.appendChild(document.createTextNode("New and changed documents:"));
+    rss.appendChild(document.createElement("br"));
+    rss.appendChild(html);
+    rss.appendChild(document.createTextNode(" "));
+    rss.appendChild(pdf);
+
+    return rss;
+  }
+  if (!tSchema.match(/^as\d+/) && !tSchema.match(/^fa\d+/) &&
+      !tSchema.match(/^fmw\d+/) && !tSchema.match(/^jde[iaw]*\d+$/) &&
+      !tSchema.match(/^oc\d+$/) && !tSchema.match(/^idm\d+$/) &&
+      !tSchema.match(/^moshelp/)) {
+    tahitiNav.appendChild(addRss());
+  }
+
+}
+addLoadEvent(leftNav);
+
+function processToc() {
+  "use strict";
+  try {
+    if (!window.location.href.match(/\/toc\.htm(?:|#[\x20-\x7E]*)$/)) {
+      return false;
+    }
+  } catch (e1) {}
+
+  var p, a, a1, a2, IND, img, preload, i = 0,
+    iUrlStart = "../../nav/",
+    h1 = document.getElementsByTagName("h1"),
+    div = document.getElementsByTagName("div");
+
+  if (!h1[0] || h1[0].className !== "toc") { return false; }
+
+  preload = new Image();
+  preload.src = iUrlStart + "images/blue_med_dark_down.gif";
+  preload.alt = "Click to collapse";
+
+  for (i = 0; i < div.length; i += 1) {
+    if (div[i].className === "IND") { IND = div[i]; }
+  }
+
+  function nextUl(node) {
+    while (node.nextSibling) {
+      if (node.nextSibling.nodeName.match(/ul/i)) { return node.nextSibling; }
+      node = node.nextSibling;
+    }
+  }
+
+  function showNextUl(owner) {
+    var ul = nextUl(owner.parentNode);
+    ul.style.display = "block";
+    owner.getElementsByTagName("img")[0].src =
+      iUrlStart + "images/blue_med_dark_down.gif";
+    owner.getElementsByTagName("img")[0].alt = "Click to collapse";
+    owner.onclick = function () { hideNextUl(this); return false; };
+  }
+
+  function hideNextUl(owner) {
+    var ul = nextUl(owner.parentNode);
+    ul.style.display = "none";
+    owner.getElementsByTagName("img")[0].src =
+      iUrlStart + "images/blue_med_dark_side.gif";
+    owner.getElementsByTagName("img")[0].alt = "Click to expand";
+    owner.onclick = function () { showNextUl(this); return false; };
+  }
+
+  function expandAll() {
+    var i = 0, a = IND.getElementsByTagName("a");
+    for (i = 0; i < a.length; i += 1) {
+      if (a[i].className === "tDiscTriangle") {
+        showNextUl(a[i]);
+      }
+    }
+    createCookie("ORA_TAHITI_TOC", "expand");
+    return false;
+  }
+
+  function collapseAll() {
+    var i = 0, a = IND.getElementsByTagName("a");
+    for (i = 0; i < a.length; i += 1) {
+      if (a[i].className === "tDiscTriangle") {
+        hideNextUl(a[i]);
+      }
+    }
+    createCookie("ORA_TAHITI_TOC", "", -1);
+    return false;
+  }
+
+  function okShowTriangle(node) {
+    while (node.nextSibling) {
+      if (node.nextSibling.nodeName.match(/h2/i)) { return false; }
+      if (node.nextSibling.nodeName.match(/ul/i)) { return true; }
+      node = node.nextSibling;
+    }
+    return false;
+  }
+
+  function getTextContent(e) {
+    if (e.textContent) { return e.textContent; }
+    if (e.innerText) { return e.innerText; }
+  }
+
+  for (i = 0; i < IND.childNodes.length; i += 1) {
+    if (IND.childNodes[i].nodeName.match(/^ul$/i)) {
+      IND.childNodes[i].style.marginTop = "0";
+      IND.childNodes[i].style.marginBottom = "1ex";
+      IND.childNodes[i].style.display = "none";
+    } else if (IND.childNodes[i].nodeName.match(/^h2$/i)) {
+      if (IND.childNodes[i].className === "tocheader") {
+        IND.childNodes[i].style.fontSize = "140%";
+        IND.childNodes[i].style.marginTop = "0";
+        IND.childNodes[i].style.marginBottom = "0.5ex";
+        if (getTextContent(IND.childNodes[i]) &&
+            getTextContent(IND.childNodes[i]).match(/Part\s+[IVXLCDM]+\s+/)) {
+          IND.childNodes[i].style.textAlign = "center";
+          IND.childNodes[i].style.marginTop = "1.7ex";
+          IND.childNodes[i].style.borderTop = "2px solid #A4C3DF";
+        } else {
+          img = document.createElement("img");
+          img.src = iUrlStart + "images/blue_med_dark_side.gif";
+          img.alt = "Click to expand";
+          a = document.createElement("a");
+          a.href = "#";
+          a.onclick = function () { showNextUl(this); return false; };
+          a.onfocus = function () { window.status = ''; return true; };
+          a.className = "tDiscTriangle";
+          a.style.textDecoration = "none";
+          a.appendChild(img);
+          if (okShowTriangle(IND.childNodes[i])) {
+            IND.childNodes[i].insertBefore(document.createTextNode(" "),
+              IND.childNodes[i].firstChild);
+            IND.childNodes[i].insertBefore(a, IND.childNodes[i].firstChild);
+          }
+        }
+      }
+    }
+  }
+
+  p = document.createElement("p");
+  p.style.marginTop = "0";
+  p.style.marginBottom = "0";
+  p.style.textAlign = "right";
+  a1 = document.createElement("a");
+  a1.href = "#";
+  a1.onfocus = function () { window.status = ''; return true; };
+  a1.style.color = "#039";
+  a1.style.textDecoration = "none";
+  a1.onclick = expandAll;
+  a2 = document.createElement("a");
+  a2.href = "#";
+  a2.onfocus = function () { window.status = ''; return true; };
+  a2.style.color = "#039";
+  a2.style.textDecoration = "none";
+  a2.onclick = collapseAll;
+  a1.appendChild(document.createTextNode("Expand All"));
+  a2.appendChild(document.createTextNode("Collapse All"));
+  p.appendChild(a1);
+  p.appendChild(document.createTextNode(" \u00B7 "));
+  p.appendChild(a2);
+  document.getElementsByTagName("h1")[0].style.marginBottom = "0";
+  document.getElementsByTagName("h1")[0].parentNode.insertBefore(p,
+    document.getElementsByTagName("h1")[0].nextSibling);
+
+  if (readCookie("ORA_TAHITI_TOC") === "expand") { expandAll(); }
+}
+addLoadEvent(processToc);
+
+function processIndex() {
+  "use strict";
+  try {
+    if (!window.location.href.match(/\/index\.htm(?:|#[\x20-\x7E]*)$/)) {
+      return false;
+    }
+  } catch (e) {}
+
+  var prefix, s, nav, i = 0, shortcut = [], lastPrefix = "",
+    dd = document.getElementsByTagName("dd"),
+    h2 = document.getElementsByTagName("h2");
+
+  function getTextContent(e) {
+    if (e.textContent) { return e.textContent; }
+    if (e.innerText) { return e.innerText; }
+  }
+
+  for (i = 0; i < dd.length; i += 1) {
+    if (dd[i].className === 'l1ix') {
+      prefix = getTextContent(dd[i]).substring(0, 2).toUpperCase();
+      if (prefix.match(/^([A-Z0-9]{2})/) && prefix !== lastPrefix) {
+        dd[i].id = prefix;
+        s = document.createElement("a");
+        s.href = "#" + prefix;
+        s.appendChild(document.createTextNode(prefix));
+        shortcut.push(s);
+        lastPrefix = prefix;
+      }
+    }
+  }
+
+  for (i = 0; i < h2.length; i += 1) {
+    nav = document.createElement("div");
+    nav.style.position = "relative";
+    nav.style.top = "-1.5ex";
+    nav.style.left = "1.5em";
+    nav.style.width = "90%";
+    while (shortcut[0] &&
+        shortcut[0].toString().charAt(shortcut[0].toString().length - 2) ===
+        getTextContent(h2[i])) {
+      nav.appendChild(shortcut.shift());
+      nav.appendChild(document.createTextNode("\u00A0 "));
+    }
+    h2[i].parentNode.insertBefore(nav, h2[i].nextSibling);
+  }
+}
+addLoadEvent(processIndex);
+
+function createErrMsgLinks() {
+  "use strict";
+  if (!document.createElement) { return false; }
+  if (!document.createTextNode) { return false; }
+  if (!document.documentElement.replaceChild) { return false; }
+  try {
+    if (window.location.href.match(/\/toc\.htm(?:|#[\x20-\x7E]*)$/)) {
+      return false;
+    }
+  } catch (e) {}
+
+  var find = /\b(ORA-\d+)\b/gi;
+
+  function replaceInText(text, find, replace) {
+    var match, i = 0, matches = [];
+    while ((match = find.exec(text.data)) !== null) {
+      matches.push(match);
+    }
+    for (i = matches.length - 1; i >= 0; i -= 1) {
+      match = matches[i];
+      text.splitText(match.index);
+      text.nextSibling.splitText(match[0].length);
+      text.parentNode.replaceChild(replace(match), text.nextSibling);
+    }
+  }
+
+  function replaceInElement(element, find, replace) {
+    var i = 0;
+    for (i = element.childNodes.length - 1; i >= 0; i -= 1) {
+      if (element.childNodes[i].nodeType === 1) {
+        if (!element.childNodes[i].nodeName.match(/^(?:style|script|h1)$/i) &&
+            !(element.childNodes[i].nodeName.match(/^span$/i) &&
+            element.childNodes[i].className === "msg")) {
+          replaceInElement(element.childNodes[i], find, replace);
+        }
+      } else if (element.childNodes[i].nodeType === 3) {
+        replaceInText(element.childNodes[i], find, replace);
+      }
+    }
+  }
+
+  replaceInElement(document.body, find, function (match) {
+    var link = document.createElement("a");
+    link.href =
+      "http://" + tAuthority + "/pls/db112/lookup?id=" + match[0];
+    link.appendChild(document.createTextNode(match[0]));
+    return link;
+  });
+}
+addLoadEvent(createErrMsgLinks);
+
+function compactLists() {
+  "use strict";
+  var li, p, i = 0, j = 0, k = 0, collapsible = true, lists = [], clists = [],
+    ul = document.getElementsByTagName("ul"),
+    ol = document.getElementsByTagName("ol");
+
+  for (i = 0; i < ul.length; i += 1) { lists.push(ul[i]); }
+  for (i = 0; i < ol.length; i += 1) { lists.push(ol[i]); }
+
+  function getTextContent(e) {
+    if (e.textContent) { return e.textContent; }
+    if (e.innerText) { return e.innerText; }
+  }
+
+  for (i = 0; i < lists.length; i += 1) {
+    collapsible = true;
+    clists = [];
+    li = lists[i].getElementsByTagName("li");
+    for (j = 0; j < li.length; j += 1) {
+      p = li[j].getElementsByTagName("p");
+      if (p.length > 1) { collapsible = false; }
+      for (k = 0; k < p.length; k += 1) {
+        if (getTextContent(p[k]).split(" ").length > 12) {
+          collapsible = false;
+        }
+        clists.push(p[k]);
+      }
+    }
+    if (collapsible) {
+      for (j = 0; j < clists.length; j += 1) {
+        clists[j].style.margin = "0";
+      }
+    }
+  }
+}
+addLoadEvent(compactLists);
+
+function deviceWidth() {
+  "use strict";
+  if (!document.head) { return false; }
+  var meta = document.createElement("meta");
+  meta.name = "viewport";
+  meta.content = "width=device-width,initial-scale=1.0";
+  document.head.appendChild(meta);
+}
+addLoadEvent(deviceWidth);
+
+function positionAnchor() {
+  "use strict";
+  if (!window.ActiveXObject || window.opera) { return false; }
+
+  var a, i = 0, location = [], anchor = "";
+
+  try {
+    if (window.location.href.match(/#([\x20-\x7E]+)$/)) { anchor = RegExp.$1; }
+  } catch (e) {
+    return;
+  }
+
+  function findPos(obj) {
+    var curleft = 0, curtop = 0;
+    if (obj.offsetParent) {
+      do {
+        curleft += obj.offsetLeft;
+        curtop += obj.offsetTop;
+      } while (obj = obj.offsetParent);
+    }
+    return [curleft, curtop];
+  }
+
+  if (document.getElementById(anchor)) {
+    location = findPos(document.getElementById(anchor));
+    window.scrollTo(0, location[1]);
+  } else {
+    a = document.getElementsByTagName("a");
+    for (i = 0; i < anchor.length; i += 1) {
+      if (a[i].className === anchor) {
+        location = findPos(a[i]);
+        window.scrollTo(0, location[1]);
+      }
+    }
+  }
+}
+addLoadEvent(positionAnchor);

@@ -1,0 +1,47 @@
+<definitions targetNamespace="http://www.globalcompany.com/customerregistration"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://www.globalcompany.com/customerregistration"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:types="http://www.globalcompany.com/customer.xsd">
+  <types>
+    <schema targetNamespace="http://www.globalcompany.com/customer.xsd"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+      <complexType name="CustomerType">
+        <sequence>
+          <element name="id" type="int"/>
+          <element name="name" type="string"/>
+          <element name="dob" type="date"/>
+          <element name="salary" type="int"/>
+        </sequence>
+      </complexType>
+      <element name="CustomerE" type="types:CustomerType"/>
+    </schema>
+  </types>
+  <message name="CustomerRequestMessage">
+    <part name="Customer" element="types:CustomerE"/>
+  </message>
+  <portType name="CustomerRegistration">
+    <operation name="RegisterCustomer">
+      <input message="tns:CustomerRequestMessage"
+             name="CustomerInfo"/>
+    </operation>
+  </portType>
+  <binding name="CustomerRegistrationSoapHttp" type="tns:CustomerRegistration">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RegisterCustomer">
+      <soap:operation soapAction="http://www.globalcompany.com/CustomerRegistration"/>
+      <input name="CustomerInfo">
+        <soap:body use="literal" parts="Customer"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="CustomerRegistrationService">
+    <port name="CustReg"
+          binding="tns:CustomerRegistrationSoapHttp">
+      <soap:address location="http://oradev201.local.com:7777/cust/CustReg"/>
+    </port>
+  </service>
+</definitions>

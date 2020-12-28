@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="HelloWorldService" targetNamespace="http://wssunt/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://wssunt/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+
+<xsd:schema xmlns:tns="http://wssunt/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://wssunt/">
+  <xsd:element name="callHello" type="tns:callHello"/>
+  <xsd:element name="callHelloResponse" type="tns:callHelloResponse"/>
+  <xsd:element name="callHelloWithCSFKey" type="tns:callHelloWithCSFKey"/>
+  <xsd:element name="callHelloWithCSFKeyResponse" type="tns:callHelloWithCSFKeyResponse"/>
+  <xsd:element name="hello" type="tns:hello"/>
+  <xsd:element name="helloResponse" type="tns:helloResponse"/>
+  <xsd:complexType name="callHello">
+    <xsd:sequence>
+      <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="arg3" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="arg4" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="callHelloResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="callHelloWithCSFKey">
+    <xsd:sequence>
+      <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="arg3" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="callHelloWithCSFKeyResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="hello">
+    <xsd:sequence>
+      <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="helloResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+
+
+  </types>
+  <message name="callHelloWithCSFKey">
+    <part name="parameters" element="tns:callHelloWithCSFKey"/>
+  </message>
+  <message name="callHelloWithCSFKeyResponse">
+    <part name="parameters" element="tns:callHelloWithCSFKeyResponse"/>
+  </message>
+  <message name="hello">
+    <part name="parameters" element="tns:hello"/>
+  </message>
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse"/>
+  </message>
+  <message name="callHello">
+    <part name="parameters" element="tns:callHello"/>
+  </message>
+  <message name="callHelloResponse">
+    <part name="parameters" element="tns:callHelloResponse"/>
+  </message>
+  <portType name="HelloWorld">
+    <operation name="callHelloWithCSFKey">
+      <input message="tns:callHelloWithCSFKey"/>
+      <output message="tns:callHelloWithCSFKeyResponse"/>
+    </operation>
+    <operation name="hello">
+      <input message="tns:hello"/>
+      <output message="tns:helloResponse"/>
+    </operation>
+    <operation name="callHello">
+      <input message="tns:callHello"/>
+      <output message="tns:callHelloResponse"/>
+    </operation>
+  </portType>
+  <binding name="HelloWorldPortBinding" type="tns:HelloWorld">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="callHelloWithCSFKey">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="hello">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="callHello">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="HelloWorldService">
+    <port name="HelloWorldPort" binding="tns:HelloWorldPortBinding">
+      <soap:address location="http://slc04eld.us.oracle.com:7003/ws/wssunt"/>
+    </port>
+  </service>
+</definitions>

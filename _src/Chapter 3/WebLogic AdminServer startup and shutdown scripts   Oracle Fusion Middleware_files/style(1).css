@@ -1,0 +1,189 @@
+/* Cuttlefish Tumo color scheme */
+
+body {
+	background: #353636 url(images/background.gif);
+	color: #32392c;
+}
+a {
+	color: #576c47;
+}
+a:hover {
+	color: #1f2b17;
+	text-decoration: none;
+}
+a:visited {
+	color: #95a687;
+}
+label {
+	color: #32392c;
+}
+abbr, acronym {
+	cursor: help;
+}
+abbr {
+	border-bottom: 1px dashed #32392c;
+}
+acronym {
+	border-bottom: 1px dotted #32392c;
+}
+address {
+	border-left: 2px solid #334626;
+}
+pre {
+	background-color: #fafafa;
+	color: #4a5343;
+}
+.content input[type="reset"],
+.content input[type="submit"],
+#respond input[type="submit"] {
+	background-color: #4a5343;
+	border: 1px solid #272b23;
+}
+.content input[type="reset"]:hover,
+.content input[type="submit"]:hover,
+#respond input[type="submit"]:hover {
+	background-color: #a4a59e;
+	border: 1px solid #5e5e5b;
+}
+#posts table th {
+	background-color: #4a5343;
+}
+#menu-box .menu {
+	background: url(images/menu-middle.png) repeat-y left top;
+}
+#menu-header {
+	background: url(images/menu-header.png) no-repeat left top;
+}
+#menu-footer {
+	background: url(images/menu-footer.png) no-repeat left bottom;
+}
+#menu-decor {
+	background: url(images/menu-decor.png) no-repeat left top;
+}
+#menu-box .menu a {
+	background: #4a5343;
+	border: 1px solid #272b23;
+	color: #dbddd9;
+}
+#menu-box .menu li:hover > a,
+#menu-box .menu ul ul:hover > a {
+	background: #a4a59e;
+	border: 1px solid #5e5e5b;
+}
+#menu-box .menu ul li.current_page_item > a,
+#menu-box .menu ul li.current-menu-ancestor > a,
+#menu-box .menu ul li.current-menu-item > a,
+#menu-box .menu ul li.current-menu-parent > a {
+	background: #a4a59e;
+	border: 1px solid #5e5e5b;
+}
+* html #menu-box .menu ul li.current_page_item a,
+* html #menu-box .menu ul li.current-menu-ancestor a,
+* html #menu-box .menu ul li.current-menu-item a,
+* html #menu-box .menu ul li.current-menu-parent a,
+* html #menu-box .menu ul li a:hover {
+	background: #a4a59e;
+	border: 1px solid #5e5e5b;
+}
+#rss {
+	background: url(images/rss.png) no-repeat left top;
+}
+#rss a {
+	color: #2b2c2c;
+}
+#rss a:hover {
+	color: #4a5343;
+}
+.page > h2 a,
+.post > h2 a {
+	color: #32392c;
+}
+.sticky {
+	background: url(images/sticky.gif) repeat-x left top #f2f2ef;
+	border-bottom: 2px #bbbfb7 solid;
+}
+.sticky .content,
+.sticky .postmeta-btm {
+	border-top: 1px solid #bbbfb7;
+}
+.postmeta-top,
+.postmeta-btm {
+	color: #4c5545;
+}
+.comment,
+.commentlist .children li {
+	border: 1px solid #bbbfb7;
+}
+.pingback p {
+	background: url(images/tag.png) no-repeat left 8px;
+}
+.comment-top {
+	background-color: #f5f5f2;
+	border-bottom: 1px solid #bbbfb7;
+}
+.archive-label {
+	background: url(images/archive-label.gif) no-repeat left top;
+}
+.archive-label span {
+	background-color: #95a687;
+}
+.page-link a:link,
+.page-link a:visited {
+	background: #4a5343;
+	border: 1px solid #2e3329;
+}
+.page-link a:active,
+.page-link a:hover {
+	background: #a4a59e;
+	border: 1px solid #545451;
+}
+#wp-calendar td a {
+	color: #576c47 !important;
+	text-decoration: underline;
+}
+#wp-calendar th {
+	background-color: #95a687;
+}
+#wp-calendar tfoot td {
+	background: none;
+}
+#searchsubmit {
+	background-color: #4a5343;
+	border: 1px solid #2e3329;
+}
+#searchsubmit:hover {
+	background-color: #a4a59e;
+	border: 1px solid #545451;
+}
+.cnavigation a,
+.pnavigation a {
+	color: #576c47;
+}
+#sidebar {
+	background: url(images/sidebar-top.gif) no-repeat left top #f5f5f2;
+}
+#sidebar ul ul li {
+	border-bottom: solid 1px #bbbfb7;
+}
+#sidebar ul li > ul li:hover {
+	background-color: #e2e2da;
+}
+#sidebar a {
+	color: #43464d !important;
+}
+#sidebar li > h2 {
+	background: url(images/sidebar-heading-top.gif) no-repeat left top;
+	color: #4c5545;
+}
+#sidebar li > h2 span {
+	background: url(images/sidebar-heading-bottom.gif) no-repeat left bottom;
+}
+#sidebar li.foot {
+	background: url(images/sidebar-bottom.gif) no-repeat left bottom;
+}
+#footer {
+	background: url(images/footer.png) repeat-x left top;
+}
+#footer .footer-bottom {
+	background: url(images/footer-bottom.png) no-repeat left bottom;
+}

@@ -1,0 +1,27 @@
+/* module-key = 'com.appfusions.confluence.plugins.lingotek.lingotek-translation:lingotekDocumentOperationsWebResource', location = 'includes/document-operations/css/document-operations.css' */
+.lingotek-logo {
+    background: url('/s/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/2.5.0/_/download/resources/com.appfusions.confluence.plugins.lingotek.lingotek-translation:lingotekDocumentOperationsWebResource/images/lingotek_32_logo.png') no-repeat center;
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+
+.icon-lingotek {
+    background: url('/s/en_GB/5639/a252d7f5e75d7a8bf7047b4b2c92f71a56a8f048.92/2.5.0/_/download/resources/com.appfusions.confluence.plugins.lingotek.lingotek-translation:lingotekDocumentOperationsWebResource/images/lingotek_logo.png') no-repeat left center;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+.appfusions .dropdown-menu li a {
+    cursor: pointer;
+}
+
+.appfusions img.flag {
+    margin-right: 5px;
+}
+
+.appfusions.lingotek-operations-container .dropdown-menu li {
+    text-align: left;
+}

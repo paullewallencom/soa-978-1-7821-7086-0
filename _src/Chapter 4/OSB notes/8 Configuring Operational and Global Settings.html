@@ -1,0 +1,839 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0080)http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2086 -->
+<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./8 Configuring Operational and Global Settings_files/menu171.js"></script><script type="text/javascript" src="./8 Configuring Operational and Global Settings_files/layers096.js"></script>
+<meta charset="utf-8">
+<title>8 Configuring Operational and Global Settings</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24">
+<meta name="description" content="This chapter describes the settings that control the operation of Oracle Service Bus services in the runtime, including monitoring, alerts, message tracing, execution tracing, alerts, reporting, logging, and business service performance tuning.">
+<meta name="dcterms.created" content="2014-06-12T15:47:32Z">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle® Fusion Middleware Administering Oracle Service Bus">
+<meta name="dcterms.identifier" content="E28534-01">
+<meta name="partno" content="E40552-01">
+
+<meta name="dcterms.isVersionOf" content="OSBAG">
+<link rel="Copyright" href="http://docs.oracle.com/middleware/1213/dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+
+<script type="application/javascript" src="./8 Configuring Operational and Global Settings_files/headfoot.js"></script><style type="text/css"></style>
+<script type="application/javascript" src="./8 Configuring Operational and Global Settings_files/doccd.js"></script>
+<link rel="Contents" href="http://docs.oracle.com/middleware/1213/osb/administer/toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="http://docs.oracle.com/middleware/1213/osb/administer/part_managing.htm" title="Previous" type="text/html">
+<link rel="Next" href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm" title="Next" type="text/html">
+<link rel="alternate" href="http://docs.oracle.com/middleware/1213/osb/OSBAG.pdf" title="PDF version" type="application/pdf">
+<link rel="alternate" href="http://docs.oracle.com/middleware/1213/osb/OSBAG.epub" title="ePub version" type="application/epub+zip">
+<link rel="alternate" href="http://docs.oracle.com/middleware/1213/osb/OSBAG.mobi" title="Mobipocket version" type="application/x-mobipocket-ebook">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link rel="stylesheet" href="http://docs.oracle.com/middleware/1213/dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css" href="./8 Configuring Operational and Global Settings_files/header.css">
+<link rel="stylesheet" type="text/css" href="./8 Configuring Operational and Global Settings_files/footer.css">
+<link rel="stylesheet" type="text/css" href="./8 Configuring Operational and Global Settings_files/fonts.css">
+<link rel="stylesheet" href="http://docs.oracle.com/middleware/1213/dcommon/css/foundation.css">
+<link rel="stylesheet" href="http://docs.oracle.com/middleware/1213/dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="./8 Configuring Operational and Global Settings_files/html5.css">
+<link rel="stylesheet" href="http://docs.oracle.com/middleware/1213/dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="http://docs.oracle.com/middleware/1213/dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="http://docs.oracle.com/middleware/1213/dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="./8 Configuring Operational and Global Settings_files/modernizr.js"></script>
+<script type="application/javascript" src="./8 Configuring Operational and Global Settings_files/codemirror.js"></script>
+<script type="application/javascript" src="./8 Configuring Operational and Global Settings_files/jquery.js"></script>
+<script type="application/javascript" src="./8 Configuring Operational and Global Settings_files/foundation.min.js"></script><meta class="foundation-data-attribute-namespace"><meta class="foundation-mq-xxlarge"><meta class="foundation-mq-xlarge"><meta class="foundation-mq-large"><meta class="foundation-mq-medium"><meta class="foundation-mq-small"><style></style>
+<script type="application/javascript" src="./8 Configuring Operational and Global Settings_files/addthis_widget.js"></script><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;"><iframe id="_atssh824" title="AddThis utility frame" src="./8 Configuring Operational and Global Settings_files/sh186.html" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px; left: 0px;"></iframe></div><script type="text/javascript" src="./8 Configuring Operational and Global Settings_files/core181.js"></script>
+<script type="application/javascript" src="./8 Configuring Operational and Global Settings_files/jqfns.js"></script>
+<script type="application/javascript" src="./8 Configuring Operational and Global Settings_files/ohc-inline-videos.js"></script>
+<link rel="stylesheet" type="text/css" href="./8 Configuring Operational and Global Settings_files/widget010.old.css" media="all"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="stylesheet" type="text/css" href="./8 Configuring Operational and Global Settings_files/layers075.css" media="all"></head>
+<body style="padding: 0px; border: 0px;">
+<header><div class="w1024" style="min-height: 55px; display: block; margin: 0px; padding: 0px;"><div class="oracle-logo"><a href="http://docs.oracle.com/en/"><img border="0" width="236" height="22" alt="Oracle Documentation" src="./8 Configuring Operational and Global Settings_files/oracle-doc-logo.png"></a></div><div id="headernav" class="glyph"><ul><li id="login"><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#" id="signInLink">Welcome Ahmed<span class="JetFW-caret-s_16"> </span></a><ul class="shadow"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#">Sign Out</a></li></ul></li></ul></div></div></header><div style="position: relative; padding-top: 56px;"><div id="breadcrumbs" style="padding-top: 1.5em; padding-bottom: 0.5em; padding-left: 15px;"><a href="http://docs.oracle.com/">Home</a> / <a href="http://docs.oracle.com/middleware/1213/index.html">Middleware</a> / <a href="http://docs.oracle.com/middleware/1213/osb/index.html">Oracle Service Bus</a>
+</div><div class="titleDiv">Oracle® Fusion Middleware Administering Oracle Service Bus</div><div style="margin-left: -20px; height: 38px;"><div class="row" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(232, 238, 243); border-top-width: 1px; border-top-style: solid; border-top-color: rgb(232, 238, 243); margin-left: 15px; height: 38px; background: rgb(247, 247, 247);"><div id="contnav" class="large-3 medium-4 columns" style="text-align: left; padding-left: 0px; border-right-width: 1px; border-right-style: solid; border-right-color: rgb(203, 203, 203); height: 38px;"><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#" id="NAVSHOW"><img id="toctoggle" width="32" height="30" src="./8 Configuring Operational and Global Settings_files/hidetools.png" alt="Contents"></a></div><div class="large-5 medium-4 columns" style="padding-left: 20px; border-left-width: 1px; border-left-style: solid; border-left-color: rgb(255, 255, 255);"><a href="http://docs.oracle.com/middleware/1213/osb/administer/part_managing.htm" id="previous"><img width="28" height="32" alt="Previous" src="./8 Configuring Operational and Global Settings_files/prev.png" style="margin-bottom: 0px;"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm" id="next"><img width="28" height="32" alt="Next" src="./8 Configuring Operational and Global Settings_files/next.png" style="margin-bottom: 0px;"></a></div><span class="htmlpage">Page 15 of 33</span></div></div><a id="BEGIN"></a></div>
+<div class="row" id="CONTENT" style="padding-top: 56px;"><div id="NAV" class="large-3 medium-4 columns" style="top: 0px; bottom: 0px;"><div id="leftsidebar" style="position: absolute; top: 0px; overflow-y: auto; width: 97%; height: auto;"><form action="http://docs.oracle.com/apps/search/search.jsp" method="get"><input id="searchField" type="text" name="word"><label for="searchField" style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">Search</label> <input type="submit" id="SEARCHBUTTON" value="Search"><br> <input type="hidden" name="product" id="searchpro" value="e40552-01"><input type="hidden" name="book" id="searchbook" value="osbag"></form><div><p style="margin-bottom: 0px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238);">Table of Contents</p><ul id="tThisDocument" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/toc.htm" style="color: rgb(79, 79, 79);"><img src="./8 Configuring Operational and Global Settings_files/minus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/toc.htm">Administering Oracle Service Bus</a><ul id="DOCIDidm47863245526304" style="margin: 0px; display: block; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/preface.htm#OSBAG101">Preface</a><ul id="DOCIDidm47863254862368" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/preface.htm#OSBAG788" style="margin-left: 14px;">Documentation Accessibility</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/preface.htm#OSBAG106" style="margin-left: 14px;">Conventions</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/whatsnew_mlr_osbag.htm#OSBAG1437">What's New in This Guide</a><ul id="DOCIDidm47863256053264" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/whatsnew_mlr_osbag.htm" style="margin-left: 14px;">Significant Documentation Changes for 12c (12.1.3)</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/whatsnew_mlr_osbag.htm" style="margin-left: 14px;">New and Changed Features for 12c (12.1.3)</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-interoperability.htm#OSBAG1399">Interoperability, Compatibility, and System Support</a><ul id="DOCIDidm47863246076000" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-interoperability.htm#OSBAG2006" style="margin-left: 14px;">Supported System Configurations</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-interoperability.htm#OSBAG2007" style="margin-left: 14px;">Interoperability and Compatibility with Oracle Products</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-interoperability.htm#OSBAG1401" style="margin-left: 14px;">Supported Standards and Implementations</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-interoperability.htm#OSBAG1407">Interoperability and Support Limitations</a><ul id="DOCIDidm47863289511840" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-interoperability.htm#OSBAG1408" style="margin-left: 14px;">.NET Interoperability Limitations</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-interoperability.htm#OSBAG1409" style="margin-left: 14px;">Apache Axis Interoperability Limitations</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-interoperability.htm#OSBAG1410" style="margin-left: 14px;">WebSphere Interoperability Limitations</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG462">Introduction to Oracle Service Bus Administration</a><ul id="DOCIDidm47863238896304" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2012" style="margin-left: 14px;">Oracle Fusion Middleware Overview</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2013">Oracle Service Bus Overview</a><ul id="DOCIDidm47863296941280" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2392" style="margin-left: 14px;">Introduction to Service Monitoring and Management</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG474" style="margin-left: 14px;">Introduction to the Oracle Service Bus Monitoring Framework</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG485" style="margin-left: 14px;">Accessing Statistics Using the JMX API</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG488" style="margin-left: 14px;">Accessing Statistics in a Cluster</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG473">Oracle Service Bus Runtime Monitoring</a><ul id="DOCIDidm47863298418496" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2395" style="margin-left: 14px;">Service Health Monitoring</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG491" style="margin-left: 14px;">SLA and Pipeline Alert Monitoring</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2397" style="margin-left: 14px;">Resequencing Group Monitoring</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2398" style="margin-left: 14px;">Log File Monitoring</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2399" style="margin-left: 14px;">Message Reporting</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2400">Oracle Service Bus Runtime Management</a><ul id="DOCIDidm47863236489328" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2401" style="margin-left: 14px;">Environment Customization</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG509" style="margin-left: 14px;">Runtime Configuration</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2402" style="margin-left: 14px;">Business Service Endpoint Management</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2403" style="margin-left: 14px;">Tuning Performance with Endpoint Throttling</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2404" style="margin-left: 14px;">Importing and Exporting Resources</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2405" style="margin-left: 14px;">Diagnostics</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2407">Oracle Service Bus Runtime Security</a><ul id="DOCIDidm47863232544448" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2408" style="margin-left: 14px;">Working with Security Policies</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2409" style="margin-left: 14px;">Defining Security Administration</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG476">Introduction to Aggregation Intervals</a><ul id="DOCIDidm47863282463760" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG477" style="margin-left: 14px;">Refresh Rate of Monitored Data</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG479" style="margin-left: 14px;">Sampling Intervals Within Aggregation Intervals</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG481" style="margin-left: 14px;">Aggregation Interval Properties</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG490" style="margin-left: 14px;">Resetting the Statistics</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2078" style="margin-left: 14px;">Server Monitoring and Management</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-overview.htm#OSBAG2411" style="margin-left: 14px;">Oracle Service Bus and Oracle Enterprise Scheduler</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2024">Getting Started with Oracle Service Bus Administration</a><ul id="DOCIDidm47863254011312" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2014">Introduction to the Management and Monitoring Pages</a><ul id="DOCIDidm47863293878160" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2015" style="margin-left: 14px;">Service Bus Domain-Level Monitoring Pages</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2022" style="margin-left: 14px;">Service Bus Project Monitoring Pages</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2023" style="margin-left: 14px;">Service Bus Service Monitoring Pages</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2026" style="margin-left: 14px;">Logging in to Oracle Enterprise Manager Fusion Middleware Control</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2027">Navigating to Oracle Service Bus Administration Pages</a><ul id="DOCIDidm47863240022064" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2028" style="margin-left: 14px;">Navigating Through the Service Bus Home Page and Menu</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2029" style="margin-left: 14px;">Navigating Through the Service Bus Projects Home Page and Menu</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2033" style="margin-left: 14px;">Navigating to Oracle Service Bus Pages from the Home Page</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2034" style="margin-left: 14px;">Navigating to the System MBean Browser</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2412" style="margin-left: 14px;">Setting Accessibility Options</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2037" style="margin-left: 14px;">Logging out of Oracle Enterprise Manager Fusion Middleware Control</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-navigate-admin.htm#OSBAG2119" style="margin-left: 14px;">Starting Oracle Service Bus Servers</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2038">Monitoring Oracle Service Bus Alerts</a><ul id="DOCIDidm47863246961520" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2040">Introduction to Oracle Service Bus Alerts</a><ul id="DOCIDidm47863251132848" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2202" style="margin-left: 14px;">Alerts on the Service Bus Dashboard</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2203" style="margin-left: 14px;">Alerts and Operational Settings</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2041">About Service Level Agreement Alerts</a><ul id="DOCIDidm47863301036752" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2042" style="margin-left: 14px;">SLA Alert Severity Levels</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2043" style="margin-left: 14px;">Aggregation Intervals</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2044" style="margin-left: 14px;">SLA Alert Frequencies</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2045" style="margin-left: 14px;">SLA Alert Statistics</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2049">About Pipeline Alerts</a><ul id="DOCIDidm47863234504416" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG496" style="margin-left: 14px;">A Sample Use Case for Pipeline Alerts</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2050" style="margin-left: 14px;">Enabling and Disabling Alerts</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2051">Creating Service Level Agreement Alert Rules</a><ul id="DOCIDidm47863230067184" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2054" style="margin-left: 14px;">Configuring SLA Alert Rule Properties</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2055" style="margin-left: 14px;">Defining SLA Alert Rule Conditions</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2204">Updating SLA Alert Rules</a><ul id="DOCIDidm47863244434096" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2205" style="margin-left: 14px;">Editing Alert Rules</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2206" style="margin-left: 14px;">Deleting Alert Rules</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2056">Monitoring SLA and Pipeline Alerts</a><ul id="DOCIDidm47863244586896" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2356" style="margin-left: 14px;">Enabling Alert Reporting</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG1216" style="margin-left: 14px;">Viewing all SLA and Pipeline Alerts in a Domain</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2057" style="margin-left: 14px;">Filtering SLA and Pipeline Alerts</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2058" style="margin-left: 14px;">Viewing SLA or Pipeline Alert Details</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2059" style="margin-left: 14px;">Viewing the Alert Rule Configuration</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG2060" style="margin-left: 14px;">Deleting an SLA or Pipeline Alert</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#OSBAG1222" style="margin-left: 14px;">Purging SLA or Pipeline Alerts</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2061">Monitoring Oracle Service Bus Service Health</a><ul id="DOCIDidm47863254022576" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2063">About Service Health Metrics</a><ul id="DOCIDidm47863230866256" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2207" style="margin-left: 14px;">Service Health Metrics for Domains and Projects</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2208" style="margin-left: 14px;">Proxy Service Metrics</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2209" style="margin-left: 14px;">Business Service Metrics</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2210" style="margin-left: 14px;">Pipeline Service Metrics</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2211" style="margin-left: 14px;">Split-Join Service Metrics</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG1226">Monitoring Service Health Statistics</a><ul id="DOCIDidm47863290872144" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2212" style="margin-left: 14px;">Viewing Statistics for the Services with the Most Errors</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2213" style="margin-left: 14px;">Viewing Service Health Statistics for a Domain</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2214" style="margin-left: 14px;">Viewing Service Health Statistics for a Project</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2215" style="margin-left: 14px;">Viewing All Service Health Statistics for a Service</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG1228">Resetting Statistics for Service Monitoring</a><ul id="DOCIDidm47863252160272" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-service-health.htm#OSBAG2389" style="margin-left: 14px;">What You Might Need to Know About Resetting the Statistics</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2121">Monitoring Resequencing Groups</a><ul id="DOCIDidm47863250388512" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2216">Introduction to Resequencing Groups</a><ul id="DOCIDidm47863236875504" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2217" style="margin-left: 14px;">Oracle Service Bus Resequencing Message States</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2218" style="margin-left: 14px;">Resequencer Error Handling</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2219" style="margin-left: 14px;">Resequencer Database</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2220" style="margin-left: 14px;">How Deployment Activities Affect Resequencing</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2221" style="margin-left: 14px;">How Server Shutdown Affects Resequencing</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2225" style="margin-left: 14px;">Configuring Resequencing at Runtime</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2226">Monitoring Resequencing Groups and Messages</a><ul id="DOCIDidm47863233587344" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2227" style="margin-left: 14px;">Monitoring Resequencing Groups and Messages</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2228" style="margin-left: 14px;">Viewing Information About a Resequencing Group</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2229">Managing Resequencing Groups at Runtime</a><ul id="DOCIDidm47863246163328" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2230" style="margin-left: 14px;">Skipping Message Sequence IDs</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2231" style="margin-left: 14px;">Recovering when a Resequencing Group Times Out</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer.htm#OSBAG2232" style="margin-left: 14px;">Recovering from Resequencing Faults</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG1215">Configuring and Monitoring Log Files</a><ul id="DOCIDidm47863241564944" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2235">Introduction to Oracle Service Bus Logging</a><ul id="DOCIDidm47863234945440" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2236" style="margin-left: 14px;">ODL Log Files</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2237" style="margin-left: 14px;">ODL Logging Levels</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2238" style="margin-left: 14px;">ODL Message Format</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2239" style="margin-left: 14px;">ODL Log Configuration</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2240" style="margin-left: 14px;">Oracle Service Bus Loggers</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2241">Configuring Diagnostic Logging for Oracle Service Bus</a><ul id="DOCIDidm47863249920224" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2242" style="margin-left: 14px;">Configuring Service Bus Logging in Fusion Middleware Control</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2243" style="margin-left: 14px;">Configuring Oracle Service Bus Logging using WLST Commands</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2244" style="margin-left: 14px;">Setting Logging Levels for Debugging in Fusion Middleware Control</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2245" style="margin-left: 14px;">Setting the Prefix for Oracle Service Bus Error Messages</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2246" style="margin-left: 14px;">Configuring Oracle Service Bus for Offline Logging</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG1250">Viewing Diagnostic Log Files for Oracle Service Bus</a><ul id="DOCIDidm47863296777600" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2247" style="margin-left: 14px;">Viewing Oracle Service Bus Log Files in Fusion Middleware Control</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG1252" style="margin-left: 14px;">Customizing the Log Message View</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2248" style="margin-left: 14px;">Viewing Oracle Service Bus Log Files Using WLST Commands</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2249" style="margin-left: 14px;">Oracle Service Bus Loggers</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2252">Log Configuration After Upgrading from 11g</a><ul id="DOCIDidm47863252117232" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2253" style="margin-left: 14px;">Logging Levels</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-monitoring-logs.htm#OSBAG2255" style="margin-left: 14px;">Log Message Formatting</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="./8 Configuring Operational and Global Settings_files/8 Configuring Operational and Global Settings.html" style="color: rgb(79, 79, 79);">Configuring Operational and Global Settings</a><ul id="DOCIDidm47863243136256" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2088" style="color: rgb(20, 92, 147);">Introduction to Operational Settings</a><ul id="DOCIDidm47863248139616" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2124" style="margin-left: 14px; color: rgb(20, 92, 147);">Available Operational Settings</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2137" style="margin-left: 14px; color: rgb(20, 92, 147);">Global and Service-Level Operational Settings</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2139" style="color: rgb(20, 92, 147);">Viewing and Configuring Operational Settings</a><ul id="DOCIDidm47863255742672" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2093" style="margin-left: 14px; color: rgb(20, 92, 147);">Configuring Operational Settings at the Global Level</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2140" style="margin-left: 14px; color: rgb(20, 92, 147);">Searching for Services to Configure Their Operational Settings</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2090" style="margin-left: 14px; color: rgb(20, 92, 147);">Enabling and Disabling Operational Settings for Multiple Services</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2141" style="margin-left: 14px; color: rgb(20, 92, 147);">Enabling and Disabling Operational Settings for a Single Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG1235" style="margin-left: 14px; color: rgb(20, 92, 147);">Setting the Aggregation Interval for a Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2142" style="margin-left: 14px; color: rgb(20, 92, 147);">Configuring the Monitoring Level for a Pipeline or Split-Join</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2143" style="margin-left: 14px; color: rgb(20, 92, 147);">Configuring Message Tracing for a Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2146" style="margin-left: 14px; color: rgb(20, 92, 147);">Configuring the SLA Alert Level for a Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2147" style="margin-left: 14px; color: rgb(20, 92, 147);">Configuring the Pipeline Alert Level</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2148" style="margin-left: 14px; color: rgb(20, 92, 147);">Configuring the Logging Level for a Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2149" style="margin-left: 14px; color: rgb(20, 92, 147);">Configuring Throttling for a Business Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2150" style="margin-left: 14px; color: rgb(20, 92, 147);">Configuring Offline Endpoint URI Handling for a Business Service</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2258" style="margin-left: 14px; color: rgb(20, 92, 147);">Making Bulk Updates to Operational Settings</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#OSBAG2098" style="margin-left: 14px; color: rgb(20, 92, 147);">Preserving Operational Settings During Resource Imports</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG1357">Customizing Oracle Service Bus Environments</a><ul id="DOCIDidm47863301757728" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG2259">About Environment Values</a><ul id="DOCIDidm47863295855632" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG2260" style="margin-left: 14px;">Find and Replace</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG2261" style="margin-left: 14px;">Configuration Files</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG1358">Finding and Replacing Environment Values Using the Oracle Service Bus Console</a><ul id="DOCIDidm47863237088464" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG2267" style="margin-left: 14px;">Finding Environment Values</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG2268" style="margin-left: 14px;">Replacing Environment Values</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG2269">Using Configuration Files to Update Environment Values and Operational Settings</a><ul id="DOCIDidm47863230796752" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG1360" style="margin-left: 14px;">Creating a Configuration File</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG1361" style="margin-left: 14px;">Executing a Configuration File</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG2270" style="margin-left: 14px;">Available Environment Values</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG2272" style="margin-left: 14px;">Environment Values for Operational Settings</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#OSBAG2274" style="margin-left: 14px;">Sample Configuration Files</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-export-import.htm#OSBAG2151">Importing and Exporting Oracle Service Bus Resources</a><ul id="DOCIDidm47863254847616" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-export-import.htm#OSBAG2153" style="margin-left: 14px;">About Importing and Exporting Oracle Service Bus Resources</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-export-import.htm#OSBAG2154" style="margin-left: 14px;">Exporting Oracle Service Bus Resources in Fusion Middleware Control</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-export-import.htm#OSBAG2157" style="margin-left: 14px;">Importing Oracle Service Bus Resources in Fusion Middleware Control</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1176">Defining Access Security for Oracle Service Bus</a><ul id="DOCIDidm47863280323056" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1177">Understanding Oracle Service Bus Application Security</a><ul id="DOCIDidm47863250262448" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1178" style="margin-left: 14px;">Users</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1179" style="margin-left: 14px;">Groups</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1181" style="margin-left: 14px;">Roles</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1183" style="margin-left: 14px;">Access Control Policies</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1184" style="margin-left: 14px;">Security Configuration Data and Sessions</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG2289" style="margin-left: 14px;">Security Configuration During Exports</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG2290">Configuring Oracle Service Bus Administrative Security</a><ul id="DOCIDidm47863290758848" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1193" style="margin-left: 14px;">Creating Oracle Service Bus Groups</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG2293" style="margin-left: 14px;">Granting Permissions to Groups</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1187" style="margin-left: 14px;">Creating Oracle Service Bus Users</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG2296" style="margin-left: 14px;">Granting Access Permissions By Assigning Users to Groups</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG2297" style="margin-left: 14px;">Granting Permissions to Individual Users</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG2160">Securing Oracle Service Bus in a Production Environment</a><ul id="DOCIDidm47863231034480" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1554" style="margin-left: 14px;">Undeploying the Service Bus (SB) Resource</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1555" style="margin-left: 14px;">Protection of Temporary Files With Streaming body Content</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-admin-security.htm#OSBAG1556" style="margin-left: 14px;">Protecting Against Denial of Service Attacks on the Oracle Service Bus Console</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG564">Configuring Reporting for Messages and Alerts</a><ul id="DOCIDidm47863291361952" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG565">Introduction to the Service Bus Reporting Framework</a><ul id="DOCIDidm47863245607264" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG2371" style="margin-left: 14px;">Message Report Configuration</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG2372" style="margin-left: 14px;">Default Reporting Provider</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG2373" style="margin-left: 14px;">Custom Report Providers</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG2374" style="margin-left: 14px;">Reporting Workflow</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG567">About the JMS Reporting Provider</a><ul id="DOCIDidm47863244309904" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG569" style="margin-left: 14px;">About the Pipeline Report Action</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG1398" style="margin-left: 14px;">Reporting Actions in Global Transactions</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG592">Configuring a Database for the JMS Reporting Provider Store</a><ul id="DOCIDidm47863284326336" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG785" style="margin-left: 14px;">Configuring the Reporting Data Source for Transactions</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG593" style="margin-left: 14px;">Creating a Database for the JMS Reporting Provider Store</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG2375" style="margin-left: 14px;">Enabling Message Reports</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG577">Working With Message Reports</a><ul id="DOCIDidm47863246797872" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG578" style="margin-left: 14px;">Searching for Message Reports</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG582" style="margin-left: 14px;">Viewing Message Report Details</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG590" style="margin-left: 14px;">Purging Message Reports from the Reporting Data Store</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG572" style="margin-left: 14px;">Stopping a Reporting Provider</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG2379" style="margin-left: 14px;">Starting a Reporting Provider</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG573">Untargeting a JMS Reporting Provider</a><ul id="DOCIDidm47863236402384" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG786" style="margin-left: 14px;">Untargeting the Default JMS Reporting Provider During Domain Creation</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG574" style="margin-left: 14px;">Untargeting the JMS Reporting Provider when the Server is Running</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG576" style="margin-left: 14px;">Untargeting the JMS Reporting Provider When the Server in Not Running</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-reporting.htm#OSBAG2380" style="margin-left: 14px;">Using Oracle Advanced Queueing JMS</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2357">Monitoring and Managing Security Policies</a><ul id="DOCIDidm47863229675280" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2359" style="margin-left: 14px;">Introduction to Security Policies</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2360">Configuring Global Policies</a><ul id="DOCIDidm47863243575280" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm" style="margin-left: 14px;">How to Create a Global Policy Set</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm" style="margin-left: 14px;">How to Enable a Service for Global Policies</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm" style="margin-left: 14px;">How to Disable a Service for Global Policies</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2361">Monitoring Security Policies</a><ul id="DOCIDidm47863240597008" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2362" style="margin-left: 14px;">Viewing the Policies Attached to a Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2364" style="margin-left: 14px;">Monitoring Policy Usage</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2365" style="margin-left: 14px;">Viewing Policy Violations</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2366">Managing Security Policies</a><ul id="DOCIDidm47863247096720" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2367" style="margin-left: 14px;">Attaching Security Policies Directly to a Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2369" style="margin-left: 14px;">Detaching Policies from a Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-policies.htm#OSBAG2370" style="margin-left: 14px;">Overriding Security Policies</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG595">Monitoring and Managing Endpoint URIs for Business Services</a><ul id="DOCIDidm47863246602480" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG2301">About Endpoint URI Management</a><ul id="DOCIDidm47863251322416" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG2302" style="margin-left: 14px;">About Endpoint URIs</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG598" style="margin-left: 14px;">Offline and Online Endpoint URIs</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG601" style="margin-left: 14px;">Metrics for Monitoring Endpoint URIs</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG599" style="margin-left: 14px;">Configuring Service Bus to Take Unresponsive Endpoint URIs Offline</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG2306" style="margin-left: 14px;">Marking an Endpoint URI Offline Manually</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG605" style="margin-left: 14px;">Marking an Offline URI as Online</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG2307" style="margin-left: 14px;">Viewing Endpoint URI Metrics for a Business Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG606">Creating Alerts Based on Endpoint URI Metrics</a><ul id="DOCIDidm47863233353104" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG2308" style="margin-left: 14px;">Creating an SLA Alert Based on Endpoint URI Status</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#OSBAG607" style="margin-left: 14px;">Configuring an Alert Rule Based on Endpoint URI Statistics</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG614">Configuring Business Services for Message Throttling</a><ul id="DOCIDidm47863232772144" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2100">Introduction to Throttling</a><ul id="DOCIDidm47863245928704" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2101" style="margin-left: 14px;">Throttling Concepts</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2102" style="margin-left: 14px;">Throttling Properties</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2103" style="margin-left: 14px;">Throttling Groups</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2104" style="margin-left: 14px;">Throttling Group Properties and Business Service Throttling Properties</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG623" style="margin-left: 14px;">Throttling for Business Services with Multiple Endpoint URIs</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG624" style="margin-left: 14px;">Throttling Retried Messages</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm" style="margin-left: 14px;">Throttling and Work Managers</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2105" style="margin-left: 14px;">Throttling in a Cluster</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2106">Throttling Metrics</a><ul id="DOCIDidm47863234941056" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG622" style="margin-left: 14px;">Using Throttling Metrics to Define Alerts</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG615">Configuring Throttling for a Single Business Service</a><ul id="DOCIDidm47863239923856" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2107" style="margin-left: 14px;">Configuring Throttling for a Single Business Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2109" style="margin-left: 14px;">Disabling Throttling for a Single Business Service</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2111">Configuring Throttling for a Group of Business Services</a><ul id="DOCIDidm47863252556640" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2112" style="margin-left: 14px;">Creating Throttling Groups</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2163" style="margin-left: 14px;">Associating Business Services with a Throttling Group</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2114" style="margin-left: 14px;">Editing Throttling Groups</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#OSBAG2116" style="margin-left: 14px;">Deleting a Throttling Group</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2165">Managing Resequencer Tables</a><ul id="DOCIDidm47863277832832" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2309">About the Resequencer Database Tables</a><ul id="DOCIDidm47863253180768" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2425" style="margin-left: 14px;">Database Table Purge Scripts</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2310" style="margin-left: 14px;">Automatic Purging of Completed Resequencer Messages</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2312" style="margin-left: 14px;">The Datasource for Resequencing</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2313" style="margin-left: 14px;">Purge Scripts and Resequenced Message Purge States</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2314">Purging Oracle Service Bus Resequencer Data</a><ul id="DOCIDidm47863291382000" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2315" style="margin-left: 14px;">Configuring the Resequencer to Automatically Purge Completed Messages</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2317" style="margin-left: 14px;">Using SQL Scripts to Purge Resequencer Tables</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-resequencer-tables.htm#OSBAG2311" style="margin-left: 14px;">Reconfiguring an Active Resequencer is not Supported</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-execution-tracing.htm#OSBAG609">Using Execution Tracing to Diagnose Problems</a><ul id="DOCIDidm47863244255344" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-execution-tracing.htm#OSBAG2381" style="margin-left: 14px;">Introduction to Execution Tracing</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-execution-tracing.htm#OSBAG610">Enabling and Disabling Execution Tracing</a><ul id="DOCIDidm47863255348512" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-execution-tracing.htm#OSBAG2382" style="margin-left: 14px;">Setting Oracle WebLogic Server Log Levels</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-execution-tracing.htm#OSBAG2383" style="margin-left: 14px;">Configuring Execution Tracing for a Single Service</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-execution-tracing.htm#OSBAG2384" style="margin-left: 14px;">Configuring Execution Tracing for Multiple Services</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-execution-tracing.htm#OSBAG612" style="margin-left: 14px;">Accessing Execution Tracing Information</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG1961">Using the Diagnostic Frameworks to Diagnose Problems</a><ul id="DOCIDidm47863238141824" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG1963">Understanding Diagnostics for Oracle Service Bus</a><ul id="DOCIDidm47863243493264" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG1964" style="margin-left: 14px;">Oracle WebLogic Diagnostic Framework</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG2321" style="margin-left: 14px;">Oracle Fusion Middleware Diagnostic Framework</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG1965" style="margin-left: 14px;">About the Automatic Diagnostic Repository</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG2323" style="margin-left: 14px;">Predefined Incident Processing Rules</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG2324" style="margin-left: 14px;">Dynamic Monitoring Service Metrics</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG1966">Working with Oracle Service Bus Diagnostic Dumps</a><ul id="DOCIDidm47863234543648" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG1968" style="margin-left: 14px;">Listing the Available Diagnostic Dumps</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG1970" style="margin-left: 14px;">Running a Derived Resource Caches Diagnostic Dump (OSB.derived-caches)</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG1974" style="margin-left: 14px;">Running a JMS Correlation Table Diagnostic Dump (OSB.jms-async-table)</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG1977" style="margin-left: 14px;">Running an MQ Correlation Table Diagnostic Dump (OSB.mq-async-table)</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG2329" style="margin-left: 14px;">Generating Diagnostic Dumps Using RDA</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG2330" style="margin-left: 14px;">Viewing Incident Packages with ADR Tools</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-troubleshooting.htm#OSBAG2331" style="margin-left: 14px;">Querying Problems and Incidents</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG748">JMX Monitoring API</a><ul id="DOCIDidm47863248719024" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG749" style="margin-left: 14px;">Introduction to the JMX Monitoring API</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG750">Using the JMX Monitoring API</a><ul id="DOCIDidm47863277184608" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG751" style="margin-left: 14px;">Public POJO Objects</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG757" style="margin-left: 14px;">ServiceDomainMBean</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG2430" style="margin-left: 14px;">MonitoringConfigurationMBean</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG758" style="margin-left: 14px;">Statistics Collected for Oracle Service Bus</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG767" style="margin-left: 14px;">Caveats</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG768" style="margin-left: 14px;">Performance</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG769">API Usage Example</a><ul id="DOCIDidm47863239260560" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_jmx_monitoring.htm#OSBAG2419" style="margin-left: 14px;">Sample Program</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_deploy_api.htm#OSBAG213">Using the Oracle Service Bus Deployment APIs</a><ul id="DOCIDidm47863230916048" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_deploy_api.htm#OSBAG2391" style="margin-left: 14px;">Deployment MBean Overview</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_deploy_api.htm#OSBAG214">Managing Sessions Using Programs and Scripts</a><ul id="DOCIDidm47863237038512" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_deploy_api.htm#OSBAG215" style="margin-left: 14px;">Creating, Activating, Discarding, and Locating Sessions</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_deploy_api.htm#OSBAG218">Managing Configuration Tasks Using Programs and Scripts</a><ul id="DOCIDidm47863231008592" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_deploy_api.htm#OSBAG219" style="margin-left: 14px;">Importing, Exporting, and Querying Configurations</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_deploy_api.htm#OSBAG220" style="margin-left: 14px;">Updating Environment-Specific Information</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_auditing.htm#OSBAG781">Auditing Your Oracle Service Bus System</a><ul id="DOCIDidm47863255624304" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_auditing.htm#OSBAG782" style="margin-left: 14px;">Auditing the Configuration Changes</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_auditing.htm#OSBAG783" style="margin-left: 14px;">Creating an Audit Trail for a Message Flow</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_auditing.htm#OSBAG784" style="margin-left: 14px;">Auditing Security Violations</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG689">Interoperability with WSRP</a><ul id="DOCIDidm47863229658704" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG690" style="margin-left: 14px;">WSRP Producers and Consumers</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG691">WSRP Architecture</a><ul id="DOCIDidm47863229193664" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG693" style="margin-left: 14px;">Enhanced Architecture with Oracle Service Bus</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG695">WSRP Design Concepts</a><ul id="DOCIDidm47863235858608" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG696" style="margin-left: 14px;">WSRP WSDL Documents</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG698" style="margin-left: 14px;">WSRP Messages</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG699">Configuring Oracle Service Bus for WSRP</a><ul id="DOCIDidm47863234647104" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG700" style="margin-left: 14px;">Getting the Producer WSDL Document</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG2333" style="margin-left: 14px;">Using SSL with WSRP Producers</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG701" style="margin-left: 14px;">Routing Messages Between Consumer and Producer</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG702" style="margin-left: 14px;">Monitoring WSRP Applications</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/app_interop_wsrp.htm#OSBAG703" style="margin-left: 14px;">Load Balancing and Failover</a></li></ul></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-security-roles.htm#OSBAG2200">Role-Based Access in Oracle Service Bus</a><ul id="DOCIDidm47863249068240" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-security-roles.htm#OSBAG2334">Application Security Roles</a><ul id="DOCIDidm47863296354080" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-security-roles.htm#OSBAG2335" style="margin-left: 14px;">Application Role-Based Access in Oracle Service Bus Console</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-security-roles.htm#OSBAG2342" style="margin-left: 14px;">Application Role-Based Access in Fusion Middleware Control</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#"><img src="./8 Configuring Operational and Global Settings_files/plus.gif" alt="open" width="14" height="12"></a><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-security-roles.htm#OSBAG2344">Enterprise Security Roles</a><ul id="DOCIDidm47863284640576" style="margin: 0px; padding: 0px 1px 0px 14px; text-indent: -14px; list-style: none; display: none;"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-security-roles.htm#OSBAG2345" style="margin-left: 14px;">Enterprise Role-Based Access in Oracle Service Bus Console</a></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-security-roles.htm#OSBAG2352" style="margin-left: 14px;">Enterprise Role-Based Access in Fusion Middleware Control</a></li></ul></li><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-security-roles.htm#OSBAG2354" style="margin-left: 14px;">Role-Based Security Configuration Access</a></li></ul></li></ul></li></ul></div><div style="text-align: center;"><button type="button" id="feedback">Feedback</button><div id="feedbackRating" style="position: fixed; width: 350px; height: 350px; top: 807.400024414063px;"><div class="innerRating"><form method="post" style="margin-top: 1rem;"><div style="margin-top: 0px; margin-right: 0px;"><a class="closebutton">×</a><input type="hidden" id="path" name="path" value="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm"><input type="hidden" name="topictitle" id="topictitle" value="8 Configuring Operational and Global Settings"><p style="margin-bottom: 0px;"><label for="userCommentsTitle" style="color: rgb(102, 102, 102);">Subject</label> <input type="text" name="title" id="userCommentsTitle" size="40"></p><textarea id="userCommentsBody" rows="5" cols="50" name="comment_text"></textarea><p style="margin: 0px 0px 1ex;"><label style="color: rgb(102, 102, 102); height: 2px; text-indent: -5900px;">From</label> &nbsp; &nbsp; <span><input type="radio" name="submitter" value="ahmed@raastech.com" id="postPublic" checked="" style="margin-left: -12px;"><label for="postPublic">ahmed@raastech.com</label> <br></span><input type="radio" name="submitter" value="" id="postAnonymous"> <label for="postAnonymous">Anonymous</label><span style="display: none;"> (or <a href="http://www.oracle.com/webapps/redirect/signon?nexturl=http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm">Sign In</a>)</span><input type="submit" value="Submit" class="submit" id="submitajax" style="margin-right: 0px; float: right; display: block;"></p><br><p style="color: rgb(51, 51, 51); margin-top: 0px; margin-bottom: 0.75rem;">Comments, corrections, and suggestions are forwarded to authors every week. By submitting, you confirm you agree to the <a href="http://docs.oracle.com/cd/E23003_01/html/en/comment_disclaimer.htm" style="font-size: 12px;">terms and conditions</a>. Use the <a href="https://community.oracle.com/" target="_blank" class="newwindow" style="font-size: 12px;">OTN forums<img src="./8 Configuring Operational and Global Settings_files/new-window.png" alt="Opens a new window" style="display: inline; border: none; border-radius: 0px; margin: 0px 0px 0px 2px; padding: 0px;"></a> for product questions. For support or consulting, file a service request through <a href="https://support.oracle.com/" target="_blank" class="newwindow" style="font-size: 12px;">My Oracle Support<img src="./8 Configuring Operational and Global Settings_files/new-window.png" alt="Opens a new window" style="display: inline; border: none; border-radius: 0px; margin: 0px 0px 0px 2px; padding: 0px;"></a>.</p></div></form></div><div id="loadImage"><img src="./8 Configuring Operational and Global Settings_files/ajax-loader.gif" alt="Submitting..">Thank you for your feedback!</div></div><button id="download" type="button">Download</button><div class="download" id="downloadsect" style="position: fixed; color: rgb(112, 112, 112); width: 317.350006103516px;"><a class="closebutton">×</a><div><a href="http://docs.oracle.com/middleware/1213/osb/OSBAG.pdf" class="newwindow">PDF<img src="./8 Configuring Operational and Global Settings_files/new-window.png" alt="Opens a new window" style="display: inline; border: none; border-radius: 0px; margin: 0px 0px 0px 2px; padding: 0px;"></a> - best for offline viewing and printing</div><div><a href="http://docs.oracle.com/middleware/1213/osb/OSBAG.epub">ePub</a> - best for most mobile devices</div><div><a href="http://docs.oracle.com/middleware/1213/osb/OSBAG.mobi">Mobi</a> - best for Amazon Kindle devices</div></div></div><div class="addthis_sharing_toolbox" data-url="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm" data-title="8 Configuring Operational and Global Settings"><span class="shareto">Share to:</span><div id="atstbx" class="at-share-tbx-element addthis_20x20_style addthis-smartlayers addthis-animated at4-show"><a class="at-share-btn at-svc-facebook"><span class="at300bs at15nc at15t_facebook" title="Facebook"></span></a><a class="at-share-btn at-svc-twitter"><span class="at300bs at15nc at15t_twitter" title="Twitter"></span></a><a class="at-share-btn at-svc-email"><span class="at300bs at15nc at15t_email" title="Email"></span></a><a class="at-share-btn at-svc-print"><span class="at300bs at15nc at15t_print" title="Print"></span></a><a class="at-share-btn at-svc-gmail"><span class="at300bs at15nc at15t_gmail" title="Gmail"></span></a><a class="at-share-btn at-svc-compact"><span class="at300bs at15nc at15t_compact" title="More"></span></a></div></div></div></div>
+<div class="IND large-9 medium-8 columns"><div id="BREADCRUMBS"><a href="http://docs.oracle.com/">Home</a> / <a href="http://docs.oracle.com/middleware/1213/index.html">Middleware</a> / <a href="http://docs.oracle.com/middleware/1213/osb/index.html">Oracle Service Bus</a>
+</div>
+
+<span id="PAGE" style="display:none;">15/33</span>
+<!-- End Header --><a id="CHDDEEGF"></a><a id="OSBAG2086"></a>
+<h1 class="chapter"><span class="secnum">8</span> Configuring Operational and Global Settings</h1>
+<p><a id="OSBAG2087"></a>This chapter describes the settings that control the operation of Oracle Service Bus services in the runtime, including monitoring, alerts, message tracing, execution tracing, alerts, reporting, logging, and business service performance tuning. Certain operational settings are set at the service level, some are set at the global level, and some need to be set at both the service and global level in order to take effect.</p>
+<p>This chapter includes the following sections:</p>
+<ul>
+<li>
+<p style="margin: 0px;"><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#A1001424">Section 8.1, "Introduction to Operational Settings"</a></p>
+</li>
+<li>
+<p style="margin: 0px;"><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#A1166748">Section 8.2, "Viewing and Configuring Operational Settings"</a></p>
+</li>
+<li>
+<p style="margin: 0px;"><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#A1002848864">Section 8.3, "Making Bulk Updates to Operational Settings"</a></p>
+</li>
+<li>
+<p style="margin: 0px;"><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#A1002847590">Section 8.4, "Preserving Operational Settings During Resource Imports"</a></p>
+</li>
+</ul>
+<a id="A1001424"></a><a id="OSBAG2088"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">8.1</span> Introduction to Operational Settings</h2>
+<p>By configuring operational settings in Fusion Middleware Control, you can control the state of each individual service and of all services globally. Along with controlling the state of each service and all services in a domain, operational settings let you enable and disable monitoring, alerting, reporting, and logging features. You can also manage business services by specifying how to handle offline endpoint URIs, limiting the message flow, and enabling result caching. Global operational settings override service-level settings.</p>
+<a id="CHDEJHCG"></a><a id="OSBAG2124"></a>
+<div class="sect2"><!-- infolevel="all" infotype="General" -->
+<h3 class="sect2"><span class="secnum">8.1.1</span> Available Operational Settings</h3>
+<p>Operational settings let you configure things like monitoring, alerts, reporting, logging, message tracing, and business service result caching. You can specify operational settings for all services, at the service and global level, and use the global settings to turn on and off monitoring, SLA alerts, pipeline message reporting, and pipeline message logging. The available settings are described in the following sections.</p>
+<a id="OSBAG2125"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref123"></a>
+<h4 class="sect3"><span class="secnum">8.1.1.1</span> State</h4>
+<p>This operational setting enables or disables a service. By default, the state of all services is enabled.</p>
+</div>
+<!-- class="sect3" -->
+<a id="CHDECEED"></a><a id="OSBAG2126"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" -->
+<h4 class="sect3"><span class="secnum">8.1.1.2</span> Monitoring</h4>
+<p>This operational setting enables or disables service monitoring. For pipelines and split-joins, you can also configure the level at which monitoring is performed. Certain other operational settings, such as logging and alerts, rely on monitoring being enabled. By default, monitoring is disabled for all services.</p>
+<p>For pipelines, monitoring can be enabled at the following levels.</p>
+<ul>
+<li>
+<p style="margin: 0px;">Action (A)</p>
+</li>
+<li>
+<p style="margin: 0px;">Pipeline (P)</p>
+</li>
+<li>
+<p style="margin: 0px;">Service (S)</p>
+</li>
+</ul>
+<p>For split-joins, monitoring can be enabled at the following levels.</p>
+<ul>
+<li>
+<p style="margin: 0px;">Activity (A)</p>
+</li>
+<li>
+<p style="margin: 0px;">Branch (B)</p>
+</li>
+<li>
+<p style="margin: 0px;">Service (S)</p>
+</li>
+</ul>
+<p>You configure the level on the pipeline or split-join Properties page, and the level indicator is displayed on the Service Bus and Service Bus Project Operations pages.</p>
+</div>
+<!-- class="sect3" -->
+<a id="OSBAG2127"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref124"></a>
+<h4 class="sect3"><span class="secnum">8.1.1.3</span> Aggregation Interval</h4>
+<p>This operational setting defines the aggregation interval for the service in hours and minutes. The aggregation interval is the time period over which statistical data is collected and displayed. The default interval is 10 minutes.</p>
+</div>
+<!-- class="sect3" -->
+<a id="CHDJEGEG"></a><a id="OSBAG2128"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" -->
+<h4 class="sect3"><span class="secnum">8.1.1.4</span> Service-Level Agreement Alerts</h4>
+<p>This operational setting enables service-level agreement (SLA) alerting for services at a specific severity level or above. You can also use this to disable SLA alerting for a service. By default, SLA alerting is enabled for all services.</p>
+<p>SLA alerting can be enabled at the following levels. You configure the alerting level on the service's Properties page, and the level indicator is displayed on the Service Bus and Service Bus Project Operations pages.</p>
+<ul>
+<li>
+<p style="margin: 0px;">Normal (N)</p>
+</li>
+<li>
+<p style="margin: 0px;">Warning (W)</p>
+</li>
+<li>
+<p style="margin: 0px;">Minor (Mn)</p>
+</li>
+<li>
+<p style="margin: 0px;">Major (Mj)</p>
+</li>
+<li>
+<p style="margin: 0px;">Critical (C)</p>
+</li>
+<li>
+<p style="margin: 0px;">Fatal (F)</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<a id="CHDGGADB"></a><a id="OSBAG2129"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" -->
+<h4 class="sect3"><span class="secnum">8.1.1.5</span> Pipeline Alerts</h4>
+<p>This operational setting enables alerting for pipelines at a specific severity level or above. You can also use this to disable pipeline alerting. By default, pipeline alerts are enabled at the Normal level or higher. For more information about monitoring pipeline alerts, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-alerts.htm#BEICGHCB">Chapter 4, "Monitoring Oracle Service Bus Alerts."</a> For information about configuring alerts, see "<a class="olink OSBDV2368" href="http://docs.oracle.com/middleware/1213/osb/develop/osb-pipeline-design.htm#OSBDV2368">Reporting Actions</a>" and "<a class="olink OSBDV2509" href="http://docs.oracle.com/middleware/1213/osb/develop/osb-pipeline-actions.htm#OSBDV2509">Adding Alert Actions</a>" in <span class="italic">Developing Services with Oracle Service Bus</span>.</p>
+<p>Pipeline alerting can be enabled at the following levels. You configure the level on the pipeline's Properties page, and the level indicator is displayed on the Service Bus and Service Bus Project Operations pages.</p>
+<ul>
+<li>
+<p style="margin: 0px;">Normal (N)</p>
+</li>
+<li>
+<p style="margin: 0px;">Warning (W)</p>
+</li>
+<li>
+<p style="margin: 0px;">Minor (Mn)</p>
+</li>
+<li>
+<p style="margin: 0px;">Major (Mj)</p>
+</li>
+<li>
+<p style="margin: 0px;">Critical (C)</p>
+</li>
+<li>
+<p style="margin: 0px;">Fatal (F)</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<a id="OSBAG2130"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref125"></a>
+<h4 class="sect3"><span class="secnum">8.1.1.6</span> Reporting</h4>
+<p>This operational setting enables or disables message reporting for pipelines. In Service Bus, message data can be captured from the message body and other message variables. This data is then delivered to one or more reporting providers. Information about SLA violations is also included in the reporting data. By default, reporting is enabled at the Normal level or higher.</p>
+</div>
+<!-- class="sect3" -->
+<a id="CHDJGDGH"></a><a id="OSBAG2131"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" -->
+<h4 class="sect3"><span class="secnum">8.1.1.7</span> Logging</h4>
+<p>This operational setting enables logging at a specific severity level or above for pipelines and split-joins. The severity level of the log actions in the pipeline or split-join must match the Logging severity level on that pipeline's or split-join's operational settings. By default, logging is enabled at the Debug level or higher.</p>
+<p>Logging can be enabled at the following levels. You configure the level on the Properties page for the pipeline or split-join, and the level indicator is displayed on the Service Bus and Service Bus Project Operations pages.</p>
+<ul>
+<li>
+<p style="margin: 0px;">Debug (D)</p>
+</li>
+<li>
+<p style="margin: 0px;">Info (I)</p>
+</li>
+<li>
+<p style="margin: 0px;">Warning (W)</p>
+</li>
+<li>
+<p style="margin: 0px;">Error (E)</p>
+</li>
+</ul>
+<p>To see log data in the log file or standard out (server console), Oracle WebLogic Server logging must be set to specific severity levels. For more information, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDCJEGE">"To set Oracle WebLogic Server log levels:."</a></p>
+</div>
+<!-- class="sect3" -->
+<a id="OSBAG2132"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref126"></a>
+<h4 class="sect3"><span class="secnum">8.1.1.8</span> Execution Tracing</h4>
+<p>This operational settings enables or disables execution tracing for pipelines and split-joins. Service Bus lets you trace messages without having to shut down the server, making it easier to troubleshoot and diagnose a message flow. By default, execution tracing is disabled. After you enable execution tracing, the system logs various details culled from the pipeline context and the message context. These details include: stage name; pipeline or route node name; and the current message context.</p>
+<p>For tracing to appear in the log file or standard out (server console), Oracle WebLogic Server logging must be set to the Info severity level. For more information about execution tracing, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-execution-tracing.htm#BABGACEC">Chapter 17, "Using Execution Tracing to Diagnose Problems."</a></p>
+</div>
+<!-- class="sect3" -->
+<a id="OSBAG2133"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref127"></a>
+<h4 class="sect3"><span class="secnum">8.1.1.9</span> Message Tracing</h4>
+<p>This operational setting enables or disables message tracing for services at a specific detail level or above. You can also set the payload limit (in kilobytes) and the default encoding. By default, message tracing is disabled.</p>
+<p>For tracing to appear in the log file or standard out (server console), Oracle WebLogic Server logging must be set to the Info severity level. For instructions on configuring message tracing, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDCDJCJ">Section 8.2.7, "Configuring Message Tracing for a Service."</a> Additionally, you must provide the default encoding of the payload. For example, if the payload is in Shift_JIS encoding, specify that in the Default Encoding field to ensure that those bytes are converted to UTF8 in the log file.</p>
+</div>
+<!-- class="sect3" -->
+<a id="OSBAG2134"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref128"></a>
+<h4 class="sect3"><span class="secnum">8.1.1.10</span> Offline Endpoint URIs</h4>
+<p>This operational setting enables or disables non-responsive endpoints for business services. When you select this option, the business service removes non-responsive endpoint URIs (takes them offline), at runtime, so that only the responsive URIs are used for retry attempts and for processing subsequent requests.</p>
+<p>You can specify the interval of time to wait before retrying the offline endpoint URI. You can enable or disable offline URIs for business services only. By default, offline endpoint URIs are disabled.</p>
+<p>For more information about offline endpoint URIs, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#BABDJJIF">Chapter 14, "Monitoring and Managing Endpoint URIs for Business Services."</a> For instructions on marking endpoint URIs offline, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#CHDGDJAD">Section 14.2, "Configuring Service Bus to Take Unresponsive Endpoint URIs Offline."</a></p>
+</div>
+<!-- class="sect3" -->
+<a id="OSBAG2135"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref129"></a>
+<h4 class="sect3"><span class="secnum">8.1.1.11</span> Throttling Settings</h4>
+<p>You can restrict the flow of messages through a business service by enabling throttling for the service and configuring concurrency, the throttling queue, and a time to live (TTL) for queued messages. Throttling properties include the following:</p>
+<ul>
+<li>
+<p><span class="bold">Throttling State</span>: This operational setting enables or disables throttling for a business service. By default, throttling is disabled.</p>
+</li>
+<li>
+<p><span class="bold">Maximum Concurrency</span>: This operational setting restricts the number of messages that can be concurrently processed by a business service. The default number of messages is 0 (zero), indicating no limit.</p>
+</li>
+<li>
+<p><span class="bold">Throttling Queue</span>: This operational setting restricts the maximum number of messages in the throttling queue. The default number of messages is 0 (zero), indicating no limit.</p>
+</li>
+<li>
+<p><span class="bold">Message Expiration</span>: The maximum time interval (in milliseconds) for which a message can be placed in throttling queue. The default number of messages is 0 (zero), indicating no limit.</p>
+</li>
+</ul>
+<p>For more information about throttling business services, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#BCGDJAJF">Chapter 15, "Configuring Business Services for Message Throttling."</a></p>
+</div>
+<!-- class="sect3" -->
+<a id="OSBAG2136"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref130"></a>
+<h4 class="sect3"><span class="secnum">8.1.1.12</span> Result Caching State</h4>
+<p>This operational setting enables or disables result caching for a business service. By default, result caching is enabled globally. For more information about result caching, see "<a class="olink OSBDV2222" href="http://docs.oracle.com/middleware/1213/osb/develop/osb-business-services.htm#OSBDV2222">Improving Performance by Caching Business Service Results</a>" in <span class="italic">Developing Services with Oracle Service Bus</span>.</p>
+</div>
+<!-- class="sect3" -->
+<a id="OSBAG2257"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref131"></a>
+<h4 class="sect3"><span class="secnum">8.1.1.13</span> Resequencer Settings</h4>
+<p>For services that use the resequencer to put messages in sequence, you can configure the resequencer settings, including the length of time the locker thread waits when it is unable to find a group with messages to process and the maximum number of resequencer groups to retrieve at one time. You can also configure the resequencer to purge messages that have been processed from the resequencer database.</p>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<a id="OSBAG2137"></a>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref132"></a>
+<h3 class="sect2"><span class="secnum">8.1.2</span> Global and Service-Level Operational Settings</h3>
+<p>The runtime effects of the service-level settings depend on their corresponding global settings. You must enable both the global and service-level settings for a service to be completely enabled at runtime. The service state must also be enabled. You can change and save monitoring configuration settings even if the service will be not be enabled at runtime. For example, you can change and save the aggregation interval even if service monitoring is disabled. In this manner, you can edit settings and later enable them.</p>
+<p>When you enable or disable monitoring at the global level, it enables or disables monitoring for all services that have individually been enabled for monitoring. If monitoring for a particular service has not been enabled, you must first enable it and set the aggregation interval for that specific service before the system starts collecting statistics for that service.</p>
+<p>Enable or disable these settings at the global level in conjunction with the settings at the service level to effectively enable or disable them. The operational settings at the global level supersede the operational settings at the service level. The following settings must be enabled at the global level in order to be enabled for a specific service:</p>
+<ul>
+<li>
+<p style="margin: 0px;">Monitoring</p>
+</li>
+<li>
+<p style="margin: 0px;">SLA Alerting</p>
+</li>
+<li>
+<p style="margin: 0px;">Pipeline Alerting</p>
+</li>
+<li>
+<p style="margin: 0px;">Reporting</p>
+</li>
+<li>
+<p style="margin: 0px;">Logging</p>
+</li>
+<li>
+<p style="margin: 0px;">Result Caching</p>
+</li>
+</ul>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="A1166748"></a><a id="OSBAG2139"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" -->
+<h2 class="sect1"><span class="secnum">8.2</span> Viewing and Configuring Operational Settings</h2>
+<p>Use the Operations pages to easily locate proxy services, business services, pipelines, and split-joins, and to specify service-specific operational settings. On the Service Bus or Service Bus Project Operation pages, you can set the aggregation interval, enable settings, and disable settings for multiple services. You can configure operational settings for a single service on that service's Properties page. When you update operational settings from the Service Bus or Service Bus Project Operations pages, you cannot specify an alerting or logging severity level, configure message tracing properties, or configure throttling or endpoint URIs for business services.</p>
+<p>Keep in mind the following guidelines when configuring operational settings:</p>
+<ul>
+<li>
+<p>In general, properties must be enabled at both the service level and the global level in order to take effect.</p>
+</li>
+<li>
+<p>Although you can configure <span class="gui-object-title">SLA Alerts</span> independently from <span class="gui-object-title">Monitoring</span>, there is an interaction between the two settings at runtime. If global monitoring is enabled, SLA alerts can be enabled or disabled. However, if global monitoring is disabled then SLA alerts are also effectively disabled because SLA alert rule conditions depend on monitoring statistics being evaluated.</p>
+</li>
+<li>
+<p>If you disable monitoring for all services, all statistics collected so far for those services are deleted as well and the deletion of the statistics is irreversible.</p>
+</li>
+</ul>
+<p>Some operational settings such as service state, monitoring, SLA alerting, and pipeline alerting can also be enabled or disabled using public APIs. For more information, see <a class="olink OSBJD" href="http://www.oracle.com/pls/topic/lookup?ctx=E57651-01&id=OSBJD"><span class="italic">Java API Reference for Oracle Service Bus</span></a>.</p>
+<a id="CHDHCGJF"></a><a id="OSBAG2093"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">8.2.1</span> Configuring Operational Settings at the Global Level</h3>
+<p>When you configure an operational setting at the global level (also called <span class="italic">global settings</span>), it affects all applicable services in the domain. Most settings must be enabled at both the service and global levels in order to take effect at runtime. Use the Global Settings tab of the Service Bus home page to update settings at the global level. The following figure shows the Global Settings tab.</p>
+<div class="figure"><p class="titleinfigure"><a id="sthref133"></a>Figure 8-1 Global Settings Page</p>
+<img width="817" height="476" src="./8 Configuring Operational and Global Settings_files/global_settings-tab.gif" alt="Description of Figure 8-1 follows" title="Description of Figure 8-1 follows"><br>
+<a id="sthref134" href="http://docs.oracle.com/middleware/1213/osb/administer/img_text/global_settings-tab.htm">Description of "Figure 8-1 Global Settings Page"</a><br>
+<br></div>
+<!-- class="figure" -->
+<p>To configure operational settings at the global level:</p>
+<ol>
+<li>
+<p>In the Target Navigator, expand <span class="gui-object-action">SOA</span> and then select <span class="gui-object-action">service-bus</span>.</p>
+<p>The Service Bus Dashboard appears.</p>
+</li>
+<li>
+<p>Click the Global Settings tab.</p>
+<p>The Service Bus settings for the domain appears.</p>
+</li>
+<li>
+<p>To enable a setting, select its check box; to disable a setting, clear the check box.</p>
+<p>Each global setting is described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDICFBC">Table 8-1, "Operational Settings at the Global Level"</a></p>
+</li>
+<li>
+<p>To revert all unapplied changes back to the saved settings, click <span class="gui-object-action">Revert</span>.</p>
+</li>
+<li>
+<p>When you are done configuring operation settings, click <span class="gui-object-action">Apply</span> to save your changes to the runtime.</p>
+</li>
+</ol>
+<div class="tblhruleformal"><p class="titleintable"><a id="OSBAG2094"></a><a id="sthref135"></a><a id="CHDICFBC"></a>Table 8-1 Operational Settings at the Global Level</p>
+<table class="cellalignment11" title="Operational Settings at the Global Level" summary="This table describes operational settings that you can use at a global level for all services.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment12" id="r1c1-t2">Operational Settings</th>
+<th class="cellalignment12" id="r1c2-t2">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<th class="cellalignment8" id="r2c1-t2" headers="r1c1-t2">
+<p>Monitoring Enabled</p>
+</th>
+<td class="cellalignment8" headers="r2c1-t2 r1c2-t2">
+<p>Enables or disables monitoring for all services in a domain. This option also controls SLA alerting at a global and service level.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<th class="cellalignment8" id="r3c1-t2" headers="r1c1-t2">
+<p>SLA Alerting Enabled</p>
+</th>
+<td class="cellalignment8" headers="r3c1-t2 r1c2-t2">
+<p>Enables or disables SLA alerting for all services in a domain. To enable SLA alerts, you must also enable global monitoring.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<th class="cellalignment8" id="r4c1-t2" headers="r1c1-t2">
+<p>Pipeline Alerting Enabled</p>
+</th>
+<td class="cellalignment8" headers="r4c1-t2 r1c2-t2">
+<p>Enables or disables pipeline alerting in a domain.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<th class="cellalignment8" id="r5c1-t2" headers="r1c1-t2">
+<p>Reporting Enabled</p>
+</th>
+<td class="cellalignment8" headers="r5c1-t2 r1c2-t2">
+<p>Enables or disables message reporting for all pipelines in a domain.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<th class="cellalignment8" id="r6c1-t2" headers="r1c1-t2">
+<p>Logging</p>
+</th>
+<td class="cellalignment8" headers="r6c1-t2 r1c2-t2">
+<p>Enables or disables logging for all pipelines and split-joins in a domain.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<th class="cellalignment8" id="r7c1-t2" headers="r1c1-t2">
+<p>Result Caching</p>
+</th>
+<td class="cellalignment8" headers="r7c1-t2 r1c2-t2">
+<p>Enables or disables result caching for business services in a domain. Even though you can configure business services to use result caching, you must enable this global option for result caching to work. If you disable result caching globally, cached results for all business services enabled with result caching are flushed.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<th class="cellalignment8" id="r8c1-t2" headers="r1c1-t2">
+<p>Resequencer Locker Thread Sleep</p>
+</th>
+<td class="cellalignment8" headers="r8c1-t2 r1c2-t2">
+<p>Specifies the sleep interval for the locker threads in seconds. When the resequencer is unable to find a group with messages that can be processed, the locker thread sleeps for the specified duration. The locker thread does not sleep between each iteration of a database seek, as long as it finds groups with messages that can be processed. The default value is 10.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<th class="cellalignment8" id="r9c1-t2" headers="r1c1-t2">
+<p>Resequencer maximum Groups Locked</p>
+</th>
+<td class="cellalignment8" headers="r9c1-t2 r1c2-t2">
+<p>Specifies the maximum number of resequencer groups that can be retrieved for processing in a single iteration of a database seek. Once retrieved, the groups are assigned to worker threads for processing.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<th class="cellalignment8" id="r10c1-t2" headers="r1c1-t2">
+<p>Purge Completed Messages</p>
+</th>
+<td class="cellalignment8" headers="r10c1-t2 r1c2-t2">
+<p>Select this option to purge resequenced messages that have completed processing from the resequencer database.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br></div>
+<!-- class="tblhruleformal" --></div>
+<!-- class="sect2" -->
+<a id="CHDFDAHG"></a><a id="OSBAG2140"></a>
+<div class="sect2"><!-- infolevel="all" infotype="General" -->
+<h3 class="sect2"><span class="secnum">8.2.2</span> Searching for Services to Configure Their Operational Settings</h3>
+<p>Fusion Middleware Control provides several options for configuring operational settings, but all begin with performing a search for the services you want to configure.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>The following steps describe how to view and update operational settings for multiple services. You can also view and update settings for a single service on that service's Properties page.</p>
+</div>
+<p>To search for services to configure their operational settings:</p>
+<ol>
+<li>
+<p>Do one of the following:</p>
+<ul>
+<li>
+<p>To search for services across the domain, in the Target Navigator expand <span class="gui-object-action">SOA</span> and select <span class="gui-object-action">service-bus</span>.</p>
+</li>
+<li>
+<p>To search for services in a Service Bus project, in the Target Navigator expand <span class="gui-object-action">SOA</span>, expand <span class="gui-object-action">service-bus</span>, and select the name of the project in which to search.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click the Operations tab.</p>
+</li>
+<li>
+<p>Specify the search criteria to use to locate the services who settings you want to modify.</p>
+<p>You can specify the following criteria, all of which are optional except Type:</p>
+<ul>
+<li>
+<p><span class="bold">Type</span>: Select from the list of available options, which includes all services, both business and proxy services, business services, proxy services, pipeline, or split-joins.</p>
+</li>
+<li>
+<p><span class="bold">Name</span>: Enter the name of the services to locate.</p>
+</li>
+<li>
+<p><span class="bold">Path</span>: The path (project name and folder names, if any) to the services to locate. If you are on the Service Bus Project Operations tab, the path is already filled in for you.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <span class="gui-object-action">Search</span>.</p>
+<p>A list of services matching your criteria appears in the Operations table, as shown below. For more information about these settings, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDEJHCG">Section 8.1.1, "Available Operational Settings"</a> and the online help provided with Fusion Middleware Control.</p>
+<div class="figure"><p class="titleinfigure"><a id="sthref136"></a>Figure 8-2 Operations Page</p>
+<img width="942" height="564" src="./8 Configuring Operational and Global Settings_files/operations-tab.gif" alt="Description of Figure 8-2 follows" title="Description of Figure 8-2 follows"><br>
+<a id="sthref137" href="http://docs.oracle.com/middleware/1213/osb/administer/img_text/operations-tab.htm">Description of "Figure 8-2 Operations Page"</a><br>
+<br></div>
+<!-- class="figure" --></li>
+<li>
+<p>To configure operational settings, continue to <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDBBDDF">"Enabling and Disabling Operational Settings for Multiple Services."</a></p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CHDBBDDF"></a><a id="OSBAG2090"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">8.2.3</span> Enabling and Disabling Operational Settings for Multiple Services</h3>
+<p>The settings you can configure for a service vary depending on whether you are configuring a business service, proxy service, pipeline, or split-join. When you configure settings for multiple services, you do so on the Operations tab of the Service Bus or Service Bus Project page. The Operations list on these pages only includes enabling and disabling operational settings. Any settings that require specific configuration, like throttling or offline endpoint URI management, can only be configured on a specific service's Properties page.</p>
+<p>For information about configuring specific operational settings, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDEJHCG">Section 8.1.1, "Available Operational Settings"</a> and the online help provided with Service Bus.</p>
+<p>To configure operational settings for multiple services:</p>
+<ol>
+<li>
+<p>Perform a search for services, as described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDFDAHG">Section 8.2.2, "Searching for Services to Configure Their Operational Settings."</a>.</p>
+</li>
+<li>
+<p>For any service in the results list, select a check box to enable the corresponding operational setting, or clear a check box to disable the operational setting.</p>
+</li>
+<li>
+<p>To enable or disable an operational setting for all the services in the list, select or clear the check box in the column header for that setting.</p>
+<p>For information about the settings and notations in the Operations list, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDEJHCG">Section 8.1.1, "Available Operational Settings"</a> and the online help provided with Fusion Middleware Control.</p>
+</li>
+<li>
+<p>To revert all unapplied changes back to the saved settings, click <span class="gui-object-action">Revert</span>.</p>
+</li>
+<li>
+<p>When you are done configuring operation settings, click <span class="gui-object-action">Apply</span> to save your changes to the runtime.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CHDJCBCJ"></a><a id="OSBAG2141"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">8.2.4</span> Enabling and Disabling Operational Settings for a Single Service</h3>
+<p>In addition to enabling and disabling operational settings from the Operations page of the Service Bus or Service Bus Project page, you can also enable and disable settings for a service from its Properties page. For most services, you can also configure the operational settings in more detail, such as setting logging and monitoring levels.</p>
+<p>For information about configuring specific operational settings, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDEJHCG">Section 8.1.1, "Available Operational Settings"</a> and the online help provided with Service Bus. The following figure shows the Properties page for a service.</p>
+<div class="figure"><p class="titleinfigure"><a id="sthref138"></a>Figure 8-3 Service Bus Service Properties</p>
+<img width="815" height="581" src="./8 Configuring Operational and Global Settings_files/service-properties.gif" alt="Description of Figure 8-3 follows" title="Description of Figure 8-3 follows"><br>
+<a id="sthref139" href="http://docs.oracle.com/middleware/1213/osb/administer/img_text/service-properties.htm">Description of "Figure 8-3 Service Bus Service Properties"</a><br>
+<br></div>
+<!-- class="figure" -->
+<p>To enable or disable operational settings for a single service:</p>
+<ol>
+<li>
+<p>Perform a search for services, as described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDFDAHG">Section 8.2.2, "Searching for Services to Configure Their Operational Settings."</a>.</p>
+</li>
+<li>
+<p>In the Operations table, click the service you want to configure.</p>
+<p>The Properties page for that service appears.</p>
+</li>
+<li>
+<p>To enable a setting, select the <span class="gui-object-action">Enabled</span> check box for that setting.</p>
+</li>
+<li>
+<p>To disable a setting, clear the <span class="gui-object-action">Enabled</span> check box for that setting.</p>
+</li>
+<li>
+<p>To revert all unapplied changes back to the saved settings, click <span class="gui-object-action">Revert</span>.</p>
+</li>
+<li>
+<p>When you are done configuring operation settings, click <span class="gui-object-action">Apply</span> to save your changes to the runtime.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="i999525"></a><a id="OSBAG1235"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">8.2.5</span> Setting the Aggregation Interval for a Service</h3>
+<p>Use a service's Properties page to set the aggregation interval for that service. The aggregation interval is the period over which aggregated statistics are computed for display in Fusion Middleware Control. The default aggregation interval setting is 10 minutes.</p>
+<p>To set the aggregation interval for a service:</p>
+<ol>
+<li>
+<p>Perform a search for services, as described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDFDAHG">Section 8.2.2, "Searching for Services to Configure Their Operational Settings."</a>.</p>
+</li>
+<li>
+<p>In the Operations table, click the service you want to configure.</p>
+<p>The Properties page for that service appears.</p>
+</li>
+<li>
+<p>In the <span class="gui-object-action">Aggregation Interval</span> field under Monitoring, select the number of hours or minutes for the interval.</p>
+<p>If your selection for hours exceeds 1, then the default selection for minutes is always zero. However, if your selection for hours is 0 or 1, then you can configure intervals in terms of minutes.</p>
+</li>
+<li>
+<p>When you are done configuring operation settings, click <span class="gui-object-action">Apply</span> to save your changes to the runtime.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CHDEGBCD"></a><a id="OSBAG2142"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">8.2.6</span> Configuring the Monitoring Level for a Pipeline or Split-Join</h3>
+<p>For pipelines and split-joins, you can specify the level at which the services are monitored. For more information, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDECEED">Section 8.1.1.2, "Monitoring"</a> and the online help provided with Service Bus.</p>
+<p>To configure the monitoring level for a service:</p>
+<ol>
+<li>
+<p>Perform a search for services, as described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDFDAHG">Section 8.2.2, "Searching for Services to Configure Their Operational Settings."</a>.</p>
+</li>
+<li>
+<p>In the Operations table, click the pipeline or split-join you want to configure.</p>
+<p>The Properties page for that service appears.</p>
+</li>
+<li>
+<p>In the <span class="gui-object-action">Monitoring Level</span> field under Monitoring, do the following:</p>
+<ul>
+<li>
+<p style="margin: 0px;">For a pipeline, select Service, Pipeline, or Action to indicate the level.</p>
+</li>
+<li>
+<p style="margin: 0px;">For a split-join, select Service, Branch, or Activity to indicate the level.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>To revert all unapplied changes back to the saved settings, click <span class="gui-object-action">Revert</span>.</p>
+</li>
+<li>
+<p>When you are done configuring operation settings, click <span class="gui-object-action">Apply</span> to save your changes to the runtime.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CHDCDJCJ"></a><a id="OSBAG2143"></a>
+<div class="sect2"><!-- infolevel="all" infotype="General" -->
+<h3 class="sect2"><span class="secnum">8.2.7</span> Configuring Message Tracing for a Service</h3>
+<p>After you enable message tracing for a proxy service, the system logs messages exchanged between the pipeline and the proxy service, including inbound request and response as well as outbound request and response messages. After you enable message tracing for a business service, the system logs messages exchanged between the pipeline and the business service (outbound request and response messages).</p>
+<p>When applicable, logged outbound messages can also include the retry number, error code, and error message. In order for the tracing information to be logged to the server log file or server console, you must also configure the severity level for Oracle WebLogic Server logging.</p>
+<p><a id="CHDCJEGE"></a><a id="OSBAG2144"></a>To set Oracle WebLogic Server log levels:</p>
+<p>To see tracing in the log file or standard out (server console), Oracle WebLogic Server logging must be set to the following severity levels:</p>
+<ul>
+<li>
+<p style="margin: 0px;">Minimum severity to log: Info</p>
+</li>
+<li>
+<p style="margin: 0px;">Log file: Info</p>
+</li>
+<li>
+<p style="margin: 0px;">Standard out: Info</p>
+</li>
+</ul>
+<p>For information on setting log severity levels, see <a class="olink WLLOG141" href="http://docs.oracle.com/middleware/1213/wls/WLLOG/config_logs.htm#WLLOG141">"Using Log Severity Levels"</a> in <span class="italic">Configuring Log Files and Filtering Log Messages for Oracle WebLogic Server</span>.</p>
+<p><a id="OSBAG2145"></a>To enable message tracing for a service:</p>
+<ol>
+<li>
+<p>Perform a search for services, as described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDFDAHG">Section 8.2.2, "Searching for Services to Configure Their Operational Settings."</a>.</p>
+</li>
+<li>
+<p>In the Operations table, click the service you want to configure.</p>
+<p>The Properties page for that service appears.</p>
+</li>
+<li>
+<p>Next to Message Tracing, select <span class="gui-object-action">Enabled</span>.</p>
+</li>
+<li>
+<p>From the <span class="gui-object-action">Tracing Detail Level</span> list, select the level of detail from among the following:</p>
+<ul>
+<li>
+<p><span class="bold">Terse</span>: Display the date, time, service type, service name, and URI.</p>
+</li>
+<li>
+<p><span class="bold">Headers</span>: Display terse information along with the XML representation of the message metadata.</p>
+</li>
+<li>
+<p><span class="bold">Full</span>: Display the headers information along with the raw payload, including attachments if any.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you selected <span class="gui-object-action">Full</span> from the <span class="gui-object-action">Detail Level</span> list, do the following:</p>
+<ul>
+<li>
+<p>In the <span class="gui-object-action">Payload Tracing Unit</span> field, specify the maximum size (in kilobytes) for the message payload.</p>
+</li>
+<li>
+<p>In the <span class="gui-object-action">Default Encoding</span> field, specify the default encoding for logging the payload.</p>
+<p>This can be useful when logging binary payloads or SOAP messages with binary attachments.The default encoding value can be Base64 or any Java-supported encoding.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>If you leave the <span class="gui-object-action">Default Encoding</span> field empty, Service Bus uses the host's default encoding for the payload. The default encoding depends on a combination of the JVM, the underlying operating system (OS), and OS-level locale settings.</p>
+<p>If the setting specified in the <span class="gui-object-action">Default Encoding</span> field cannot be used (for example, it is not a valid option for the configuration), Service Bus uses Base64 encoding for the payload.</p>
+</div>
+</li>
+<li>
+<p>Click <span class="gui-object-action">Apply</span>.</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CHDGJBJB"></a><a id="OSBAG2146"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">8.2.8</span> Configuring the SLA Alert Level for a Service</h3>
+<p>You can configure the alert level for SLA alerts for a service. For more information, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDJEGEG">Section 8.1.1.4, "Service-Level Agreement Alerts"</a> and the online help provided with Service Bus.</p>
+<p>To configure the SLA alerting level for a service:</p>
+<ol>
+<li>
+<p>Perform a search for services, as described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDFDAHG">Section 8.2.2, "Searching for Services to Configure Their Operational Settings."</a>.</p>
+</li>
+<li>
+<p>In the Operations table, click the service you want to configure.</p>
+<p>The Properties page for that service appears.</p>
+</li>
+<li>
+<p>In the <span class="gui-object-action">SLA Severity</span> field under SLA Alerting, select the level at which you want to start generating alerts.</p>
+</li>
+<li>
+<p>To revert all unapplied changes back to the saved settings, click <span class="gui-object-action">Revert</span>.</p>
+</li>
+<li>
+<p>When you are done configuring operation settings, click <span class="gui-object-action">Apply</span> to save your changes to the runtime.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="OSBAG2147"></a>
+<div class="sect2"><a id="sthref140"></a>
+<h3 class="sect2"><span class="secnum">8.2.9</span> Configuring the Pipeline Alert Level</h3>
+<p>You can configure the alert level for pipeline alerting for a service. For more information, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDGGADB">Section 8.1.1.5, "Pipeline Alerts"</a> and the online help provided with Service Bus.</p>
+<p>To configure the pipeline alerting level for a service:</p>
+<ol>
+<li>
+<p>Perform a search for services, as described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDFDAHG">Section 8.2.2, "Searching for Services to Configure Their Operational Settings."</a>.</p>
+</li>
+<li>
+<p>In the Operations table, click the service you want to configure.</p>
+<p>The Properties page for that service appears.</p>
+</li>
+<li>
+<p>In the <span class="gui-object-action">Pipeline Severity</span> field under Pipeline Alerting, select the level at which you want to start generating alerts.</p>
+</li>
+<li>
+<p>To revert all unapplied changes back to the saved settings, click <span class="gui-object-action">Revert</span>.</p>
+</li>
+<li>
+<p>When you are done configuring operation settings, click <span class="gui-object-action">Apply</span> to save your changes to the runtime.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="OSBAG2148"></a>
+<div class="sect2"><a id="sthref141"></a>
+<h3 class="sect2"><span class="secnum">8.2.10</span> Configuring the Logging Level for a Service</h3>
+<p>You can configure the logging level for pipelines and split-joins. For more information, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDJGDGH">Section 8.1.1.7, "Logging"</a> and the online help provided with Service Bus.</p>
+<p>To configure the logging level for a service:</p>
+<ol>
+<li>
+<p>Set the Oracle WebLogic Server log levels, as described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDCJEGE">"To set Oracle WebLogic Server log levels:."</a></p>
+</li>
+<li>
+<p>Perform a search for services, as described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDFDAHG">Section 8.2.2, "Searching for Services to Configure Their Operational Settings."</a>.</p>
+</li>
+<li>
+<p>In the Operations table, click the service you want to configure.</p>
+<p>The Properties page for that service appears.</p>
+</li>
+<li>
+<p>In the <span class="gui-object-action">Logging Level</span> field under Logging, select the level at which you want generate log entries.</p>
+</li>
+<li>
+<p>To revert all unapplied changes back to the saved settings, click <span class="gui-object-action">Revert</span>.</p>
+</li>
+<li>
+<p>When you are done configuring operation settings, click <span class="gui-object-action">Apply</span> to save your changes to the runtime.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="OSBAG2149"></a>
+<div class="sect2"><a id="sthref142"></a>
+<h3 class="sect2"><span class="secnum">8.2.11</span> Configuring Throttling for a Business Service</h3>
+<p>Business service throttling is described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#BCGDJAJF">Chapter 15, "Configuring Business Services for Message Throttling."</a> For information and instructions on configuring throttling, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-message-throttling.htm#i1077357">Section 15.4, "Configuring Throttling for a Single Business Service."</a></p>
+</div>
+<!-- class="sect2" -->
+<a id="OSBAG2150"></a>
+<div class="sect2"><a id="sthref143"></a>
+<h3 class="sect2"><span class="secnum">8.2.12</span> Configuring Offline Endpoint URI Handling for a Business Service</h3>
+<p>Managing offline endpoint URIs is described in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#BABDJJIF">Chapter 14, "Monitoring and Managing Endpoint URIs for Business Services."</a> For information and instructions on configuring endpoint URI handling, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-endpoint-uris.htm#CHDGDJAD">Chapter 14, "Configuring Service Bus to Take Unresponsive Endpoint URIs Offline."</a></p>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="A1002848864"></a><a id="OSBAG2258"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" -->
+<h2 class="sect1"><span class="secnum">8.3</span> Making Bulk Updates to Operational Settings</h2>
+<p>Service Bus lets you create configuration files that you can use to update certain environment values that are likely to change when you move a project from one domain to another, such as moving from a development to a testing environment. This includes updating operational settings at both the global and service levels. For information about creating and executing configuration files, see <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-customizing.htm#CACJCAGD">Chapter 9, "Customizing Oracle Service Bus Environments."</a></p>
+</div>
+<!-- class="sect1" -->
+<a id="A1002847590"></a><a id="OSBAG2098"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">8.4</span> Preserving Operational Settings During Resource Imports</h2>
+<p>When you import Service Bus configuration JAR files in Oracle JDeveloper, the Oracle Service Bus Console, or Fusion Middleware Control, the domain-level settings can be overwritten if the configuration being imported also contains the global settings of the domain from which it is being imported. Select the <span class="bold">Preserve Operational Settings</span> flag when importing the service to retain the global settings in the configuration being imported. This overwrites the global settings of the existing system. The same applies for the operational settings for individual services when the service is updated by an import process.</p>
+<p>You can also preserve operational settings when importing Service Bus configurations using APIs. For more information, see the <code>ALSBConfigurationMBean</code> documentation in the <a class="olink OSBJD" href="http://www.oracle.com/pls/topic/lookup?ctx=E57651-01&id=OSBJD"><span class="italic">Java API Reference for Oracle Service Bus</span></a>. Modify the MBean as shown in <a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#CHDEBCAC">Example 8-1</a> to preserve the settings during the import.</p>
+<div class="example"><p class="titleinexample"><a id="CHDEBCAC"></a><a id="OSBAG2099"></a>Example 8-1 Preserve Operational Settings During the Import of Oracle Service Bus Configurations Through APIs</p>
+<pre>/**
+ // Imports a configuration jar file, applies customization, activates it and
+ exports the resources again
+ // @throws Exception
+ /
+static private void simpleImportExport(String importFileName, String passphrase)
+ throws Exception {
+SessionManagementMBean sm = ... // obtain the mbean to create a session;
+// obtain the raw bytes that make up the configuration jar file
+ File importFile = new File(importFileName);
+ byte[] bytes = readBytes(importFile);
+// create a session
+ String sessionName = "session." + System.currentTimeMillis();
+ sm.createSession(sessionName);
+// obtain the ALSBConfigurationMBean that operates on the
+ // session that has just been created
+ ALSBConfigurationMBean alsbSession = getConfigMBean(sessionName);
+// import configuration into the session. First we upload the
+ // jar file, which will stage it temporarily.
+ alsbSession.uploadJarFile(bytes);
+// then get the default import plan and modify the plan if required
+ ALSBJarInfo jarInfo = getImportJarInf();
+ ALSBImportPlan importPlan = jarInfo.getDefaultImportPlan();
+// preserve operational values
+ importPlan. setPreserveExistingOperationalValues(true);
+// Modify the plan if required and pass it to importUploaeded method
+ ImportResult result = alsbSession.importUploaded(importPlan);
+// Pass null to importUploaded method to mean the default import plan.
+ //ImportResult result = alsbSession.importUploaded(null);
+// print out status
+ if (result.getImported().size() &gt; 0) {
+     System.out.println("The following resources have been successfully
+                         imported.");
+     for (Ref ref : result.getImported()) {
+         System.out.println("\t" + ref);
+     }
+ }
+if (result.getFailed().size() &gt; 0) {
+     System.out.println("The following resources have failed to be imported.");
+     for (Map.Entry e : result.getFailed().entrySet()) {
+         Ref ref = e.getKey();
+         // Diagnostics object contains validation errors
+         // that caused the failure to import this resource
+         Diagnostics d = e.getValue();
+         System.out.println("\t" + ref + ". reason: " + d);
+     }
+// discard the changes to the session and exit
+     System.out.println("Discarding the session.");
+     sm.discardSession(sessionName);
+     System.exit(1);
+}
+// peform the customization to assign/replace environment values and
+ // to modify the references.
+...
+// activate the session
+ sm.activateSession(sessionName, "description");
+// export information from the core data
+ ALSBConfigurationMBean alsbcore = getConfigMBean(null);
+ //export the information at project level, pass only a collection of project
+   refs to this method
+ byte[] contentsProj = 
+   alsbcore.exportProjects(Collections.singleton(Ref.DEFAULT_PROJECT_REF),null);
+// the byte contents can be saved as jar file
+}
+</pre></div>
+<!-- class="example" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><div class="footer-container clearboth"><div style="max-width: 994px; padding: 10px 0px 0px 17px;"><div id="footernav" class="glyph"><ul><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#" style="font-size: 12px;"><img width="16" height="16" alt="Choose your language" src="./8 Configuring Operational and Global Settings_files/func_worldglobe_16_act.png" style="vertical-align: middle; margin: 0px 4px;"><span class="JetFW-caret-n_16"> </span></a><ul class="shadow"><li><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#" style="font-size: 12px;">English</a></li></ul></li></ul></div><div class="footer-list"><ul><li><a href="http://www.oracle.com/corporate/index.html">About Oracle</a></li><li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact Us</a></li><li><a href="http://www.oracle.com/us/legal/index.html">Legal Notices</a></li><li><a href="http://www.oracle.com/us/legal/terms/index.html">Terms of Use</a></li><li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your Privacy Rights</a></li></ul></div><span class="small" style="display: block;">Copyright ©  2014, Oracle and/or its affiliates. All rights reserved. </span></div></div></footer>
+<noscript>
+&lt;p&gt;Scripting on this page enhances content navigation, but does not change the content in any way.&lt;/p&gt;
+</noscript>
+
+
+<div id="window-resizer-tooltip" style="display: block;"><a href="http://docs.oracle.com/middleware/1213/osb/administer/osb-settings.htm#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1920</span> x <span class="tooltipHeight" id="winHeight">998</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1536</span> x <span class="tooltipHeight" id="vpHeight">696</span></div><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i; } else { d.textContent=i; } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
